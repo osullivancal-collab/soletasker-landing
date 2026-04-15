@@ -15,10 +15,20 @@
 <meta name="twitter:title" content="SoleTasker — Voice to Task for Tradies"/>
 <meta name="twitter:description" content="Say it once. Jobs, invoices, certs — captured instantly. Nothing forgotten."/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231C2B3A'/><rect x='10' y='8' width='3' height='16' rx='1.5' fill='%232CB99D'/><rect x='15' y='5' width='3' height='22' rx='1.5' fill='%232196F3'/><rect x='20' y='10' width='3' height='12' rx='1.5' fill='%232CB99D'/></svg>"/>
+<style>
+@font-face{
+  font-family:'Bebas Neue';
+  font-style:normal;
+  font-weight:400;
+  font-display:block;
+  src:local('Bebas Neue'),local('BebasNeue-Regular');
+}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+
 <style>
 
 :root {
@@ -41,7 +51,7 @@
   --red-lt:    #FEF2F2;
   --amber:     #F59E0B;
 
-  --fh: 'Bebas Neue', Impact, sans-serif;
+  --fh: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
   --fb: 'Nunito Sans', system-ui, sans-serif;
 
   --r1: 8px; --r2: 14px; --r3: 20px; --r4: 28px;
@@ -161,6 +171,8 @@ nav{
   color:var(--white);
   margin-bottom:28px;
   letter-spacing:.5px;
+  font-size-adjust:0.46;
+  text-rendering:optimizeLegibility;
 }
 .hero-h1 .hl{color:var(--teal);display:block}
 
@@ -932,6 +944,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
       <a href="#workflow">How it works</a>
       <a href="#intake">Job intake</a>
       <a href="#pain">The problem</a>
+      <a href="#" onclick="document.getElementById('faq-page').style.display='block';document.getElementById('faq-page').scrollIntoView({behavior:'smooth'});return false;">FAQ</a>
       <a href="#" onclick="openPricing();return false;">Pricing</a>
       <a href="#access">Get access</a>
     </div>
