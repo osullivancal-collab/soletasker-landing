@@ -20,7 +20,7 @@
   font-family:'Bebas Neue';
   font-style:normal;
   font-weight:400;
-  font-display:block;
+  font-display:optional;
   src:local('Bebas Neue'),local('BebasNeue-Regular');
 }
 </style>
@@ -166,13 +166,14 @@ nav{
 
 .hero-h1{
   font-family:var(--fh);
-  font-size:clamp(64px,8.5vw,116px);
+  font-size:clamp(48px,5.5vw,80px);
   line-height:.9;
   color:var(--white);
   margin-bottom:28px;
   letter-spacing:.5px;
-  font-size-adjust:0.46;
   text-rendering:optimizeLegibility;
+  contain:layout style;
+  min-height:1em;
 }
 .hero-h1 .hl{color:var(--teal);display:block}
 
@@ -764,7 +765,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 /* ─── PRICING ─── */
 .pricing-sec{background:var(--bg);padding:100px 32px}
 .pricing-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(3,1fr);
   gap:16px;margin-top:56px;
 }
 .price-card{
@@ -863,6 +864,8 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
   .pain-inner{grid-template-columns:1fr;gap:48px}
   .bbt-inner{grid-template-columns:1fr;gap:48px}
   .form-card{position:static}
+}
+@media(max-width:768px){
   nav .nav-links{display:none}
 }
 @media(max-width:600px){
@@ -881,13 +884,13 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
   .pain-inner{gap:36px}
 }
 </style>
-<!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- Google Analytics — replace G-RQV53WESJ1 with your Measurement ID -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-RQV53WESJ1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  gtag('config', 'G-RQV53WESJ1');
 </script>
 <meta http-equiv="x-dns-prefetch-control" content="on"/>
 <link rel="dns-prefetch" href="//fonts.googleapis.com"/>
@@ -987,16 +990,16 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
       <div class="price-card">
         <div class="price-tier">Solo Operator</div>
         <div class="price-name">Just You</div>
-        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">Perfect if you work alone</p>
-        <p class="price-desc">One-man operation. Stop losing work. Keep cashflow moving.</p>
+        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">One tradie. One tool. Nothing missed.</p>
+        <p class="price-desc">Built for sole traders who need to capture work fast and keep cashflow moving.</p>
         <ul class="price-features">
-          <li>Up to 10 voice memos/day</li>
+          <li>10 voice memos/day</li>
           <li>Unlimited job cards</li>
-          <li>Photo &amp; doc linking</li>
+          <li>Photo &amp; doc linking per job</li>
           <li>Unique client intake link</li>
           <li>Stage tracking</li>
-          <li class="na">Team members</li>
-          <li class="na">Human VA</li>
+          <li>Self-serve onboarding</li>
+          <li>Standard support</li>
         </ul>
         <a href="#access" class="price-cta" onclick="closePricing()">Register Interest</a>
       </div>
@@ -1004,34 +1007,17 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
       <div class="price-card featured">
         <div class="price-badge">Most Popular</div>
         <div class="price-tier">Growing Business</div>
-        <div class="price-name">You + Your Team</div>
-        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">Staff or subcontractors</p>
-        <p class="price-desc">More structure across jobs. Keep your team on the same page.</p>
+        <div class="price-name">More Volume. More Jobs.</div>
+        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">For busier operators and growing crews.</p>
+        <p class="price-desc">Unlimited voice capture, smarter AI output, and priority support as your business scales.</p>
         <ul class="price-features">
           <li>Everything in Solo</li>
-          <li>Unlimited voice memos</li>
-          <li>Up to 3 team members</li>
-          <li>Job assignment &amp; tracking</li>
-          <li>Unique client intake link</li>
+          <li>Unlimited voice memos/day</li>
+          <li>Higher volume job creation &amp; storage</li>
+          <li>Extended job history</li>
+          <li>Multiple client intake links</li>
+          <li>Guided onboarding</li>
           <li>Priority support</li>
-          <li class="na">Human VA</li>
-        </ul>
-        <a href="#access" class="price-cta" onclick="closePricing()">Register Interest</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-tier">Small Business</div>
-        <div class="price-name">Multiple Crews</div>
-        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">Running multiple sites</p>
-        <p class="price-desc">Multiple crews or sites. One place for everything.</p>
-        <ul class="price-features">
-          <li>Everything in Growing</li>
-          <li>Unlimited team members</li>
-          <li>Multi-site management</li>
-          <li>Custom intake forms</li>
-          <li>Unique client intake link</li>
-          <li>Dedicated account support</li>
-          <li class="na">Human VA</li>
         </ul>
         <a href="#access" class="price-cta" onclick="closePricing()">Register Interest</a>
       </div>
@@ -1039,14 +1025,15 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
       <div class="price-card" style="background:var(--navy);border-color:#2a3d50">
         <div class="price-tier" style="color:#5BDFC6">Done With You</div>
         <div class="price-name" style="color:var(--white)">Human VA Included</div>
-        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">We handle the admin for you</p>
-        <p class="price-desc" style="color:rgba(255,255,255,.45);border-color:rgba(255,255,255,.1)">Everything in Small Business + a dedicated human VA managing your follow-ups and admin.</p>
+        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">We handle the admin for you.</p>
+        <p class="price-desc" style="color:rgba(255,255,255,.45);border-color:rgba(255,255,255,.1)">Everything in Growing plus a dedicated human VA managing your follow-ups, reminders, and admin.</p>
         <ul class="price-features">
-          <li style="color:rgba(255,255,255,.7)">Everything in Small Business</li>
+          <li style="color:rgba(255,255,255,.7)">Everything in Growing</li>
           <li style="color:rgba(255,255,255,.7)">Dedicated human VA</li>
           <li style="color:rgba(255,255,255,.7)">VA handles follow-ups &amp; admin</li>
-          <li style="color:rgba(255,255,255,.7)">Unique client intake link</li>
-          <li style="color:rgba(255,255,255,.7)">Custom onboarding</li>
+          <li style="color:rgba(255,255,255,.7)">Custom intake form setup</li>
+          <li style="color:rgba(255,255,255,.7)">White-glove onboarding</li>
+          <li style="color:rgba(255,255,255,.7)">Direct account support</li>
         </ul>
         <a href="#access" class="price-cta" style="background:rgba(44,185,157,.15);color:var(--teal);border-color:rgba(44,185,157,.3)" onclick="closePricing()">Talk to Us</a>
       </div>
@@ -1074,8 +1061,8 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
     
 
     <h1 class="hero-h1">
-      It's not the work.<br/>
-      <span class="hl">It's keeping track<br/>of everything.</span>
+      IT'S NOT THE WORK.
+      <span class="hl">IT'S KEEPING TRACK OF EVERYTHING.</span>
     </h1>
 
     <p class="hero-sub" style="margin-bottom:10px">
@@ -1095,7 +1082,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
     </div>
 
     <!-- Feature boxes: 4-col desktop, 2x2 mobile -->
-    <div class="hero-feat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:620px">
+    <div class="hero-feat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%">
       <div style="background:rgba(44,185,157,.1);border:1px solid rgba(44,185,157,.22);border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:9px">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(44,185,157,.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="9" y1="21" x2="15" y2="21"/></svg>
         <span style="font-size:13px;font-weight:700;color:rgba(255,255,255,.8);white-space:nowrap">Speak it. Saved.</span>
@@ -1478,8 +1465,16 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
             <input class="fi" type="email" name="EMAIL" id="mce-EMAIL" placeholder="jake@example.com.au" required/>
           </div>
           <div class="ff" style="margin-top:12px">
+            <label class="fl">Mobile number</label>
+            <input class="fi" type="tel" name="MMERGE4" id="mce-MMERGE4" placeholder="0400 000 000"/>
+          </div>
+          <div class="ff" style="margin-top:12px">
             <label class="fl">Your trade</label>
             <input class="fi" type="text" name="COMPANY" id="mce-COMPANY" placeholder="e.g. Electrician, Plumber, Painter" required/>
+          </div>
+          <div id="mce-responses">
+            <div id="mce-error-response" style="display:none"></div>
+            <div id="mce-success-response" style="display:none"></div>
           </div>
           <button type="submit" class="f-submit" style="margin-top:16px">Get My Early Access Spot →</button>
           <p class="f-note">Lock in founder pricing. No spam. We'll never share your email.</p>
@@ -1753,30 +1748,33 @@ document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
 function handleSub(e){
   e.preventDefault();
   const form = document.getElementById('eaForm');
-  const email = form.querySelector('[name="EMAIL"]').value;
-  const trade = form.querySelector('[name="COMPANY"]').value;
-  if(!email || !trade){ return; }
+  const emailInput = form.querySelector('[name="EMAIL"]');
+  const mobileInput = form.querySelector('[name="MMERGE4"]');
+  const tradeInput = form.querySelector('[name="COMPANY"]');
+  if(!emailInput.value || !tradeInput.value){ return; }
 
-  // Build FormData and POST via fetch with no-cors (fields all included)
-  const body = new URLSearchParams();
-  body.append('EMAIL', email);
-  body.append('COMPANY', trade);
-  body.append('b_cba19b27d544f86262ddaf075_3e1188dc85', '');
+  // Use JSONP — required for Mailchimp cross-origin submission
+  const base = form.action.replace('/post?', '/post-json?');
+  const params = new URLSearchParams();
+  params.append('EMAIL', emailInput.value);
+  params.append('MMERGE4', mobileInput.value);
+  params.append('COMPANY', tradeInput.value);
+  params.append('b_cba19b27d544f86262ddaf075_3e1188dc85', '');
+  params.append('c', 'mcCallback');
 
-  fetch(form.action, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: body
-  }).then(function(){
+  window.mcCallback = function(data){
     form.style.display='none';
     document.getElementById('formOk').style.display='block';
     if(typeof gtag !== 'undefined'){
       gtag('event','sign_up',{event_category:'early_access',event_label:'hero_form'});
     }
-  }).catch(function(){
-    form.style.display='none';
-    document.getElementById('formOk').style.display='block';
-  });
+    document.body.removeChild(document.getElementById('mcScript'));
+  };
+
+  const script = document.createElement('script');
+  script.id = 'mcScript';
+  script.src = base + '&' + params.toString();
+  document.body.appendChild(script);
 }
 
 /* ── FAQ ACCORDION ── */
