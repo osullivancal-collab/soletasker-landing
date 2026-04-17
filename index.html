@@ -20,14 +20,15 @@
   font-family:'Bebas Neue';
   font-style:normal;
   font-weight:400;
-  font-display:optional;
+  font-display:swap;
   src:local('Bebas Neue'),local('BebasNeue-Regular');
 }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/></noscript>
 
 <style>
 
@@ -103,12 +104,20 @@ button{font-family:var(--fb);cursor:pointer;border:none;background:none}
 .btn-white:hover{transform:translateY(-1px);box-shadow:var(--sl)}
 .btn-white.lg{font-size:16px;padding:15px 32px}
 
+/* ─── SCROLL OFFSET — prevents fixed nav hiding section tops ─── */
+[id]{scroll-margin-top:72px}
+
 /* ─── NAV ─── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:300;height:64px;
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:64px;
+  min-height:64px;
   background:#fff;
   border-bottom:1px solid #eee;
   display:flex;align-items:center;
+  -webkit-transform:translateZ(0);
+  transform:translateZ(0);
+  will-change:transform;
 }
 .nav-in{
   max-width:1100px;margin:0 auto;padding:0 24px;width:100%;
@@ -885,7 +894,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 }
 </style>
 <!-- Google Analytics — replace G-RQV53WESJ1 with your Measurement ID -->
-<script defer src="https://www.googletagmanager.com/gtag/js?id=G-RQV53WESJ1"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQV53WESJ1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1161,15 +1170,13 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
     <p style="font-size:13px;color:var(--ink-soft);margin-top:16px">Tasks, job notes, and photos — captured the moment you speak.</p>
   </div>
 
-  <!-- Speak-to-generate + tool belt -->
-  <div style="max-width:680px;margin:-20px auto 52px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-    <div style="background:var(--teal-lt);border:1px solid rgba(44,185,157,.2);border-radius:var(--r2);padding:18px 20px">
-      <p style="font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dk);margin-bottom:6px">Works for more than tasks</p>
-      <p style="font-size:14px;color:var(--ink-mid);line-height:1.65">Speak a <strong>cert, invoice note, or email</strong> — SoleTasker drafts it, ready to copy and send. Say it once. It's written.</p>
-    </div>
-    <div style="background:var(--bg);border:1px solid var(--line);border-radius:var(--r2);padding:18px 20px;display:flex;align-items:flex-start;gap:10px">
-      <span style="font-size:20px">🔧</span>
-      <p style="font-size:14px;color:var(--ink-mid);line-height:1.65"><strong style="color:var(--ink);display:block;margin-bottom:3px">It's not software. It's a tool.</strong>Just another one in your pouch — but more powerful than the tape measure.</p>
+  <!-- Speak-to-send feature callout -->
+  <div style="max-width:680px;margin:-20px auto 52px">
+    <div style="background:var(--teal-lt);border:1px solid rgba(44,185,157,.2);border-radius:var(--r2);padding:20px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between">
+      <div>
+        <p style="font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--teal-dk);margin-bottom:6px">Stop typing. Start sending.</p>
+        <p style="font-size:14px;color:var(--ink-mid);line-height:1.6;max-width:480px">Speak a <strong>cert, invoice, or follow-up email</strong> — SoleTasker drafts it and opens your email app pre-filled. One tap. It's sent.</p>
+      </div>
     </div>
   </div>
 
@@ -1206,6 +1213,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
     <p style="margin-top:14px;font-size:13px;color:var(--ink-ghost)">Australian-built · Lock in founder pricing</p>
   </div>
 </section>
+
 
 <div class="qstrip"><span class="qstrip-label">Sound familiar?</span><div class="qstrip-track" id="qs2"></div><div class="qstrip-dots" id="qd2"></div></div>
 
@@ -1562,7 +1570,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
     <p style="font-size:13px;color:var(--ink-ghost);margin-bottom:40px">Last updated: April 2026</p>
 
     <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px">1. Who We Are</h3>
-    <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:24px">SoleTasker is operated by HQSTech Electrical (ABN to be updated). We are an Australian business building voice-to-task software for tradespeople. Contact: soletasker@gmail.com</p>
+    <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:24px">SoleTasker is operated by Calec Electrical (ABN 55 910 169 299). We are an Australian business building voice-to-task software for tradespeople. Contact: soletasker@gmail.com</p>
 
     <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px">2. Information We Collect</h3>
     <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:24px">We collect your email address, trade type, and optionally your mobile number when you register for early access. When you use SoleTasker, we may collect voice memo transcripts, job notes, photos, and task data you create within the platform.</p>
@@ -1607,7 +1615,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
     <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:24px">You agree not to use SoleTasker for any unlawful purpose, to upload harmful or offensive content, to attempt to gain unauthorised access to our systems, or to reverse engineer the software.</p>
 
     <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px">5. Intellectual Property</h3>
-    <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:24px">SoleTasker and all associated software, designs, and content are owned by HQSTech Electrical. You retain ownership of the data and content you create within the platform.</p>
+    <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:24px">SoleTasker and all associated software, designs, and content are owned by Calec Electrical. You retain ownership of the data and content you create within the platform.</p>
 
     <h3 style="font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px">6. Pricing & Cancellation</h3>
     <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:24px">Paid plans will be introduced after the beta period. Pricing will be communicated in advance. All plans are month-to-month with no lock-in. You may cancel at any time. No refunds are provided for partial months.</p>
@@ -1771,6 +1779,8 @@ function handleSub(e){
     document.body.removeChild(document.getElementById('mcScript'));
   };
 
+  const old = document.getElementById('mcScript');
+  if(old){ document.body.removeChild(old); }
   const script = document.createElement('script');
   script.id = 'mcScript';
   script.src = base + '&' + params.toString();
