@@ -117,7 +117,6 @@ nav{
   display:flex;align-items:center;
   -webkit-transform:translateZ(0);
   transform:translateZ(0);
-  will-change:transform;
 }
 .nav-in{
   max-width:1100px;margin:0 auto;padding:0 24px;width:100%;
@@ -961,8 +960,6 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
       <a href="#access">Get access</a>
     </div>
     <div class="nav-r">
-      <a href="#access" class="btn-outline sm">Learn more</a>
-      <a href="#signup-form" class="btn-teal sm">Get Early Access</a>
       <button class="burger" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -970,12 +967,12 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
   </div>
 </nav>
 <div class="mob-menu" id="mobMenu">
-  <a href="#" onclick="closeMenu();document.querySelector('#workflow').scrollIntoView({behavior:'smooth'});return false;">How it works</a>
-  <a href="#" onclick="closeMenu();document.querySelector('#intake').scrollIntoView({behavior:'smooth'});return false;">Job intake</a>
-  <a href="#" onclick="closeMenu();document.querySelector('#pain').scrollIntoView({behavior:'smooth'});return false;">The problem</a>
-  <a href="#" onclick="closeMenu();document.getElementById('faq-page').style.display='block';document.getElementById('faq-page').scrollIntoView({behavior:'smooth'});return false;">FAQ</a>
-  <a href="#" onclick="closeMenu();document.querySelector('#access').scrollIntoView({behavior:'smooth'});return false;">Get access</a>
-  <a href="/pricing" style="color:var(--teal);font-weight:800">Pricing →</a>
+  <a href="#" onclick="closeMenu();setTimeout(()=>document.querySelector('#workflow').scrollIntoView({behavior:'smooth'}),50);return false;">How it works</a>
+  <a href="#" onclick="closeMenu();setTimeout(()=>document.querySelector('#intake').scrollIntoView({behavior:'smooth'}),50);return false;">Job intake</a>
+  <a href="#" onclick="closeMenu();setTimeout(()=>document.querySelector('#pain').scrollIntoView({behavior:'smooth'}),50);return false;">The problem</a>
+  <a href="#" onclick="closeMenu();setTimeout(()=>{const f=document.getElementById('faq-page');f.style.display='block';f.scrollIntoView({behavior:'smooth'})},50);return false;">FAQ</a>
+  <a href="#" onclick="closeMenu();setTimeout(()=>document.querySelector('#access').scrollIntoView({behavior:'smooth'}),50);return false;">Get access</a>
+  <a href="/pricing" onclick="closeMenu()" style="color:var(--teal);font-weight:800">Pricing →</a>
 </div>
 
 <!-- PRICING PAGE — full overlay, opened from burger -->
