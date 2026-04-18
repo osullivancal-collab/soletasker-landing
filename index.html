@@ -957,7 +957,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
       <a href="#intake">Job intake</a>
       <a href="#pain">The problem</a>
       <a href="#" onclick="document.getElementById('faq-page').style.display='block';document.getElementById('faq-page').scrollIntoView({behavior:'smooth'});return false;">FAQ</a>
-      <a href="#" onclick="openPricing();return false;">Pricing</a>
+      <a href="/pricing">Pricing</a>
       <a href="#access">Get access</a>
     </div>
     <div class="nav-r">
@@ -975,87 +975,11 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
   <a href="#" onclick="closeMenu();document.querySelector('#pain').scrollIntoView({behavior:'smooth'});return false;">The problem</a>
   <a href="#" onclick="closeMenu();document.getElementById('faq-page').style.display='block';document.getElementById('faq-page').scrollIntoView({behavior:'smooth'});return false;">FAQ</a>
   <a href="#" onclick="closeMenu();document.querySelector('#access').scrollIntoView({behavior:'smooth'});return false;">Get access</a>
-  <a href="#" onclick="closeMenu();openPricing();return false;" style="color:var(--teal);font-weight:800">Pricing →</a>
+  <a href="/pricing" style="color:var(--teal);font-weight:800">Pricing →</a>
 </div>
 
 <!-- PRICING PAGE — full overlay, opened from burger -->
-<div id="pricingPage" aria-hidden="true" style="display:none;position:fixed;inset:0;z-index:400;background:var(--bg);overflow-y:auto">
-  <!-- Sticky nav inside pricing overlay -->
-  <div style="position:sticky;top:0;z-index:402;background:var(--white);border-bottom:1px solid var(--line);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px">
-    <div style="display:flex;gap:20px;overflow-x:auto;flex:1">
-      <a href="#" onclick="closePricing();setTimeout(()=>{document.querySelector('#workflow').scrollIntoView({behavior:'smooth'})},50);return false;" style="font-size:13px;font-weight:600;color:var(--ink-soft);white-space:nowrap;text-decoration:none">How it works</a>
-      <a href="#" onclick="closePricing();setTimeout(()=>{document.querySelector('#intake').scrollIntoView({behavior:'smooth'})},50);return false;" style="font-size:13px;font-weight:600;color:var(--ink-soft);white-space:nowrap;text-decoration:none">Job intake</a>
-      <a href="#" onclick="closePricing();setTimeout(()=>{document.querySelector('#pain').scrollIntoView({behavior:'smooth'})},50);return false;" style="font-size:13px;font-weight:600;color:var(--ink-soft);white-space:nowrap;text-decoration:none">The problem</a>
-      <a href="#" onclick="closePricing();setTimeout(()=>{document.querySelector('#access').scrollIntoView({behavior:'smooth'})},50);return false;" style="font-size:13px;font-weight:600;color:var(--teal);white-space:nowrap;text-decoration:none">Get access</a>
-    </div>
-    <button onclick="closePricing()" style="background:var(--ink);color:var(--white);border:none;border-radius:100px;padding:7px 16px;font-size:13px;font-weight:800;cursor:pointer;flex-shrink:0">✕ Close</button>
-  </div>
-  <div style="max-width:1100px;margin:0 auto;padding:40px 32px 60px">
-    <p style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:10px">What&apos;s included</p>
-    <h2 aria-hidden="true" style="font-family:var(--fh);font-size:clamp(40px,5vw,68px);color:var(--ink);margin-bottom:8px;line-height:.93">One tool.<br/><span style="color:var(--teal)">Pick your plan.</span></h2>
-    <p style="font-size:15px;color:var(--ink-soft);margin-bottom:40px">Pricing announced at launch. Register now to lock in founder rates.</p>
-    <div class="pricing-grid">
 
-      <div class="price-card">
-        <div class="price-tier">Solo Operator</div>
-        <div class="price-name">Just You</div>
-        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">One tradie. One tool. Nothing missed.</p>
-        <p class="price-desc">Built for sole traders who need to capture work fast and keep cashflow moving.</p>
-        <ul class="price-features">
-          <li>10 voice memos/day</li>
-          <li>Unlimited job cards</li>
-          <li>Photo &amp; doc linking per job</li>
-          <li>Unique client intake link</li>
-          <li>Stage tracking</li>
-          <li>Self-serve onboarding</li>
-          <li>Standard support</li>
-        </ul>
-        <a href="#access" class="price-cta" onclick="closePricing()">Register Interest</a>
-      </div>
-
-      <div class="price-card featured">
-        <div class="price-badge">Most Popular</div>
-        <div class="price-tier">Growing Business</div>
-        <div class="price-name">More Volume. More Jobs.</div>
-        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">For busier operators and growing crews.</p>
-        <p class="price-desc">Unlimited voice capture, smarter AI output, and priority support as your business scales.</p>
-        <ul class="price-features">
-          <li>Everything in Solo</li>
-          <li>Unlimited voice memos/day</li>
-          <li>Higher volume job creation &amp; storage</li>
-          <li>Extended job history</li>
-          <li>Multiple client intake links</li>
-          <li>Guided onboarding</li>
-          <li>Priority support</li>
-        </ul>
-        <a href="#access" class="price-cta" onclick="closePricing()">Register Interest</a>
-      </div>
-
-      <div class="price-card" style="background:var(--navy);border-color:#2a3d50">
-        <div class="price-tier" style="color:#5BDFC6">Done With You</div>
-        <div class="price-name" style="color:var(--white)">Human VA Included</div>
-        <p style="font-size:13px;font-weight:800;color:var(--teal);margin-bottom:16px">We handle the admin for you.</p>
-        <p class="price-desc" style="color:rgba(255,255,255,.45);border-color:rgba(255,255,255,.1)">Everything in Growing plus a dedicated human VA managing your follow-ups, reminders, and admin.</p>
-        <ul class="price-features">
-          <li style="color:rgba(255,255,255,.7)">Everything in Growing</li>
-          <li style="color:rgba(255,255,255,.7)">Dedicated human VA</li>
-          <li style="color:rgba(255,255,255,.7)">VA handles follow-ups &amp; admin</li>
-          <li style="color:rgba(255,255,255,.7)">Custom intake form setup</li>
-          <li style="color:rgba(255,255,255,.7)">White-glove onboarding</li>
-          <li style="color:rgba(255,255,255,.7)">Direct account support</li>
-        </ul>
-        <a href="#access" class="price-cta" style="background:rgba(44,185,157,.15);color:var(--teal);border-color:rgba(44,185,157,.3)" onclick="closePricing()">Talk to Us</a>
-      </div>
-
-    </div>
-    <p style="text-align:center;margin-top:28px;font-size:14px;color:var(--ink-ghost)">Pricing announced at launch &middot; Founder members lock in rates &middot; No credit card now</p>
-    <div style="border-top:1px solid var(--line);margin-top:40px;padding-top:24px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap">
-      <a href="#" onclick="closePricing();setTimeout(()=>{document.querySelector('#workflow').scrollIntoView({behavior:'smooth'})},50);return false;" style="font-size:14px;color:var(--ink-soft)">How it works</a>
-      <a href="#" onclick="closePricing();setTimeout(()=>{document.querySelector('#intake').scrollIntoView({behavior:'smooth'})},50);return false;" style="font-size:14px;color:var(--ink-soft)">Job intake</a>
-      <a href="#" onclick="closePricing();setTimeout(()=>{document.querySelector('#access').scrollIntoView({behavior:'smooth'})},50);return false;" style="font-size:14px;color:var(--teal);font-weight:700">Register Interest →</a>
-    </div>
-  </div>
-</div>
 
 <!-- ══════════════════════════════════════
      HERO
@@ -1409,7 +1333,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
   <p style="font-family:var(--fh);font-size:clamp(26px,3.5vw,42px);color:var(--ink);margin-bottom:8px">Simple monthly pricing.<br/><span style="color:var(--teal)">Founder members lock in rates at launch.</span></p>
   <p style="font-size:16px;font-style:italic;color:var(--ink-mid);margin-bottom:20px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6">"The average tradie loses $400–$800/month in unbilled work.<br/>SoleTasker pays for itself the first week."</p>
   <p style="font-size:15px;color:var(--ink-soft);margin-bottom:24px">See what's included in each plan — pricing announced at launch.</p>
-  <a href="#" onclick="openPricing();return false;" class="btn-teal md" style="border-radius:var(--r2);display:inline-flex">See What&apos;s Included →</a>
+  <a href="/pricing" class="btn-teal md" style="border-radius:var(--r2);display:inline-flex">See What&apos;s Included →</a>
 </div>
 
 <!-- ══════════════════════════════════════
@@ -1530,7 +1454,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
           <a href="#intake" style="font-size:14px;color:rgba(255,255,255,.6)">Job intake link</a>
           <a href="#pain" style="font-size:14px;color:rgba(255,255,255,.6)">The problem</a>
           <a href="#access" style="font-size:14px;color:rgba(255,255,255,.6)">Get early access</a>
-          <a href="#" onclick="openPricing();return false;" style="font-size:14px;color:rgba(255,255,255,.6)">Pricing</a>
+          <a href="/pricing" style="font-size:14px;color:rgba(255,255,255,.6)">Pricing</a>
         </div>
       </div>
       <div>
@@ -1646,20 +1570,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 /* ── BURGER ── */
 function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
 function closeMenu(){document.getElementById('mobMenu').classList.remove('open')}
-function openPricing(){
-  closeMenu();
-  const p=document.getElementById('pricingPage');
-  if(!p)return;
-  p.style.display='block';
-  p.scrollTop=0;
-  document.body.style.overflow='hidden';
-}
-function closePricing(){
-  const p=document.getElementById('pricingPage');
-  if(!p)return;
-  p.style.display='none';
-  document.body.style.overflow='';
-}
+
 document.addEventListener('click',e=>{
   if(!e.target.closest('nav')&&!e.target.closest('.mob-menu'))closeMenu();
 });
