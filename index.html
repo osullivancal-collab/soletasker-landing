@@ -957,7 +957,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
       <a href="#workflow">How it works</a>
       <a href="#intake">Job intake</a>
       <a href="#pain">The problem</a>
-      <a href="#" onclick="document.getElementById('faq-page').style.display='block';document.getElementById('faq-page').scrollIntoView({behavior:'smooth'});return false;">FAQ</a>
+      <a href="#faq-section" onclick="event.preventDefault();const f=document.getElementById('faq-page');if(f){f.style.display='block';f.scrollIntoView({behavior:'smooth'});}">FAQ</a>
       <a href="/pricing">Pricing</a>
       <a href="#access">Get access</a>
     </div>
