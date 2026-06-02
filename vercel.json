@@ -1,7 +1,1 @@
-{
-  "rewrites": [
-    { "source": "/pricing", "destination": "/pricing.html" },
-    { "source": "/use-cases", "destination": "/use-cases.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
-}
+{"rewrites":[{"source":"/pricing","destination":"/pricing.html"},{"source":"/use-cases","destination":"/use-cases.html"},{"source":"/(.*)","destination":"/index.html"}]}
