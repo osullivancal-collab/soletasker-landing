@@ -135,15 +135,14 @@ nav{
 .nav-r{display:flex;gap:10px;align-items:center}
 
 /* ════════════════════════════════════
-   HERO — full viewport, centred, bold
-   No product visuals. Pure copy.
+   HERO — product-first, no duplicate app mockups
 ════════════════════════════════════ */
 .hero{
-  min-height:100vh;
+  min-height:calc(100svh - 64px);
   background:var(--navy);
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;
-  padding:120px 32px 80px;
+  display:flex;align-items:center;
+  text-align:left;
+  padding:128px 32px 76px;
   position:relative;overflow:hidden;
 }
 /* dot grid */
@@ -155,18 +154,18 @@ nav{
 /* teal glow */
 .hero::after{
   content:'';position:absolute;
-  top:-160px;left:50%;transform:translateX(-50%);
-  width:800px;height:600px;border-radius:50%;
+  top:-180px;left:-160px;
+  width:820px;height:680px;border-radius:50%;
   background:radial-gradient(ellipse,rgba(44,185,157,.1) 0%,transparent 65%);
   pointer-events:none;
 }
 
-.hero-inner{max-width:820px;position:relative;z-index:1}
+.hero-inner{width:100%;max-width:1100px;margin:0 auto;position:relative;z-index:1}
 
 .hero-badge{
   display:inline-flex;align-items:center;gap:10px;
   background:transparent;border:none;
-  border-radius:0;padding:0;margin-bottom:32px;
+  border-radius:0;padding:0;margin-bottom:24px;
   font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
   color:var(--teal);
 }
@@ -196,27 +195,21 @@ nav{
 
 .hero-h1{
   font-family:var(--fh);
-  font-size:clamp(48px,5.5vw,80px);
-  line-height:.9;
+  font-size:clamp(52px,6vw,78px);
+  line-height:.94;
   color:var(--white);
-  margin-bottom:28px;
+  margin-bottom:30px;
   letter-spacing:.5px;
   text-rendering:optimizeLegibility;
-  contain:layout style;
-  min-height:1em;
+  max-width:860px;
 }
 .hero-h1 .hl{color:var(--teal);display:block}
 
-/* HERO SUBTEXT — the bit that was missing */
-.hero-sub{
-  font-size:clamp(17px,2vw,21px);
-  font-weight:400;
-  color:rgba(255,255,255,.6);
-  line-height:1.68;
-  max-width:640px;
-  margin:0 auto 36px;
-}
-.hero-sub strong{color:rgba(255,255,255,.88);font-weight:700}
+.hero-lead,
+.hero-pain{max-width:700px;font-size:clamp(17px,1.65vw,20px);line-height:1.62}
+.hero-lead{color:rgba(255,255,255,.82);margin-bottom:16px}
+.hero-pain{color:rgba(255,255,255,.57);margin-bottom:32px}
+.hero-lead strong,.hero-pain strong{color:var(--white);font-weight:800}
 
 /* pain pills — scannable before the CTA */
 .hero-pills{
@@ -234,13 +227,25 @@ nav{
 }
 .hero-pill::before{content:'✕';font-size:10px;color:var(--red);font-weight:900}
 
-.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.hero-ctas{display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap;margin-bottom:22px}
 
 .hero-trust{
-  display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;
+  display:flex;align-items:center;gap:8px;justify-content:flex-start;flex-wrap:wrap;
 }
-.htrust{font-size:12px;font-weight:600;color:rgba(255,255,255,.3)}
+.htrust{font-size:12px;font-weight:700;color:rgba(255,255,255,.4)}
 .htrust-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.15)}
+
+.hero-flow{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  max-width:760px;margin-top:44px;border-top:1px solid rgba(255,255,255,.12);
+}
+.hero-flow-step{padding:18px 24px 0 0;position:relative}
+.hero-flow-step:not(:last-child)::after{
+  content:'\2192';position:absolute;right:20px;top:17px;
+  color:rgba(44,185,157,.65);font-size:18px;
+}
+.hero-flow-step span{display:block;font-size:10px;font-weight:900;letter-spacing:2px;color:var(--teal);margin-bottom:5px}
+.hero-flow-step strong{font-size:14px;color:rgba(255,255,255,.78);font-weight:800}
 
 /* ════════════════════════════════════
    WORKFLOW — moved up, LARGE & CLEAR
@@ -901,11 +906,17 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 @media(max-width:600px){
   nav{padding:0}
   .nav-in{padding:0 20px}
-  .hero{padding:100px 20px 72px;text-align:left}
+  .hero{min-height:auto;padding:108px 20px 64px;text-align:left}
   .hero-pills{justify-content:flex-start}
   .hero-ctas{justify-content:flex-start}
   .hero-trust{justify-content:flex-start}
   .hero-inner{text-align:left}
+  .hero-badge{font-size:10px;letter-spacing:2px;margin-bottom:20px}
+  .hero-h1{font-size:clamp(46px,14vw,62px);line-height:.96;margin-bottom:24px}
+  .hero-lead,.hero-pain{font-size:17px;line-height:1.55}
+  .hero-flow{grid-template-columns:1fr;margin-top:34px}
+  .hero-flow-step{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .hero-flow-step:not(:last-child)::after{content:none}
   .workflow-steps{grid-template-columns:1fr}
   .form-card{padding:28px 20px}
   .btn-outline.sm{display:none}
@@ -1043,34 +1054,37 @@ if(!location.hash){window.scrollTo(0,0);}
 
     <div class="hero-badge">
       <span class="stt-wave"><span></span><span></span><span></span><span></span><span></span></span>
-      <span class="stt-text">Voice to task — for tradies</span>
+      <span>Built for sole traders and small teams</span>
     </div>
-    
 
     <h1 class="hero-h1">
-      IT'S NOT THE WORK.
-      <span class="hl">IT'S KEEPING TRACK OF EVERYTHING.</span>
+      VOICE-TO-TASK SOFTWARE
+      <span class="hl">FOR TRADIES.</span>
     </h1>
 
-    <p class="hero-sub" style="margin-bottom:10px">
-      Jobs, notes, photos, invoices, certs — all over the place.<br/>
-      In your head, your phone, your messages… easy to miss.
+    <p class="hero-lead">
+      Tap the mic in SoleTasker and say what needs doing. SoleTasker creates the task for you, ready to link to a job and assign to yourself, your partner, admin or worker.
     </p>
 
-    <p class="hero-sub" style="margin-bottom:10px">
-      <strong style="font-weight:800;color:var(--white)">Just speak it.</strong> SoleTasker turns your voice into tasks, jobs and reminders. Instantly.
+    <p class="hero-pain">
+      When you're busy, tasks stay in your head, notes end up in different places and job photos get buried in your camera roll. <strong>SoleTasker keeps everything with the job and shows you what still needs doing.</strong>
     </p>
 
-    <p style="font-size:14px;font-weight:800;color:var(--teal);margin-bottom:28px;line-height:1.4">If you can leave a voice message, you can use SoleTasker.</p>
-
-    <div class="hero-ctas" style="margin-bottom:24px">
+    <div class="hero-ctas">
       <a href="https://app.soletasker.com.au" class="btn-teal lg">Get Started</a>
       <a href="javascript:void(0)" onclick="document.getElementById('workflow').scrollIntoView({behavior:'smooth'})" class="btn-outline md" style="color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.15);border-radius:var(--r2)">See how it works ↓</a>
     </div>
 
-    <div class="hero-trust" style="margin-top:20px">
+    <div class="hero-trust">
       <span class="htrust">Australian-built</span>
+      <span class="htrust-dot"></span>
       <span class="htrust">7 days free · No card required</span>
+    </div>
+
+    <div class="hero-flow" aria-label="SoleTasker task workflow">
+      <div class="hero-flow-step"><span>01</span><strong>Say the task</strong></div>
+      <div class="hero-flow-step"><span>02</span><strong>Link it to the job</strong></div>
+      <div class="hero-flow-step"><span>03</span><strong>Assign it to a person</strong></div>
     </div>
 
   </div>
