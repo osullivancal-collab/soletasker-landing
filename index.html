@@ -1921,11 +1921,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   var raf;
   deck.addEventListener('scroll',function(){cancelAnimationFrame(raf);raf=requestAnimationFrame(update);},{passive:true});
   window.addEventListener('resize',update);
+  function centreCard(c,behavior){
+    var left=c.offsetLeft-(deck.clientWidth-c.offsetWidth)/2;
+    if(behavior==='smooth'){
+      deck.scrollTo({left:Math.max(0,left),behavior:'smooth'});
+    }else{
+      deck.scrollLeft=Math.max(0,left);
+    }
+  }
   cards.forEach(function(c){
-    c.addEventListener('click',function(){c.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});});
+    c.addEventListener('click',function(){centreCard(c,'smooth');});
   });
   window.addEventListener('load',function(){setTimeout(function(){
-    if(MOBILE() && cards[0]){cards[0].scrollIntoView({inline:'center',block:'nearest'});}
+    if(MOBILE() && cards[0]){centreCard(cards[0]);}
     update();
   },100);});
   update();
