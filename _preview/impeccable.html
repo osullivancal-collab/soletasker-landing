@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SoleTasker Impeccable Hero preview</title>
+  <style>html,body{margin:0;width:100%;min-height:900px;overflow:hidden;background:#fff}iframe{display:block;width:100%;height:900px;border:0}</style>
+</head>
+<body>
+  <iframe id="preview" src="https://htmlpreview.github.io/?https://github.com/osullivancal-collab/soletasker-landing/blob/3fe573921ee457d793c760c184f91ee867713a23/index.html" title="SoleTasker Impeccable Hero"></iframe>
+  <script>
+    const frame=document.getElementById('preview');
+    frame.addEventListener('load',()=>{
+      const doc=frame.contentDocument;
+      const style=doc.createElement('style');
+      style.textContent=`
+        .hero{background:radial-gradient(circle at 78% 20%,rgba(45,91,227,.18),transparent 32%),linear-gradient(145deg,#06172b 0%,#08243a 56%,#071c30 100%)}
+        .hero::before{background:linear-gradient(180deg,transparent 72%,rgba(2,15,27,.2))}
+        .hero::after{width:720px;height:720px;top:8%;right:-14%;border:0;box-shadow:none;background:radial-gradient(circle,rgba(44,185,157,.09),rgba(45,91,227,.04) 46%,transparent 70%)}
+        .hero-ribbon{z-index:0;inset:-4% -5% -10%;width:110%;height:114%}
+        .hero-ribbon-glow{filter:blur(38px);opacity:.16}
+        .hero-ribbon-core{opacity:.42}
+        .hero-copy::before{display:none}
+        .hero-h1{font-size:clamp(50px,4.9vw,68px);line-height:.96;margin-bottom:30px;letter-spacing:.25px}
+        .hero-h1 .hl{color:var(--teal);background:none;-webkit-background-clip:initial;background-clip:initial}
+        .hero-lead{color:rgba(232,243,250,.82)}
+        .hero-ctas .btn-teal{background:var(--teal);box-shadow:0 12px 32px rgba(44,185,157,.24)}
+        .hero-ctas .btn-teal:hover{background:var(--teal-dk)}
+        .hero-ctas .btn-outline{color:rgba(239,247,251,.74)!important;border-color:rgba(225,240,248,.25)!important}
+        .hero-ctas .btn-outline:hover{color:#fff!important;border-color:rgba(225,240,248,.48)!important;background:rgba(255,255,255,.04)}
+        .htrust{color:rgba(224,239,247,.58)}
+        .htrust-dot{background:rgba(224,239,247,.28)}
+        .hero-device{border-width:5px;outline-width:1px;box-shadow:0 34px 84px rgba(0,7,18,.5),0 8px 24px rgba(0,12,25,.28)}
+        .hero-device-main{width:min(326px,67%);left:4%}
+        .hero-device-secondary{width:min(286px,59%);right:0;opacity:.78;filter:saturate(.88) brightness(.78)}
+        @media(max-width:768px){.hero-ribbon{inset:8% -62% -8% -22%;width:180%;height:100%}}
+        @media(max-width:600px){
+          .hero-lead{line-height:1.58}
+          .hero-product{height:522px}
+          .hero-device-main{width:242px;max-width:80%}
+          .hero-ribbon{inset:42% -112% -10% -72%;width:250%;height:68%}
+        }
+      `;
+      doc.head.appendChild(style);
+      const paths=doc.querySelectorAll('.hero-ribbon path');
+      const ribbon='M875 -145 C 810 42 835 202 1015 312 C 1200 425 1395 292 1745 350 L 1745 510 C 1438 454 1340 642 1080 568 C 868 508 710 676 585 955 L 435 955 C 555 610 735 442 962 422 C 748 296 706 86 760 -145 Z';
+      paths.forEach((path,index)=>{
+        if(index<2){path.setAttribute('d',ribbon);path.setAttribute('fill','url(#heroRibbonGradient)');path.removeAttribute('stroke');}
+        else{path.style.display='none'}
+      });
+    });
+  </script>
+</body>
+</html>
