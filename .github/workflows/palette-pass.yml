@@ -1,0 +1,51 @@
+name: Apply SoleTasker palette pass
+
+on:
+  push:
+    branches:
+      - redesign/palette-system-v1
+
+permissions:
+  contents: write
+
+jobs:
+  apply-palette:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: redesign/palette-system-v1
+
+      - name: Link shared palette stylesheet into all HTML pages
+        shell: python
+        run: |
+          from pathlib import Path
+
+          pages = [
+              Path('index.html'),
+              Path('pricing.html'),
+              Path('use-cases.html'),
+              Path('privacy.html'),
+              Path('terms.html'),
+          ]
+          marker = '<link rel="stylesheet" href="/sole-theme.css"/>'
+
+          for page in pages:
+              text = page.read_text(encoding='utf-8')
+              if marker not in text:
+                  if '</head>' not in text:
+                      raise RuntimeError(f'Missing </head> in {page}')
+                  text = text.replace('</head>', f'{marker}\n</head>', 1)
+                  page.write_text(text, encoding='utf-8')
+
+      - name: Commit palette links
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html pricing.html use-cases.html privacy.html terms.html
+          if git diff --cached --quiet; then
+            echo "Palette links already present."
+            exit 0
+          fi
+          git commit -m "Apply locked SoleTasker palette to all pages [skip ci]"
+          git push origin HEAD:redesign/palette-system-v1
