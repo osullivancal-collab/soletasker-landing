@@ -1,0 +1,132 @@
+/* SoleTasker shared palette pass — visual only.
+   Loaded after each page's existing styles so routing, scripts, layout and CTA wiring stay untouched. */
+
+:root{
+  --st-navy-950:#04131F;
+  --st-navy-900:#061827;
+  --st-navy-850:#071A2B;
+  --st-navy-800:#082238;
+  --st-navy-700:#0A2B45;
+  --st-blue:#1682F3;
+  --st-cobalt:#335CFF;
+  --st-teal:#18B7AE;
+  --st-teal-dark:#129A92;
+  --st-teal-soft:#DDF7F4;
+  --st-light:#F4F8FB;
+  --st-light-2:#EEF6FA;
+  --st-light-3:#E7F1F6;
+  --st-ink:#0B2639;
+  --st-ink-mid:#405C70;
+  --st-muted:#60798B;
+  --st-ghost:#8FA4B3;
+  --st-border:#D4E3EB;
+
+  /* Map the current site's existing tokens onto the locked palette. */
+  --navy:#061827 !important;
+  --teal:#18B7AE !important;
+  --teal-dk:#129A92 !important;
+  --teal-lt:#DDF7F4 !important;
+  --blue:#1682F3 !important;
+  --white:#F4F8FB !important;
+  --bg:#EEF6FA !important;
+  --bg-warm:#E7F1F6 !important;
+  --ink:#0B2639 !important;
+  --ink-mid:#405C70 !important;
+  --ink-soft:#60798B !important;
+  --ink-ghost:#8FA4B3 !important;
+  --line:#D4E3EB !important;
+  --line-lt:#E7F0F5 !important;
+}
+
+html,body{
+  background:var(--st-light-2);
+  color:var(--st-ink);
+}
+
+/* Keep the existing navigation structure and logo; only bring its surfaces into palette. */
+nav{
+  background:rgba(244,248,251,.97) !important;
+  border-bottom-color:var(--st-border) !important;
+  box-shadow:0 1px 0 rgba(6,24,39,.03);
+}
+.nav-links a{color:var(--st-muted) !important;}
+.nav-links a:hover,.nav-links a.active{color:var(--st-teal) !important;}
+.burger span{background:var(--st-ink) !important;}
+.mob-menu{background:var(--st-light) !important;border-color:var(--st-border) !important;}
+.mob-menu a{color:var(--st-ink) !important;border-color:var(--st-border) !important;}
+
+/* Existing dark feature bands become one coherent SoleTasker navy field. */
+.hero,
+.pain-sec,
+.form-sec,
+.cta-sec,
+.final-cta,
+.dark-sec,
+.dark-section{
+  background-color:var(--st-navy-900) !important;
+  background-image:linear-gradient(145deg,var(--st-navy-900) 0%,var(--st-navy-800) 62%,var(--st-navy-700) 100%) !important;
+}
+
+/* Existing light sections keep their rhythm, but lose the generic flat white/grey look. */
+.workflow-sec,
+.steps-sec,
+.cases-sec,
+.faq-sec,
+.pricing-wrap,
+.trades-sec{
+  background-color:var(--st-light-2) !important;
+}
+
+/* Common cards / panels inherit the softer light system. */
+.card:not(.secondary),
+.case-card,
+.trade-chip,
+.form-card{
+  border-color:var(--st-border) !important;
+}
+
+/* CTA + accent consistency. */
+.btn-teal,
+.f-submit,
+.card-cta:not(.outline),
+button[type="submit"]{
+  background-color:var(--st-teal) !important;
+}
+.btn-teal:hover,
+.f-submit:hover,
+.card-cta:not(.outline):hover,
+button[type="submit"]:hover{
+  background-color:var(--st-teal-dark) !important;
+}
+
+/* Use cobalt deliberately for focus/interaction rather than as another random background colour. */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:3px solid rgba(51,92,255,.36) !important;
+  outline-offset:3px;
+}
+
+/* Footer is the darkest point of the palette on every page that has one. */
+footer{
+  background-color:var(--st-navy-950) !important;
+}
+footer a{color:rgba(244,248,251,.68) !important;}
+footer a:hover{color:var(--st-teal) !important;}
+
+/* Legal pages: same brand system, without sacrificing long-form readability. */
+body > .container{
+  max-width:960px;
+  margin:32px auto;
+  background:var(--st-light);
+  border:1px solid var(--st-border);
+  border-radius:24px;
+  box-shadow:0 18px 50px rgba(6,24,39,.06);
+}
+body > .container h1{color:var(--st-navy-900);}
+body > .container h2{color:var(--st-teal-dark);}
+body > .container a{color:var(--st-blue);}
+
+::selection{background:rgba(24,183,174,.28);color:var(--st-ink);}
+
+@media(max-width:640px){
+  body > .container{margin:0;border-radius:0;border-left:0;border-right:0;}
+}
