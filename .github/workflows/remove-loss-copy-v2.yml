@@ -1,0 +1,23 @@
+name: Apply founder copy cleanup
+on:
+  push:
+    branches: [fix/remove-loss-copy]
+permissions:
+  contents: write
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/remove-loss-copy
+      - name: Edit copy
+        run: python scripts/remove_loss_copy.py
+      - name: Commit
+        run: |
+          rm -f .github/workflows/remove-loss-copy.yml .github/workflows/remove-loss-copy-v2.yml scripts/remove_loss_copy.py
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -m "Remove personal loss copy from landing page"
+          git push origin HEAD:fix/remove-loss-copy
