@@ -40,30 +40,26 @@ jobs:
 
           for path in files:
               original = path.read_text(encoding='utf-8')
-              ctas = 0
-              logins = 0
+              counts = {'ctas': 0, 'logins': 0}
 
               def replace(match):
-                  nonlocal ctas, logins
                   visible = re.sub(r'<[^>]+>', ' ', match.group(3))
                   visible = html.unescape(visible)
                   visible = re.sub(r'\s+', ' ', visible).strip()
                   if re.search(r'\blog\s*in\b', visible, re.IGNORECASE):
-                      logins += 1
+                      counts['logins'] += 1
                       return match.group(0)
-                  ctas += 1
+                  counts['ctas'] += 1
                   return match.group(1) + signup + match.group(2) + match.group(3) + match.group(4)
 
               updated = anchor.sub(replace, original)
               if updated == original:
                   raise SystemExit(f'No signup CTA changes found in {path}')
               path.write_text(updated, encoding='utf-8')
-              per_file[str(path)] = (ctas, logins)
-              total_ctas += ctas
-              total_logins += logins
+              per_file[str(path)] = (counts['ctas'], counts['logins'])
+              total_ctas += counts['ctas']
+              total_logins += counts['logins']
 
-          # Safety checks: all three pages must change, landing login links must remain at root,
-          # and the old bare app URL must not remain on pricing/use-cases CTA-only pages.
           if total_ctas < 3:
               raise SystemExit(f'Expected multiple CTA changes, got {total_ctas}')
           if per_file['index.html'][1] < 2:
