@@ -1,0 +1,91 @@
+name: One-off signup CTA link fix
+
+on:
+  push:
+    branches:
+      - fix/signup-cta-links
+
+permissions:
+  contents: write
+
+jobs:
+  fix-signup-links:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/signup-cta-links
+
+      - name: Point marketing CTAs to signup
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import html
+          import re
+
+          files = [Path('index.html'), Path('pricing.html'), Path('use-cases.html')]
+          root = 'https://app.soletasker.com.au'
+          signup = root + '/signup'
+          anchor = re.compile(
+              r'(<a\b[^>]*\bhref=["\'])' + re.escape(root) + r'(["\'][^>]*>)(.*?)(</a>)',
+              re.IGNORECASE | re.DOTALL,
+          )
+
+          total_ctas = 0
+          total_logins = 0
+          per_file = {}
+
+          for path in files:
+              original = path.read_text(encoding='utf-8')
+              ctas = 0
+              logins = 0
+
+              def replace(match):
+                  nonlocal ctas, logins
+                  visible = re.sub(r'<[^>]+>', ' ', match.group(3))
+                  visible = html.unescape(visible)
+                  visible = re.sub(r'\s+', ' ', visible).strip()
+                  if re.search(r'\blog\s*in\b', visible, re.IGNORECASE):
+                      logins += 1
+                      return match.group(0)
+                  ctas += 1
+                  return match.group(1) + signup + match.group(2) + match.group(3) + match.group(4)
+
+              updated = anchor.sub(replace, original)
+              if updated == original:
+                  raise SystemExit(f'No signup CTA changes found in {path}')
+              path.write_text(updated, encoding='utf-8')
+              per_file[str(path)] = (ctas, logins)
+              total_ctas += ctas
+              total_logins += logins
+
+          # Safety checks: all three pages must change, landing login links must remain at root,
+          # and the old bare app URL must not remain on pricing/use-cases CTA-only pages.
+          if total_ctas < 3:
+              raise SystemExit(f'Expected multiple CTA changes, got {total_ctas}')
+          if per_file['index.html'][1] < 2:
+              raise SystemExit('Expected landing desktop/mobile Log in links to remain unchanged')
+          for path in (Path('pricing.html'), Path('use-cases.html')):
+              text = path.read_text(encoding='utf-8')
+              if f'href="{root}"' in text or f"href='{root}'" in text:
+                  raise SystemExit(f'Bare app root link still present in {path}')
+
+          print('Updated CTA links:')
+          for path, (ctas, logins) in per_file.items():
+              print(f'  {path}: {ctas} signup CTA(s), {logins} login link(s) preserved')
+          print(f'Total: {total_ctas} CTA(s) changed; {total_logins} login link(s) preserved')
+          PY
+
+      - name: Remove one-off workflow and commit fix
+        shell: bash
+        run: |
+          rm .github/workflows/fix-signup-ctas.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html pricing.html use-cases.html .github/workflows/fix-signup-ctas.yml
+          git diff --cached --check
+          git commit -m "Fix marketing CTAs to open signup"
+          git push origin HEAD:fix/signup-cta-links
