@@ -288,6 +288,19 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
    dimmed Home behind the modal. */
 .crop-card.capture .crop-win{height:106px}
 .crop-card.capture .crop-win img{margin-top:-79.5%}
+/* review.png: open on the Request a Review modal — its heading, the actual
+   message that gets sent, and the SMS/Email buttons. */
+.crop-card.review .crop-win{height:150px}
+.crop-card.review .crop-win img{margin-top:-56.4%}
+/* unfinished.png: the Unfinished Items list with its three open entries. */
+/* Same window height as its two neighbours so the ticked lists below all
+   three cards start on the same line; the extra height picks up the tail of
+   the job's Tasks list above, which is honest context rather than padding. */
+.crop-card.unfin .crop-win{height:150px}
+.crop-card.unfin .crop-win img{margin-top:-110.2%}
+/* swms.png: the Job Details block after a job has been pulled in. */
+.crop-card.swms .crop-win{height:150px}
+.crop-card.swms .crop-win img{margin-top:-82%}
 /* docscan.png / intake.png: both have the same nav-bar-then-content shape,
    so one offset (skip the top nav) serves both real screenshots. */
 .crop-card.duo .crop-win{height:106px}
@@ -341,6 +354,24 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .anno-chip.a1::after{content:'';position:absolute;right:-34px;top:50%;width:34px;border-top:1.5px dashed var(--teal)}
 .anno-chip.a2{right:-30px;bottom:18%;background:var(--blue-lt);color:#fff}
 .anno-chip.a2::after{content:'';position:absolute;left:-34px;top:50%;width:34px;border-top:1.5px dashed var(--blue-lt)}
+
+/* ═══ WHILE YOU'RE STILL ON SITE ═══
+   Three numbered cards, per Callan's reference image 5. Every screen here is
+   a real capture: the Request a Review modal, a job's Unfinished Items list,
+   and a SWMS pulled from a job. */
+.onsite{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1160px;margin:0 auto;align-items:start}
+.onsite-card{background:var(--navy-card);border:1px solid var(--on-navy-line);border-radius:var(--r4);padding:26px 22px 24px;backdrop-filter:blur(6px)}
+.onsite-n{width:30px;height:30px;border-radius:50%;background:var(--blue-lt);color:#fff;font-family:var(--fh);font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.onsite-card:nth-child(2) .onsite-n{background:var(--teal)}
+.onsite-card:nth-child(3) .onsite-n{background:var(--white);color:var(--navy)}
+.onsite-card h3{font-family:var(--fb);font-weight:800;font-size:17px;color:var(--on-navy);letter-spacing:0;margin-bottom:6px}
+.onsite-card>p{font-size:13.5px;color:var(--on-navy-soft);line-height:1.55;margin-bottom:20px;font-weight:500}
+.onsite-card .crop-card{margin-bottom:20px}
+.onsite-points{display:flex;flex-direction:column;gap:9px}
+.onsite-points li{display:flex;gap:9px;align-items:flex-start;font-size:13px;font-weight:700;color:var(--on-navy-mid)}
+.onsite-points .tick{flex-shrink:0;width:17px;height:17px;border-radius:50%;background:rgba(44,185,157,.18);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.onsite-points .tick svg{width:9px;height:9px}
+@media(max-width:900px){.onsite{grid-template-columns:1fr;gap:18px;max-width:360px}}
 
 /* Compact duo row — Doc Scan + Job intake, extracted cards side by side */
 .feat-duo{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-top:8px}
@@ -498,6 +529,56 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
       <path class="wr-line" style="stroke:url(#wrGrad2)" d="M0 19 H120 l14-9 12 18 12-24 12 30 14-16 12 8 10-4 H400 l16-12 12 24 12-30 12 36 14-20 12 10 10-8 H720 l14-7 12 14 12-20 12 26 14-13 12 6 10-6 H1080 l14-8 12 16 12-22 12 14 H1200"/>
     </svg>
   </div>
+
+
+  <section class="sec onsite-sec glow-l" id="onsite">
+    <div class="sec-head">
+      <div class="sec-kicker">While you&rsquo;re still on site</div>
+      <h2>Lock it in before you get in the ute.</h2>
+      <p>The three things easiest to forget once you&rsquo;ve driven off &mdash; asking for the review, writing down the extra work, and getting the SWMS to whoever needs it.</p>
+    </div>
+    <div class="onsite">
+      <div class="onsite-card">
+        <div class="onsite-n">1</div>
+        <h3>Ask for the review</h3>
+        <p>Opens a message already written, with your Google review link in it. Send it by SMS or email while the job&rsquo;s fresh.</p>
+        <div class="crop-card review">
+          <div class="crop-win"><img src="/assets/screens/review.png" alt="SoleTasker&rsquo;s Request a Review screen with the message ready to send" width="390" height="844" loading="lazy"/></div>
+        </div>
+        <ul class="onsite-points">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Message written for you</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Sends by SMS or email</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Your own Google review link</span></li>
+        </ul>
+      </div>
+      <div class="onsite-card">
+        <div class="onsite-n">2</div>
+        <h3>Write down the extra work</h3>
+        <p>Anything you spot but can&rsquo;t do today goes on the job&rsquo;s Unfinished Items list &mdash; not a scrap of paper in the van.</p>
+        <div class="crop-card unfin">
+          <div class="crop-win"><img src="/assets/screens/unfinished.png" alt="A job&rsquo;s Unfinished Items list in SoleTasker with three open entries" width="390" height="844" loading="lazy"/></div>
+        </div>
+        <ul class="onsite-points">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Kept against the job, not loose</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Still there on the next visit</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Say it into Voice Capture</span></li>
+        </ul>
+      </div>
+      <div class="onsite-card">
+        <div class="onsite-n">3</div>
+        <h3>Send the SWMS</h3>
+        <p>Pull a job in and the site address, customer and your company details fill themselves in. Sign it and share it.</p>
+        <div class="crop-card swms">
+          <div class="crop-win"><img src="/assets/screens/swms.png" alt="A SoleTasker SWMS with the job details filled in from the selected job" width="390" height="844" loading="lazy"/></div>
+        </div>
+        <ul class="onsite-points">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Fills in from the job</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Signed on the phone</span></li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#2CB99D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><span>Share with the team or the builder</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <section class="sec features light" id="features">
     <div class="sec-head">
