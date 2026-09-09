@@ -295,21 +295,30 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .crop-card.duo .crop-win{height:106px}
 .crop-card.duo .crop-win img{margin-top:-11.5%}
 
-/* ── How it works — the numbered 3-step flow ── */
-/* align-items:start, not the grid default of stretch — step 2 holds a full
-   phone and steps 1/3 hold short crop cards, so stretching would pad the
-   short cards with a screen-height of dead navy to match the tall one. */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1160px;margin:0 auto;align-items:start}
-.step{background:var(--navy-card);border:1px solid var(--on-navy-line);border-radius:var(--r4);padding:28px 24px 32px;backdrop-filter:blur(6px)}
-.step-n{width:34px;height:34px;border-radius:50%;background:var(--white);color:var(--navy);font-family:var(--fh);font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+/* ── How it works — a left-to-right flow, not three boxes ──
+   The step is a column on the open ground with a dashed connector running
+   between them, so the section reads as one journey rather than three
+   unrelated cards. The visual in each column is a real component captured
+   with a transparent background (harness/shot-parts.js, omitBackground), so
+   a rounded control's corners are genuinely transparent instead of sitting
+   in a white rectangle on the dark ground. */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:0 auto;align-items:start}
+.step{position:relative;padding:0 14px;text-align:center}
+/* dashed connector between columns, desktop only */
+.step:not(:last-child)::after{content:'';position:absolute;top:19px;left:calc(50% + 30px);right:calc(-50% + 30px);border-top:2px dashed rgba(255,255,255,.18)}
+.step-n{width:38px;height:38px;border-radius:50%;background:var(--white);color:var(--navy);font-family:var(--fh);font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:1}
 .step:nth-child(2) .step-n{background:var(--teal);color:#fff}
 .step:nth-child(3) .step-n{background:var(--blue-lt);color:#fff}
-.step h3{font-family:var(--fb);font-weight:800;font-size:17px;color:var(--on-navy);margin-bottom:6px;letter-spacing:0}
-.step p{font-size:13.5px;color:var(--on-navy-soft);line-height:1.55;margin-bottom:22px;font-weight:500}
+.step h3{font-family:var(--fb);font-weight:800;font-size:18px;color:var(--on-navy);margin-bottom:8px;letter-spacing:0}
+.step p{font-size:13.5px;color:var(--on-navy-soft);line-height:1.6;margin:0 auto 26px;font-weight:500;max-width:290px;min-height:66px}
+.step-visual{min-height:230px;display:flex;align-items:center;justify-content:center}
 
 @media(max-width:900px){
   .sec{padding:64px 24px}
-  .steps{grid-template-columns:1fr;gap:20px;max-width:340px}
+  .steps{grid-template-columns:1fr;gap:34px;max-width:340px}
+  .step:not(:last-child)::after{display:none}
+  .step-visual{min-height:0}
+  .step p{min-height:0}
 }
 
 /* ═══ FEATURES — alternating copy/visual rows ═══
@@ -345,16 +354,14 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .anno-chip.a2::after{content:'';position:absolute;left:-34px;top:50%;width:34px;border-top:1.5px dashed var(--blue-lt)}
 
 /* ═══ EXTRACTED COMPONENT ═══
-   A single real component, screenshotted on its own from the running app at
-   3x (see harness/shot-parts.js) rather than cropped out of a screen capture.
-   Cropping was what produced containers cut through the middle of a tile —
-   an element screenshot has the component's own edges, so it can't. */
-/* A fixed box height with object-fit:contain evens up the three step cards —
-   one component is wide and short (the Voice Capture tile), the other two are
-   portrait, so left to their natural sizes the cards ended up wildly ragged.
-   drop-shadow rather than box-shadow: it follows the image's real edges
-   instead of drawing a rectangle around the letterboxed box. */
-.part{display:block;width:100%;height:210px;object-fit:contain;object-position:center;filter:drop-shadow(0 14px 28px rgba(0,0,0,.5))}
+   One real component, screenshotted on its own from the running app at 3x
+   with a transparent background, rather than cropped out of a screen shot.
+   Cropping cut through the middle of controls; capturing without
+   omitBackground baked the app's white page into the rounded corners. */
+.part{display:block;max-width:100%;max-height:230px;width:auto;filter:drop-shadow(0 16px 30px rgba(0,0,0,.55))}
+.part.w-tile{width:100%;max-width:300px}
+.part.w-card{max-width:212px}
+.part.card-bg{border-radius:14px}
 .sec.light .part{filter:drop-shadow(0 10px 22px rgba(17,24,39,.18))}
 
 /* ═══ WHILE YOU'RE STILL ON SITE ═══
@@ -491,19 +498,19 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
         <div class="step-n">1</div>
         <h3>Open Home</h3>
         <p>Tap Voice Capture to start recording — no menus to dig through first.</p>
-        <img class="part w-tile" src="/assets/screens/part-voice-tile.png" alt="SoleTasker's Voice Capture button" width="362" height="82" loading="lazy"/>
+        <div class="step-visual"><img class="part w-tile" src="/assets/screens/part-voice-tile.png" alt="SoleTasker's Voice Capture button" width="362" height="82" loading="lazy"/></div>
       </div>
       <div class="step">
         <div class="step-n">2</div>
         <h3>Speak it once</h3>
         <p>Tell it what you need — a job, a task, a reminder. Two minutes max, then it's transcribed and checked for priority, job and assignee.</p>
-        <img class="part w-card" src="/assets/screens/part-capture-modal.png" alt="SoleTasker's Voice Capture window, ready to record" width="350" height="362" loading="lazy"/>
+        <div class="step-visual"><img class="part w-card" src="/assets/screens/part-capture-modal.png" alt="SoleTasker's Voice Capture window, ready to record" width="350" height="362" loading="lazy"/></div>
       </div>
       <div class="step">
         <div class="step-n">3</div>
         <h3>Review &amp; save</h3>
         <p>It lands as the right task, with details and priority filled in — you just check it and save.</p>
-        <img class="part w-card" src="/assets/screens/part-task-modal.png" alt="A saved SoleTasker task with priority, assignee and the linked job filled in" width="350" height="246" loading="lazy"/>
+        <div class="step-visual"><img class="part w-card card-bg" src="/assets/screens/part-task-modal.png" alt="A saved SoleTasker task with priority, assignee and the linked job filled in" width="350" height="246" loading="lazy"/></div>
       </div>
     </div>
   </section>
