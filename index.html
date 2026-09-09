@@ -198,6 +198,16 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
   .hero-phone{width:250px}
 }
 
+/* ═══ WAVEFORM DIVIDER ═══
+   The soundwave from the logo, stretched into a full-width rule between
+   sections. This is the teal thread Callan asked to run the whole page: it
+   ties hero → steps → features together and makes each dark/light change a
+   deliberate transition rather than a hard seam. Purely decorative. */
+.wave-rule{display:block;width:100%;height:38px;overflow:hidden;line-height:0}
+.wave-rule svg{width:100%;height:100%;display:block}
+.wave-rule .wr-line{stroke:url(#wrGrad);stroke-width:2;fill:none;stroke-linecap:round}
+.wave-rule.on-light{background:var(--white)}
+
 /* ═══ SECTION SCAFFOLDING ═══
    Sections are transparent over the body's dark ground. Each carries a
    soft off-centre glow instead of its own background colour — that's what
@@ -207,6 +217,25 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .sec{padding:88px 32px;position:relative}
 .sec::before{content:'';position:absolute;pointer-events:none;z-index:0;width:min(760px,90vw);height:560px;border-radius:50%;filter:blur(90px);opacity:.5}
 .sec.glow-l::before{left:-14vw;top:2%;background:radial-gradient(circle,rgba(45,91,227,.20),transparent 70%)}
+/* A light section re-points the on-dark tokens at their light equivalents —
+   every card, hairline, crop frame and text colour inside follows without a
+   second set of rules. Used to break up the dark run, per Callan. */
+.sec.light{background:var(--white)}
+.sec.light::before{display:none}
+.sec.light{
+  --on-navy:var(--ink);
+  --on-navy-mid:var(--ink-soft);
+  --on-navy-soft:var(--ink-soft);
+  --on-navy-line:var(--line);
+  --on-navy-line-2:var(--line);
+  --navy-card:var(--white);
+  --navy-2:var(--white);
+}
+.sec.light .step,.sec.light .duo-card{box-shadow:var(--sm)}
+.sec.light .crop-card{box-shadow:0 10px 28px rgba(17,24,39,.13)}
+.sec.light .phone-mock{background:var(--navy-3);box-shadow:0 20px 46px rgba(17,24,39,.22),0 0 0 1px rgba(17,24,39,.08)}
+.sec.light .sec-kicker{color:var(--teal-dk)}
+.sec.light .step-n{background:var(--navy);color:#fff}
 .sec.glow-r::before{right:-14vw;top:8%;background:radial-gradient(circle,rgba(44,185,157,.16),transparent 70%)}
 .sec > *{position:relative;z-index:1}
 .sec-head{max-width:640px;margin:0 auto 56px;text-align:center}
@@ -255,6 +284,10 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .crop-card.assign{width:300px}
 .crop-card.assign .crop-win{height:115px}
 .crop-card.assign .crop-win img{margin-top:-84.6%}
+/* voice-capture.png: open on the mic and "Tap to record", skipping the
+   dimmed Home behind the modal. */
+.crop-card.capture .crop-win{height:106px}
+.crop-card.capture .crop-win img{margin-top:-79.5%}
 /* docscan.png / intake.png: both have the same nav-bar-then-content shape,
    so one offset (skip the top nav) serves both real screenshots. */
 .crop-card.duo .crop-win{height:106px}
@@ -402,7 +435,7 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
       <div class="hero-stage">
         <div class="phone-mock hero-phone hero-phone-back">
           <div class="phone-screen">
-            <img src="/assets/screens/task-detail.png" alt="A saved SoleTasker task showing priority, assignee and the job it is linked to" width="390" height="844" loading="eager"/>
+            <img src="/assets/screens/myday.png" alt="SoleTasker My Day, showing one person's jobs and tasks for today" width="390" height="844" loading="eager"/>
           </div>
         </div>
         <div class="phone-mock hero-phone hero-phone-front">
@@ -413,6 +446,15 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
       </div>
     </div>
   </section>
+
+  <div class="wave-rule" aria-hidden="true">
+    <svg viewBox="0 0 1200 38" preserveAspectRatio="none">
+      <defs><linearGradient id="wrGrad1" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#2D5BE3" stop-opacity=".15"/><stop offset=".5" stop-color="#2CB99D"/><stop offset="1" stop-color="#2D5BE3" stop-opacity=".15"/>
+      </linearGradient></defs>
+      <path class="wr-line" style="stroke:url(#wrGrad1)" d="M0 19 H120 l14-9 12 18 12-24 12 30 14-16 12 8 10-4 H400 l16-12 12 24 12-30 12 36 14-20 12 10 10-8 H720 l14-7 12 14 12-20 12 26 14-13 12 6 10-6 H1080 l14-8 12 16 12-22 12 14 H1200"/>
+    </svg>
+  </div>
 
   <section class="sec workflow glow-l" id="workflow">
     <div class="sec-head">
@@ -433,10 +475,8 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
         <div class="step-n">2</div>
         <h3>Speak it once</h3>
         <p>Tell it what you need — a job, a task, a reminder. Two minutes max, then it's transcribed and checked for priority, job and assignee.</p>
-        <div class="phone-mock">
-          <div class="phone-screen">
-            <img src="/assets/screens/voice-capture.png" alt="SoleTasker Voice Capture screen, ready to record" width="390" height="844" loading="lazy"/>
-          </div>
+        <div class="crop-card capture">
+          <div class="crop-win"><img src="/assets/screens/voice-capture.png" alt="SoleTasker Voice Capture screen, ready to record" width="390" height="844" loading="lazy"/></div>
         </div>
       </div>
       <div class="step">
@@ -450,7 +490,16 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
     </div>
   </section>
 
-  <section class="sec features glow-r" id="features">
+  <div class="wave-rule" aria-hidden="true">
+    <svg viewBox="0 0 1200 38" preserveAspectRatio="none">
+      <defs><linearGradient id="wrGrad2" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#2D5BE3" stop-opacity=".15"/><stop offset=".5" stop-color="#2CB99D"/><stop offset="1" stop-color="#2D5BE3" stop-opacity=".15"/>
+      </linearGradient></defs>
+      <path class="wr-line" style="stroke:url(#wrGrad2)" d="M0 19 H120 l14-9 12 18 12-24 12 30 14-16 12 8 10-4 H400 l16-12 12 24 12-30 12 36 14-20 12 10 10-8 H720 l14-7 12 14 12-20 12 26 14-13 12 6 10-6 H1080 l14-8 12 16 12-22 12 14 H1200"/>
+    </svg>
+  </div>
+
+  <section class="sec features light" id="features">
     <div class="sec-head">
       <div class="sec-kicker">Features</div>
       <h2>Everything a job needs, in one place.</h2>
