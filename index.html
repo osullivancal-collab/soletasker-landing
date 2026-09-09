@@ -204,9 +204,21 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .crop-card .crop-win img{width:100%;display:block}
 /* task-detail.png is a full-screen capture with a dimmed backdrop behind the
    modal — shift the image up so the window opens on the modal itself
-   (title + priority + assignee) instead of dead grey space. */
-.crop-card.tall .crop-win{height:165px}
-.crop-card.tall .crop-win img{margin-top:-71px}
+   (title + priority + assignee) instead of dead grey space. Offsets here are
+   calibrated empirically against the real screenshots, not computed from the
+   card's display width — this component doesn't scale images down the way
+   phone-mock's object-fit:cover does, so height/margin-top are near-1:1 with
+   real source pixels. */
+.crop-card.tall .crop-win{height:210px}
+.crop-card.tall .crop-win img{margin-top:-140px}
+/* task-assign.png: skip past the Task-title field to open on Priority +
+   Assigned To + Link to Job — the block this row's copy is actually about. */
+.crop-card.assign .crop-win{height:120px}
+.crop-card.assign .crop-win img{margin-top:-350px}
+/* docscan.png / intake.png: both have the same nav-bar-then-content shape,
+   so one offset (skip the top nav) serves both real screenshots. */
+.crop-card.duo .crop-win{height:200px}
+.crop-card.duo .crop-win img{margin-top:-45px}
 
 /* ── How it works — the numbered 3-step flow ── */
 .workflow{background:var(--white)}
@@ -221,6 +233,58 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 @media(max-width:900px){
   .sec{padding:64px 24px}
   .steps{grid-template-columns:1fr;gap:20px;max-width:340px}
+}
+
+/* ═══ FEATURES — alternating copy/visual rows ═══
+   The flagship row (Job details stay together) carries the most weight —
+   full phone + floating annotation chips, same satellite-card idiom the
+   hero already established, so it reads as one visual language rather
+   than a new mechanic bolted on partway down the page. The two smaller,
+   supporting features (Doc Scan, Job intake) share one compact row of
+   extracted cards rather than each claiming a full alternating row —
+   matching their weight in the product to their weight on the page. */
+.features{background:var(--bg)}
+.feat-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.92fr);gap:56px;align-items:center;padding:52px 0;border-bottom:1px solid var(--line)}
+.feat-row:first-of-type{padding-top:8px}
+.feat-row:last-of-type{border-bottom:none;padding-bottom:8px}
+.feat-row.rev{grid-template-columns:minmax(320px,.92fr) minmax(0,1fr)}
+.feat-row.rev .feat-visual{order:-1}
+.feat-tag{display:inline-flex;font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue-dk);background:#EAF0FF;padding:5px 11px;border-radius:999px;margin-bottom:14px}
+.feat-row:nth-child(2) .feat-tag{color:var(--teal-dk);background:var(--teal-lt)}
+.feat-copy h3{font-family:var(--fb);font-weight:800;font-size:24px;color:var(--ink);letter-spacing:0;line-height:1.2;margin-bottom:12px}
+.feat-copy p{font-size:15px;color:var(--ink-soft);line-height:1.65;font-weight:500;margin-bottom:18px;max-width:440px}
+.feat-points{display:flex;flex-direction:column;gap:10px}
+.feat-points li{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:700;color:var(--ink-mid)}
+.feat-points .tick{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--teal-lt);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.feat-points .tick svg{width:10px;height:10px}
+.feat-visual{position:relative;display:flex;justify-content:center}
+
+/* Flagship annotation chips — smaller sibling of the hero's .capture-card,
+   same card language, tethered to the phone with a short connector line. */
+.anno-chip{position:absolute;display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 10px;box-shadow:var(--sm);font-size:12.5px;font-weight:800;color:var(--ink-mid);white-space:nowrap}
+.anno-chip .dot2{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.anno-chip.a1{left:-26px;top:22%}
+.anno-chip.a1::after{content:'';position:absolute;right:-34px;top:50%;width:34px;height:1.5px;background:var(--line);border-top:1.5px dashed var(--ink-ghost)}
+.anno-chip.a2{right:-30px;bottom:18%}
+.anno-chip.a2 .dot2{background:var(--blue)}
+.anno-chip.a2::after{content:'';position:absolute;left:-34px;top:50%;width:34px;border-top:1.5px dashed var(--ink-ghost)}
+
+/* Compact duo row — Doc Scan + Job intake, extracted cards side by side */
+.feat-duo{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-top:8px}
+.duo-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r3);padding:26px 24px;text-align:center}
+.duo-card .crop-card{margin-bottom:18px}
+.duo-card h4{font-family:var(--fb);font-weight:800;font-size:16px;color:var(--ink);margin-bottom:8px}
+.duo-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;font-weight:500}
+
+@media(max-width:900px){
+  .feat-row,.feat-row.rev{grid-template-columns:1fr;gap:28px;padding:36px 0}
+  .feat-row.rev .feat-visual{order:0}
+  .feat-copy p{max-width:none}
+  .anno-chip{position:static;margin-top:10px}
+  .anno-chip::after{display:none}
+  .anno-chip.a1,.anno-chip.a2{display:inline-flex}
+  .feat-visual{flex-direction:column;align-items:center;gap:10px}
+  .feat-duo{grid-template-columns:1fr;gap:20px}
 }
 </style>
 </head>
@@ -335,6 +399,88 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
         <div class="crop-card tall">
           <div class="crop-win"><img src="/assets/screens/task-detail.png" alt="Saved task in SoleTasker with priority, assignee and linked job filled in" width="390" height="844" loading="lazy"/></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec features" id="features">
+    <div class="sec-head">
+      <div class="sec-kicker">Features</div>
+      <h2>Everything a job needs, in one place.</h2>
+      <p>Not five apps stitched together. One place for the job, the tasks, who's doing them, and what the client sent you.</p>
+    </div>
+
+    <div class="feat-row">
+      <div class="feat-copy">
+        <div class="feat-tag">Job details</div>
+        <h3>Job details stay together.</h3>
+        <p>Scope of Works, site notes and every task for a job live on the one screen — not scattered across a notebook, a group chat and three different apps.</p>
+        <ul class="feat-points">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#1E9C83" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Scope, notes and tasks under the one job</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#1E9C83" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Nothing forgotten between site visits</li>
+        </ul>
+      </div>
+      <div class="feat-visual">
+        <div class="phone-mock">
+          <div class="phone-screen">
+            <img src="/assets/screens/job-detail.png" alt="SoleTasker Job Detail screen showing Scope of Works, Site Notes and Tasks together under one job" width="390" height="844" loading="lazy"/>
+          </div>
+        </div>
+        <div class="anno-chip a1"><span class="dot2"></span>Scope of Works</div>
+        <div class="anno-chip a2"><span class="dot2"></span>Tasks for this job</div>
+      </div>
+    </div>
+
+    <div class="feat-row rev">
+      <div class="feat-copy">
+        <div class="feat-tag">Assign work</div>
+        <h3>Hand it to the right person.</h3>
+        <p>Assign a task to yourself or anyone on the team straight from the task — it lands on their own My Day, linked back to the job it belongs to.</p>
+        <ul class="feat-points">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#1E9C83" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Every task has one clear owner</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#1E9C83" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Still linked to the job it's for</li>
+        </ul>
+      </div>
+      <div class="feat-visual">
+        <div class="crop-card assign">
+          <div class="crop-win"><img src="/assets/screens/task-assign.png" alt="SoleTasker task with Assigned To set to Jake, still linked to the job" width="390" height="844" loading="lazy"/></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-row">
+      <div class="feat-copy">
+        <div class="feat-tag">My Day</div>
+        <h3>Everyone's own day, sorted.</h3>
+        <p>Flick between Me, a team member, or everyone at once — one list of what's on today, jobs and tasks together. Share it or print it as a run sheet before you leave the shed.</p>
+        <ul class="feat-points">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#1E9C83" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>One list per person, not one for everyone</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#1E9C83" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Share or print as a run sheet</li>
+        </ul>
+      </div>
+      <div class="feat-visual">
+        <div class="phone-mock">
+          <div class="phone-screen">
+            <img src="/assets/screens/myday.png" alt="SoleTasker My Day screen with Me, Jake and All chips, sharable run sheet" width="390" height="844" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-duo">
+      <div class="duo-card">
+        <div class="crop-card duo">
+          <div class="crop-win"><img src="/assets/screens/docscan.png" alt="SoleTasker Scan Doc screen for pasting or photographing a work order" width="390" height="844" loading="lazy"/></div>
+        </div>
+        <h4>Scan a work order</h4>
+        <p>Paste the text or snap a photo of a supplier or builder work order — SoleTasker pulls out the job details instead of you re-typing them.</p>
+      </div>
+      <div class="duo-card">
+        <div class="crop-card duo">
+          <div class="crop-win"><img src="/assets/screens/intake.png" alt="SoleTasker Client Intake Links screen for generating a job request link" width="390" height="844" loading="lazy"/></div>
+        </div>
+        <h4>Let clients send the details</h4>
+        <p>Send a one-time link by text or email. Their submission lands as a Job Request you review and accept straight into a real job.</p>
       </div>
     </div>
   </section>
