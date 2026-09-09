@@ -138,11 +138,16 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .hero-trust b{color:var(--on-navy-mid);font-weight:800}
 .hero-trust .sep{color:rgba(255,255,255,.2)}
 
-/* ── Compact voice-capture card — an extracted UI moment, not a full phone,
-     per REDESIGN_DIRECTION.md section 9's own hero guidance. No light/dark
-     toggle: the app itself has no dark mode today, so a toggle here would
-     show a UI state that doesn't exist in the real product. */
-.capture-card{position:relative;background:var(--white);border-radius:var(--r4);padding:22px 22px 24px;box-shadow:0 30px 70px rgba(5,12,20,.4);max-width:360px;justify-self:end}
+/* ── Hero product visual: one full phone (not two overlapping — that was
+     the old design's actual problem), plus a small floating capture-result
+     card as a satellite annotation. No light/dark toggle on the mockup:
+     the app itself has no dark mode today, so a toggle here would show a
+     UI state that doesn't exist in the real product. */
+.hero-stage{position:relative;justify-self:end}
+.hero-phone{width:290px}
+.hero-phone .phone-screen{min-height:420px}
+
+.capture-card{position:absolute;left:-64px;bottom:34px;z-index:3;background:var(--white);border-radius:var(--r4);padding:18px 18px 20px;box-shadow:0 24px 56px rgba(5,12,20,.38);width:280px}
 .capture-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .capture-mic{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .capture-mic svg{width:16px;height:16px}
@@ -167,10 +172,11 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .capture-result-t b{color:var(--ink);font-weight:800}
 
 @media(max-width:900px){
-  .hero{padding:120px 24px 64px}
-  .hero-in{grid-template-columns:1fr;gap:40px;text-align:left}
+  .hero{padding:120px 24px 100px}
+  .hero-in{grid-template-columns:1fr;gap:36px;text-align:left}
   .hero-wave{opacity:.5;top:-20px}
-  .capture-card{justify-self:stretch;max-width:420px}
+  .hero-stage{justify-self:center;padding-bottom:70px}
+  .capture-card{left:50%;bottom:0;transform:translateX(-50%);width:calc(100vw - 88px);max-width:320px}
 }
 
 /* ═══ SECTION SCAFFOLDING (shared by every light section below hero) ═══ */
@@ -279,24 +285,38 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
         </div>
       </div>
 
-      <div class="capture-card">
-        <div class="capture-top">
-          <div class="capture-mic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3z"/><path d="M19 11a7 7 0 01-14 0M12 18v3"/></svg>
-          </div>
-          <div>
-            <div class="capture-label">Speak it</div>
-            <div class="capture-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="hero-stage">
+        <div class="phone-mock hero-phone">
+          <div class="phone-screen">
+            <div class="ps-bar"><span class="ps-logo">Sole<b>Tasker</b></span><span class="ps-dots">•••</span></div>
+            <div class="ps-card hi">
+              <div class="ps-capture">
+                <span class="mic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3z"/><path d="M19 11a7 7 0 01-14 0M12 18v3"/></svg></span>
+                <div><div class="ps-capture-t">Voice Capture</div><div class="ps-capture-s">Speak it and we create it</div></div>
+              </div>
+            </div>
+            <div class="ps-field-l" style="margin-top:16px">Open Tasks</div>
+            <div class="ps-card"><div class="ps-row"><div><div class="ps-t">Fix leaking tap</div><div class="ps-s">12 High St · Today</div></div><span class="ps-prio">P1</span></div></div>
+            <div class="ps-card"><div class="ps-row"><div><div class="ps-t">Order Clipsal GPOs</div><div class="ps-s">Ivanhoe rewire</div></div></div></div>
+            <div class="ps-card"><div class="ps-row"><div><div class="ps-t">Send SWMS to client</div><div class="ps-s">Mornington job</div></div></div></div>
           </div>
         </div>
-        <div class="capture-quote">&ldquo;Order two more downlights for the Ivanhoe rewire, mark it high priority.&rdquo;</div>
-        <div class="capture-chips">
-          <span class="capture-chip task">Task</span>
-          <span class="capture-chip job">Ivanhoe rewire</span>
-        </div>
-        <div class="capture-result">
-          <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-          <div class="capture-result-t">Saved as <b>P1 task</b>, linked to the job.</div>
+
+        <div class="capture-card">
+          <div class="capture-top">
+            <div class="capture-mic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3z"/><path d="M19 11a7 7 0 01-14 0M12 18v3"/></svg>
+            </div>
+            <div>
+              <div class="capture-label">Speak it</div>
+              <div class="capture-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="capture-quote">&ldquo;Order two more downlights for the Ivanhoe rewire, mark it high priority.&rdquo;</div>
+          <div class="capture-result">
+            <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <div class="capture-result-t">Saved as <b>P1 task</b>, linked to the job.</div>
+          </div>
         </div>
       </div>
     </div>
