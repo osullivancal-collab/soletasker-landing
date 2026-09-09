@@ -196,6 +196,20 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .phone-screen{width:100%;height:100%;border-radius:28px;overflow:hidden;background:var(--bg)}
 .phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
 
+/* ── Extracted card — same real screenshots, cropped to just the relevant
+   top slice and shown without a phone bezel. Used where a whole screen
+   would repeat what a neighbouring full phone mock already showed (Rule:
+   don't stack more full-phone mocks than the page needs — see How it
+   works' steps 1 and 3, which sit either side of step 2's full phone). */
+.crop-card{width:216px;border-radius:18px;overflow:hidden;margin:0 auto;box-shadow:0 14px 34px rgba(17,24,39,.14);border:1px solid var(--line-lt);background:var(--white)}
+.crop-card .crop-win{height:112px;overflow:hidden}
+.crop-card .crop-win img{width:100%;display:block}
+/* task-detail.png is a full-screen capture with a dimmed backdrop behind the
+   modal — shift the image up so the window opens on the modal itself
+   (title + priority + assignee) instead of dead grey space. */
+.crop-card.tall .crop-win{height:165px}
+.crop-card.tall .crop-win img{margin-top:-71px}
+
 /* ── How it works — the numbered 3-step flow ── */
 .workflow{background:var(--white)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1160px;margin:0 auto}
@@ -303,10 +317,8 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
         <div class="step-n">1</div>
         <h3>Open Home</h3>
         <p>Tap Voice Capture to start recording — no menus to dig through first.</p>
-        <div class="phone-mock">
-          <div class="phone-screen">
-            <img src="/assets/screens/home.png" alt="SoleTasker Home screen, Voice Capture front and centre" width="390" height="844" loading="lazy"/>
-          </div>
+        <div class="crop-card">
+          <div class="crop-win"><img src="/assets/screens/home.png" alt="SoleTasker Home screen, Voice Capture front and centre" width="390" height="844" loading="lazy"/></div>
         </div>
       </div>
       <div class="step">
@@ -323,10 +335,8 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
         <div class="step-n">3</div>
         <h3>Review &amp; save</h3>
         <p>It lands as the right task, with details and priority filled in — you just check it and save.</p>
-        <div class="phone-mock">
-          <div class="phone-screen">
-            <img src="/assets/screens/task-detail.png" alt="Saved task in SoleTasker with priority, assignee and linked job filled in" width="390" height="844" loading="lazy"/>
-          </div>
+        <div class="crop-card tall">
+          <div class="crop-win"><img src="/assets/screens/task-detail.png" alt="Saved task in SoleTasker with priority, assignee and linked job filled in" width="390" height="844" loading="lazy"/></div>
         </div>
       </div>
     </div>
