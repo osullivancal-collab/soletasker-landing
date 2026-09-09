@@ -59,19 +59,27 @@
   --teal-dk:   #1E9C83;
   --teal-lt:   #E6F7F4;
   --blue:      #2D5BE3;
+  --blue-lt:   #4C7BFF;   /* blue lifted for legibility on the dark ground */
   --blue-dk:   #1E46B8;
-  --navy:      #1C2B3A;
-  --navy-2:    #24384A;  /* raised surface on navy — cards, dividers */
-  --navy-3:    #16222E;  /* deeper inset on navy — footer, nested wells */
   --red:       #EF4444;
   --red-lt:    #FEF2F2;
   --amber:     #F59E0B;
 
+  /* ═══ DARK GROUND ═══
+     The page runs dark end to end. --navy is the ground; --navy-2/-3 are
+     the raised card and inset surfaces that sit on it. Sections separate
+     by surface and spacing, not by flipping to white. */
+  --navy:      #0B1A2D;  /* page ground */
+  --navy-2:    #122741;  /* raised card surface */
+  --navy-3:    #081422;  /* deepest inset — device bezels, wells */
+  --navy-card: rgba(255,255,255,.035);  /* glassy card over the ground */
+
   /* text-on-dark scale, mirrors --ink/--ink-mid/--ink-soft's job on light */
   --on-navy:      #FFFFFF;
-  --on-navy-mid:  #C7D2DE;
-  --on-navy-soft: #8B9BAC;
-  --on-navy-line: rgba(255,255,255,.1);
+  --on-navy-mid:  #C0CEDC;
+  --on-navy-soft: #8496A8;
+  --on-navy-line: rgba(255,255,255,.09);
+  --on-navy-line-2: rgba(255,255,255,.14);
 
   --fh: 'Bebas Neue', 'Arial Narrow', Arial, sans-serif;
   --fb: 'Nunito Sans', system-ui, sans-serif;
@@ -84,7 +92,13 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* The page runs dark end to end — one continuous ground, so sections are
+   separated by surface, spacing and glow rather than by a hard flip to
+   white. The dot grid is the same texture the hero already used, lifted to
+   body level so it runs the full page instead of stopping at the fold. */
+body{font-family:var(--fb);background:var(--navy);color:var(--on-navy-mid);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.045) 1px,transparent 1px);background-size:30px 30px}
+main{position:relative;z-index:1}
 a{color:inherit;text-decoration:none}
 button{font-family:var(--fb);cursor:pointer;border:none;background:none}
 .w{max-width:1160px;margin:0 auto;padding:0 32px}
@@ -200,12 +214,22 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
   .capture-card{left:50%;bottom:0;transform:translateX(-50%);width:calc(100vw - 88px);max-width:320px}
 }
 
-/* ═══ SECTION SCAFFOLDING (shared by every light section below hero) ═══ */
-.sec{padding:88px 32px}
+/* ═══ SECTION SCAFFOLDING ═══
+   Sections are transparent over the body's dark ground. Each carries a
+   soft off-centre glow instead of its own background colour — that's what
+   gives depth and separation on a single-ground page, and it keeps the
+   blue→teal brand pair present the whole way down rather than only in the
+   hero's wave. */
+.sec{padding:88px 32px;position:relative}
+.sec::before{content:'';position:absolute;pointer-events:none;z-index:0;width:min(760px,90vw);height:560px;border-radius:50%;filter:blur(90px);opacity:.5}
+.sec.glow-l::before{left:-14vw;top:2%;background:radial-gradient(circle,rgba(45,91,227,.20),transparent 70%)}
+.sec.glow-r::before{right:-14vw;top:8%;background:radial-gradient(circle,rgba(44,185,157,.16),transparent 70%)}
+.sec > *{position:relative;z-index:1}
 .sec-head{max-width:640px;margin:0 auto 56px;text-align:center}
-.sec-kicker{font-size:12px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal-dk);margin-bottom:12px}
-.sec-head h2{font-size:clamp(28px,3.4vw,40px);color:var(--ink);line-height:1.08;margin-bottom:14px}
-.sec-head p{font-size:15.5px;color:var(--ink-soft);line-height:1.6;font-weight:500}
+.sec-kicker{font-size:12px;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.sec-head h2{font-size:clamp(28px,3.4vw,40px);color:var(--on-navy);line-height:1.08;margin-bottom:14px}
+.sec-head h2 .accent{color:var(--teal)}
+.sec-head p{font-size:15.5px;color:var(--on-navy-mid);line-height:1.6;font-weight:500}
 
 /* ── Shared phone-mock component — reused for How it works, My Day, Job
    details. Real screenshots of the actual app (see assets/screens/,
@@ -213,7 +237,7 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
    data matching this page's own copy), not a hand-drawn approximation —
    the app genuinely looks like this. The bezel/notch around the screenshot
    is presentation chrome, not a claim about the product. */
-.phone-mock{width:224px;aspect-ratio:390/844;border-radius:36px;padding:9px;background:var(--navy-3);box-shadow:0 20px 50px rgba(17,24,39,.18);margin:0 auto;position:relative}
+.phone-mock{width:224px;aspect-ratio:390/844;border-radius:36px;padding:9px;background:var(--navy-3);box-shadow:0 26px 60px rgba(0,0,0,.55),0 0 0 1px var(--on-navy-line-2);margin:0 auto;position:relative}
 .phone-mock::before{content:'';position:absolute;top:9px;left:50%;transform:translateX(-50%);width:64px;height:16px;border-radius:999px;background:#0d1620;z-index:2}
 .phone-screen{width:100%;height:100%;border-radius:28px;overflow:hidden;background:var(--bg)}
 .phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
@@ -223,36 +247,46 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
    would repeat what a neighbouring full phone mock already showed (Rule:
    don't stack more full-phone mocks than the page needs — see How it
    works' steps 1 and 3, which sit either side of step 2's full phone). */
-.crop-card{width:216px;border-radius:18px;overflow:hidden;margin:0 auto;box-shadow:0 14px 34px rgba(17,24,39,.14);border:1px solid var(--line-lt);background:var(--white)}
-.crop-card .crop-win{height:112px;overflow:hidden}
-.crop-card .crop-win img{width:100%;display:block}
-/* task-detail.png is a full-screen capture with a dimmed backdrop behind the
-   modal — shift the image up so the window opens on the modal itself
-   (title + priority + assignee) instead of dead grey space. Offsets here are
-   calibrated empirically against the real screenshots, not computed from the
-   card's display width — this component doesn't scale images down the way
-   phone-mock's object-fit:cover does, so height/margin-top are near-1:1 with
-   real source pixels. */
-.crop-card.tall .crop-win{height:210px}
-.crop-card.tall .crop-win img{margin-top:-140px}
+/* On the dark ground these read as lit panels: a light-app screenshot needs
+   a defined edge and a real drop shadow or it floats as a bare white
+   rectangle. The 4px inset frame does that job. */
+.crop-card{width:216px;border-radius:18px;overflow:hidden;margin:0 auto;box-shadow:0 18px 44px rgba(0,0,0,.45);border:1px solid var(--on-navy-line-2);background:var(--navy-2);padding:4px}
+.crop-card .crop-win{height:104px;overflow:hidden;border-radius:14px}
+.crop-card .crop-win img{width:100%;height:auto;display:block}
+/* Crop offsets are PERCENTAGES, not pixels, and that is deliberate: a
+   percentage margin-top resolves against the containing block's WIDTH, so
+   the crop stays framed on the same part of the screenshot at any card
+   width. Pixel offsets did not — they drifted the moment the card gained
+   4px of frame padding in the dark pass, and again when the assign card was
+   widened, each time sliding the window onto the wrong fields. */
+/* task-detail.png is a full-screen capture with a dimmed backdrop behind
+   the modal — shift up so the window opens on the modal itself (title +
+   priority + assignee) rather than dead backdrop. */
+.crop-card.tall .crop-win{height:158px}
+.crop-card.tall .crop-win img{margin-top:-33.3%}
 /* task-assign.png: skip past the Task-title field to open on Priority +
-   Assigned To + Link to Job — the block this row's copy is actually about. */
-.crop-card.assign .crop-win{height:120px}
-.crop-card.assign .crop-win img{margin-top:-350px}
+   Assigned To — the block this row's copy is actually about. Wider than the
+   default card because it is the sole visual in a full feature row, where
+   216px read as lost in its column. */
+.crop-card.assign{width:300px}
+.crop-card.assign .crop-win{height:115px}
+.crop-card.assign .crop-win img{margin-top:-84.6%}
 /* docscan.png / intake.png: both have the same nav-bar-then-content shape,
    so one offset (skip the top nav) serves both real screenshots. */
-.crop-card.duo .crop-win{height:200px}
-.crop-card.duo .crop-win img{margin-top:-45px}
+.crop-card.duo .crop-win{height:106px}
+.crop-card.duo .crop-win img{margin-top:-11.5%}
 
 /* ── How it works — the numbered 3-step flow ── */
-.workflow{background:var(--white)}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1160px;margin:0 auto}
-.step{background:var(--bg-warm);border:1px solid var(--line-lt);border-radius:var(--r4);padding:28px 24px 32px}
-.step-n{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-family:var(--fh);font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.step:nth-child(2) .step-n{background:var(--teal)}
-.step:nth-child(3) .step-n{background:var(--blue)}
-.step h3{font-family:var(--fb);font-weight:800;font-size:17px;color:var(--ink);margin-bottom:6px;letter-spacing:0}
-.step p{font-size:13.5px;color:var(--ink-soft);line-height:1.55;margin-bottom:22px;font-weight:500}
+/* align-items:start, not the grid default of stretch — step 2 holds a full
+   phone and steps 1/3 hold short crop cards, so stretching would pad the
+   short cards with a screen-height of dead navy to match the tall one. */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1160px;margin:0 auto;align-items:start}
+.step{background:var(--navy-card);border:1px solid var(--on-navy-line);border-radius:var(--r4);padding:28px 24px 32px;backdrop-filter:blur(6px)}
+.step-n{width:34px;height:34px;border-radius:50%;background:var(--white);color:var(--navy);font-family:var(--fh);font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.step:nth-child(2) .step-n{background:var(--teal);color:#fff}
+.step:nth-child(3) .step-n{background:var(--blue-lt);color:#fff}
+.step h3{font-family:var(--fb);font-weight:800;font-size:17px;color:var(--on-navy);margin-bottom:6px;letter-spacing:0}
+.step p{font-size:13.5px;color:var(--on-navy-soft);line-height:1.55;margin-bottom:22px;font-weight:500}
 
 @media(max-width:900px){
   .sec{padding:64px 24px}
@@ -267,38 +301,36 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
    supporting features (Doc Scan, Job intake) share one compact row of
    extracted cards rather than each claiming a full alternating row —
    matching their weight in the product to their weight on the page. */
-.features{background:var(--bg)}
-.feat-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.92fr);gap:56px;align-items:center;padding:52px 0;border-bottom:1px solid var(--line)}
+.feat-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.92fr);gap:56px;align-items:center;padding:52px 0;border-bottom:1px solid var(--on-navy-line)}
 .feat-row:first-of-type{padding-top:8px}
 .feat-row:last-of-type{border-bottom:none;padding-bottom:8px}
 .feat-row.rev{grid-template-columns:minmax(320px,.92fr) minmax(0,1fr)}
 .feat-row.rev .feat-visual{order:-1}
-.feat-tag{display:inline-flex;font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:var(--blue-dk);background:#EAF0FF;padding:5px 11px;border-radius:999px;margin-bottom:14px}
-.feat-row:nth-child(2) .feat-tag{color:var(--teal-dk);background:var(--teal-lt)}
-.feat-copy h3{font-family:var(--fb);font-weight:800;font-size:24px;color:var(--ink);letter-spacing:0;line-height:1.2;margin-bottom:12px}
-.feat-copy p{font-size:15px;color:var(--ink-soft);line-height:1.65;font-weight:500;margin-bottom:18px;max-width:440px}
+.feat-tag{display:inline-flex;font-size:11.5px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;color:#9DBAFF;background:rgba(76,123,255,.14);border:1px solid rgba(76,123,255,.3);padding:5px 11px;border-radius:999px;margin-bottom:14px}
+.feat-row:nth-child(2) .feat-tag{color:#6FD8C0;background:rgba(44,185,157,.13);border-color:rgba(44,185,157,.3)}
+.feat-copy h3{font-family:var(--fb);font-weight:800;font-size:24px;color:var(--on-navy);letter-spacing:0;line-height:1.2;margin-bottom:12px}
+.feat-copy p{font-size:15px;color:var(--on-navy-mid);line-height:1.65;font-weight:500;margin-bottom:18px;max-width:440px}
 .feat-points{display:flex;flex-direction:column;gap:10px}
-.feat-points li{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:700;color:var(--ink-mid)}
-.feat-points .tick{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:var(--teal-lt);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.feat-points li{display:flex;gap:10px;align-items:flex-start;font-size:14px;font-weight:700;color:var(--on-navy-mid)}
+.feat-points .tick{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:rgba(44,185,157,.18);display:flex;align-items:center;justify-content:center;margin-top:1px}
 .feat-points .tick svg{width:10px;height:10px}
 .feat-visual{position:relative;display:flex;justify-content:center}
 
 /* Flagship annotation chips — smaller sibling of the hero's .capture-card,
    same card language, tethered to the phone with a short connector line. */
-.anno-chip{position:absolute;display:flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 10px;box-shadow:var(--sm);font-size:12.5px;font-weight:800;color:var(--ink-mid);white-space:nowrap}
-.anno-chip .dot2{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.anno-chip{position:absolute;display:flex;align-items:center;gap:8px;background:var(--teal);border-radius:var(--r1);padding:7px 13px;box-shadow:0 8px 22px rgba(0,0,0,.4);font-size:12.5px;font-weight:800;color:#062B23;white-space:nowrap}
+.anno-chip .dot2{display:none}
 .anno-chip.a1{left:-26px;top:22%}
-.anno-chip.a1::after{content:'';position:absolute;right:-34px;top:50%;width:34px;height:1.5px;background:var(--line);border-top:1.5px dashed var(--ink-ghost)}
-.anno-chip.a2{right:-30px;bottom:18%}
-.anno-chip.a2 .dot2{background:var(--blue)}
-.anno-chip.a2::after{content:'';position:absolute;left:-34px;top:50%;width:34px;border-top:1.5px dashed var(--ink-ghost)}
+.anno-chip.a1::after{content:'';position:absolute;right:-34px;top:50%;width:34px;border-top:1.5px dashed var(--teal)}
+.anno-chip.a2{right:-30px;bottom:18%;background:var(--blue-lt);color:#fff}
+.anno-chip.a2::after{content:'';position:absolute;left:-34px;top:50%;width:34px;border-top:1.5px dashed var(--blue-lt)}
 
 /* Compact duo row — Doc Scan + Job intake, extracted cards side by side */
 .feat-duo{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-top:8px}
-.duo-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r3);padding:26px 24px;text-align:center}
+.duo-card{background:var(--navy-card);border:1px solid var(--on-navy-line);border-radius:var(--r3);padding:26px 24px;text-align:center;backdrop-filter:blur(6px)}
 .duo-card .crop-card{margin-bottom:18px}
-.duo-card h4{font-family:var(--fb);font-weight:800;font-size:16px;color:var(--ink);margin-bottom:8px}
-.duo-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;font-weight:500}
+.duo-card h4{font-family:var(--fb);font-weight:800;font-size:16px;color:var(--on-navy);margin-bottom:8px}
+.duo-card p{font-size:13.5px;color:var(--on-navy-soft);line-height:1.6;font-weight:500}
 
 @media(max-width:900px){
   .feat-row,.feat-row.rev{grid-template-columns:1fr;gap:28px;padding:36px 0}
@@ -410,7 +442,7 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
     </div>
   </section>
 
-  <section class="sec workflow" id="workflow">
+  <section class="sec workflow glow-l" id="workflow">
     <div class="sec-head">
       <div class="sec-kicker">How it works</div>
       <h2>Speak it once. Save it properly.</h2>
@@ -446,7 +478,7 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
     </div>
   </section>
 
-  <section class="sec features" id="features">
+  <section class="sec features glow-r" id="features">
     <div class="sec-head">
       <div class="sec-kicker">Features</div>
       <h2>Everything a job needs, in one place.</h2>
