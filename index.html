@@ -114,7 +114,31 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .nav-links a{font-size:14px;font-weight:700;color:var(--ink-soft);transition:color .15s}
 .nav-links a:hover{color:var(--ink)}
 .nav-r{display:flex;gap:10px;align-items:center}
-@media(max-width:900px){.nav-links{display:none}}
+
+/* ── Mobile nav — checkbox-driven, no framework needed for a page this
+   simple. .nav-links/.nav-login disappear under 900px (no room for them
+   in the bar) and are replaced by a burger button that reveals the same
+   links plus both CTAs as a full-width dropdown panel. */
+.nav-cb{display:none}
+.nav-burger{display:none;width:38px;height:38px;border-radius:var(--r1);align-items:center;justify-content:center;flex-shrink:0}
+.nav-burger:active{background:var(--line-lt)}
+.nav-burger svg{width:20px;height:20px}
+.nav-burger .ic-close{display:none}
+/* absolute, not a flex sibling of .nav-in — header.site-nav is itself
+   display:flex, so a plain in-flow sibling here would lay out as a flex
+   item BESIDE the nav row instead of a full-width panel below it. The
+   fixed-positioned header is already a containing block for this. */
+.nav-mobile{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--white);border-top:1px solid var(--line-lt);padding:8px 20px 20px;box-shadow:var(--sm);max-height:calc(100vh - 68px);overflow-y:auto}
+.nav-mobile a:not(.btn){padding:13px 2px;font-size:15px;font-weight:700;color:var(--ink-mid);border-bottom:1px solid var(--line-lt)}
+.nav-mobile .btn{width:100%;margin-top:10px}
+.nav-cb:checked ~ .nav-mobile{display:flex}
+.nav-cb:checked ~ .nav-in .nav-burger .ic-menu{display:none}
+.nav-cb:checked ~ .nav-in .nav-burger .ic-close{display:block}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+}
 @media(max-width:520px){.nav-in{padding:0 20px}.btn-outline-dark.nav-login{display:none}}
 
 /* ═══ HERO ═══
@@ -291,6 +315,7 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 <body>
 
 <header class="site-nav">
+  <input type="checkbox" id="nav-cb" class="nav-cb"/>
   <div class="nav-in">
     <a href="/" class="brand" aria-label="SoleTasker home">
       <img src="/assets/brand/logo.png" alt="SoleTasker" class="nav-logo"/>
@@ -305,9 +330,27 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
     <div class="nav-r">
       <a href="https://app.soletasker.com.au" class="btn btn-outline-dark md nav-login">Log in</a>
       <a href="https://app.soletasker.com.au/signup" class="btn btn-teal md">Start free trial</a>
+      <label for="nav-cb" class="nav-burger" aria-label="Menu">
+        <svg class="ic-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </label>
     </div>
   </div>
+  <nav class="nav-mobile" aria-label="Mobile">
+    <a href="#features">Features</a>
+    <a href="#workflow">How it works</a>
+    <a href="#intake">Job intake</a>
+    <a href="/pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://app.soletasker.com.au" class="btn btn-outline-dark md">Log in</a>
+    <a href="https://app.soletasker.com.au/signup" class="btn btn-teal md">Start free trial</a>
+  </nav>
 </header>
+<script>
+// Close the mobile nav panel after tapping a link inside it — a checkbox
+// toggle alone doesn't know a same-page anchor was just followed.
+document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click",()=>{document.getElementById("nav-cb").checked=false}));
+</script>
 
 <main>
   <section class="hero">
