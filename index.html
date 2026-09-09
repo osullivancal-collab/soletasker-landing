@@ -134,7 +134,7 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
    in the bar) and are replaced by a burger button that reveals the same
    links plus both CTAs as a full-width dropdown panel. */
 .nav-cb{display:none}
-.nav-burger{display:none;width:38px;height:38px;border-radius:var(--r1);align-items:center;justify-content:center;flex-shrink:0}
+.nav-burger{display:none;width:38px;height:38px;border-radius:var(--r1);align-items:center;justify-content:center;flex-shrink:0;color:var(--ink);border:1px solid var(--line)}
 .nav-burger:active{background:var(--line-lt)}
 .nav-burger svg{width:20px;height:20px}
 .nav-burger .ic-close{display:none}
@@ -174,44 +174,28 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .hero-trust b{color:var(--on-navy-mid);font-weight:800}
 .hero-trust .sep{color:rgba(255,255,255,.2)}
 
-/* ── Hero product visual: one full phone (not two overlapping — that was
-     the old design's actual problem), plus a small floating capture-result
-     card as a satellite annotation. No light/dark toggle on the mockup:
-     the app itself has no dark mode today, so a toggle here would show a
-     UI state that doesn't exist in the real product. */
-.hero-stage{position:relative;justify-self:end}
-.hero-phone{width:270px}
+/* ── Hero product visual: two real screenshots only. A hand-coded
+     "capture result" card used to float here; it was removed because it
+     was fabricated UI — no such card exists in SoleTasker — and it also
+     covered the phone's own content on mobile. Everything on this page is
+     now a genuine screen from the app. */
+.hero-stage{position:relative;justify-self:end;display:flex;align-items:flex-end;justify-content:center}
+/* Two REAL screens — Home in front, the saved Task detail stepped in behind
+   it. No hand-drawn card floats over either: everything shown here is an
+   actual screenshot of the app, and neither one covers the other's content. */
+.hero-phone{width:248px;flex-shrink:0}
+.hero-phone-back{width:212px;transform:translateX(30px) translateY(-26px) rotate(3deg);opacity:.92}
+.hero-phone-front{position:relative;z-index:2}
 
-.capture-card{position:absolute;left:-64px;bottom:34px;z-index:3;background:var(--white);border-radius:var(--r4);padding:18px 18px 20px;box-shadow:0 24px 56px rgba(5,12,20,.38);width:280px}
-.capture-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.capture-mic{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--teal));display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.capture-mic svg{width:16px;height:16px}
-.capture-label{font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--ink-ghost)}
-.capture-wave{display:flex;align-items:center;gap:2.5px;height:16px;margin-top:3px}
-.capture-wave span{width:2.5px;border-radius:2px;background:var(--teal);animation:cwave 1.1s ease-in-out infinite}
-.capture-wave span:nth-child(1){height:5px;animation-delay:0s}
-.capture-wave span:nth-child(2){height:13px;animation-delay:.1s}
-.capture-wave span:nth-child(3){height:9px;animation-delay:.2s}
-.capture-wave span:nth-child(4){height:16px;animation-delay:.3s}
-.capture-wave span:nth-child(5){height:7px;animation-delay:.4s}
-@keyframes cwave{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
-.capture-quote{font-size:15px;line-height:1.5;color:var(--ink);font-weight:700;margin-bottom:14px}
-.capture-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
-.capture-chip{font-size:10.5px;font-weight:800;padding:5px 10px;border-radius:999px}
-.capture-chip.task{background:var(--teal-lt);color:var(--teal-dk)}
-.capture-chip.job{background:#EAF0FF;color:var(--blue-dk)}
-.capture-result{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--line-lt)}
-.capture-result .ok{width:20px;height:20px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.capture-result .ok svg{width:11px;height:11px}
-.capture-result-t{font-size:12.5px;font-weight:700;color:var(--ink-mid)}
-.capture-result-t b{color:var(--ink);font-weight:800}
+
 
 @media(max-width:900px){
   .hero{padding:120px 24px 100px}
   .hero-in{grid-template-columns:1fr;gap:36px;text-align:left}
   .hero-wave{opacity:.5;top:-20px}
-  .hero-stage{justify-self:center;padding-bottom:70px}
-  .capture-card{left:50%;bottom:0;transform:translateX(-50%);width:calc(100vw - 88px);max-width:320px}
+  .hero-stage{justify-self:center}
+  .hero-phone-back{display:none}
+  .hero-phone{width:250px}
 }
 
 /* ═══ SECTION SCAFFOLDING ═══
@@ -316,8 +300,8 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 .feat-points .tick svg{width:10px;height:10px}
 .feat-visual{position:relative;display:flex;justify-content:center}
 
-/* Flagship annotation chips — smaller sibling of the hero's .capture-card,
-   same card language, tethered to the phone with a short connector line. */
+/* Flagship annotation chips — a label tethered to the exact spot on the
+   real screenshot it describes, per reference image 4's callout pattern. */
 .anno-chip{position:absolute;display:flex;align-items:center;gap:8px;background:var(--teal);border-radius:var(--r1);padding:7px 13px;box-shadow:0 8px 22px rgba(0,0,0,.4);font-size:12.5px;font-weight:800;color:#062B23;white-space:nowrap}
 .anno-chip .dot2{display:none}
 .anno-chip.a1{left:-26px;top:22%}
@@ -416,26 +400,14 @@ document.querySelectorAll(".nav-mobile a").forEach(a=>a.addEventListener("click"
       </div>
 
       <div class="hero-stage">
-        <div class="phone-mock hero-phone">
+        <div class="phone-mock hero-phone hero-phone-back">
           <div class="phone-screen">
-            <img src="/assets/screens/home.png" alt="SoleTasker Home screen showing Voice Capture and today's open tasks" width="390" height="844" loading="eager"/>
+            <img src="/assets/screens/task-detail.png" alt="A saved SoleTasker task showing priority, assignee and the job it is linked to" width="390" height="844" loading="eager"/>
           </div>
         </div>
-
-        <div class="capture-card">
-          <div class="capture-top">
-            <div class="capture-mic" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3z"/><path d="M19 11a7 7 0 01-14 0M12 18v3"/></svg>
-            </div>
-            <div>
-              <div class="capture-label">Speak it</div>
-              <div class="capture-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div class="capture-quote">&ldquo;Order two more downlights for the Ivanhoe rewire, mark it high priority.&rdquo;</div>
-          <div class="capture-result">
-            <div class="ok" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-            <div class="capture-result-t">Saved as <b>P1 task</b>, linked to the job.</div>
+        <div class="phone-mock hero-phone hero-phone-front">
+          <div class="phone-screen">
+            <img src="/assets/screens/home.png" alt="SoleTasker Home screen showing Voice Capture and today's open tasks" width="390" height="844" loading="eager"/>
           </div>
         </div>
       </div>
