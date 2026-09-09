@@ -14,8 +14,8 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="SoleTasker — Voice to Task for Tradies"/>
 <meta name="twitter:description" content="Speak it, and SoleTasker turns it into a task, job note or reminder — voice-first job management for Australian tradies."/>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C2B3A'/%3E%3Crect x='10' y='8' width='3' height='16' rx='1.5' fill='%232CB99D'/%3E%3Crect x='15' y='5' width='3' height='22' rx='1.5' fill='%232196F3'/%3E%3Crect x='20' y='10' width='3' height='12' rx='1.5' fill='%232CB99D'/%3E%3C/svg%3E"/>
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C2B3A'/%3E%3Crect x='10' y='8' width='3' height='16' rx='1.5' fill='%232CB99D'/%3E%3Crect x='15' y='5' width='3' height='22' rx='1.5' fill='%232196F3'/%3E%3Crect x='20' y='10' width='3' height='12' rx='1.5' fill='%232CB99D'/%3E%3C/svg%3E"/>
+<link rel="icon" type="image/png" href="/assets/brand/favicon.png"/>
+<link rel="apple-touch-icon" href="/assets/brand/favicon.png"/>
 <style>
 /* ═══ FONTS — self-hosted, not the Google Fonts CDN ═══
    Same two families the site already uses (Bebas Neue display + Nunito
@@ -108,10 +108,8 @@ p{text-wrap:pretty}
 [id]{scroll-margin-top:76px}
 header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;display:flex;align-items:center;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line-lt)}
 .nav-in{max-width:1160px;margin:0 auto;padding:0 32px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:32px}
-.brand{display:flex;align-items:center;gap:9px;font-family:var(--fh);font-size:22px;letter-spacing:.5px;color:var(--navy)}
-.brand-mark{display:flex;align-items:flex-end;gap:2px;height:22px}
-.brand-mark i{display:block;width:4px;border-radius:2px;background:linear-gradient(180deg,var(--blue),var(--teal))}
-.brand-mark i:nth-child(1){height:11px}.brand-mark i:nth-child(2){height:20px}.brand-mark i:nth-child(3){height:15px}
+.brand{display:flex;align-items:center}
+.nav-logo{height:26px;width:auto;display:block}
 .nav-links{display:flex;gap:30px}
 .nav-links a{font-size:14px;font-weight:700;color:var(--ink-soft);transition:color .15s}
 .nav-links a:hover{color:var(--ink)}
@@ -231,8 +229,7 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;disp
 <header class="site-nav">
   <div class="nav-in">
     <a href="/" class="brand" aria-label="SoleTasker home">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-      SoleTasker
+      <img src="/assets/brand/logo.png" alt="SoleTasker" class="nav-logo"/>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#features">Features</a>
