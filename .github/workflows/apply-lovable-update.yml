@@ -10,6 +10,7 @@ on:
       - scripts/apply_real_cost_and_typography.py
       - scripts/patch_final_cta.py
       - scripts/patch_home_cta_brand_titles.py
+      - scripts/patch_brand_consistency.py
       - .github/workflows/apply-lovable-update.yml
   workflow_dispatch:
 
@@ -35,6 +36,8 @@ jobs:
         run: python scripts/patch_final_cta.py
       - name: Apply Home terminology and brand title rules
         run: python scripts/patch_home_cta_brand_titles.py
+      - name: Apply canonical logo and brand colour consistency
+        run: python scripts/patch_brand_consistency.py
       - name: Commit generated index
         run: |
           if git diff --quiet -- index.html; then
