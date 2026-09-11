@@ -1,0 +1,36 @@
+name: Apply light finishers section
+
+on:
+  push:
+    branches:
+      - live/light-finishers-section
+    paths:
+      - scripts/patch_finishers_section.py
+      - .github/workflows/apply-light-finishers.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: live/light-finishers-section
+          fetch-depth: 0
+      - name: Apply targeted section update
+        run: python scripts/patch_finishers_section.py
+      - name: Commit generated index
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No index changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Refresh review future work and SWMS section"
+          git push origin HEAD:live/light-finishers-section
