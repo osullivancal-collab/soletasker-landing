@@ -3,7 +3,7 @@ from pathlib import Path
 path = Path('index.html')
 html = path.read_text(encoding='utf-8')
 
-# Keep final CTA within the established SoleTasker type scale.
+# Keep the final CTA within SoleTasker's existing typography scale.
 html = html.replace(
     ".close-sec{\n  background:var(--navy);padding:100px 32px;",
     ".close-sec{\n  background:var(--navy);padding:78px 32px;"
@@ -17,38 +17,27 @@ html = html.replace(
     "font-size:17px;color:rgba(255,255,255,.62);\n  max-width:620px;margin:0 auto 32px;line-height:1.68;"
 )
 
-old = '''<section class="close-sec">
+# Replace only the final closing section content. Keep the original title and CTA language.
+start_marker = '<section class="close-sec">'
+if start_marker not in html:
+    raise SystemExit('Final CTA section not found')
+start = html.index(start_marker)
+end = html.index('</section>', start) + len('</section>')
+
+new = '''<section class="close-sec">
   <div class="rev">
     <h2 class="close-h">
       Say it.<br/>It's done.<br/>
       <span class="a">Not forgotten.</span>
     </h2>
     <p class="close-p">
-      Speak the job. It's captured. Tasks created. Nothing slips. No more invoices forgotten. No more jobs lost in your head.
+      Running a small trade business already means carrying enough. SoleTasker gives the admin somewhere to land, so work keeps moving, follow-ups happen when they should, and the important things aren't left relying on memory.
     </p>
     <a href="https://app.soletasker.com.au/signup" class="btn-teal lg" style="display:inline-flex;margin:0 auto">Count Me In</a>
     <p class="close-tagline"><span>say it once</span> · done · not forgotten</p>
   </div>
 </section>'''
 
-new = '''<section class="close-sec">
-  <div class="rev">
-    <span class="s-eyebrow" style="color:var(--teal);margin-bottom:14px">LIGHTWEIGHT BY DESIGN</span>
-    <h2 class="close-h">
-      KEEP THE JOB ADMIN<br/>
-      <span class="a">OUT OF YOUR HEAD.</span>
-    </h2>
-    <p class="close-p">
-      SoleTasker gives tasks, reminders, job notes, photos and follow-ups one place to live. Capture them as they come up, link them to the job, assign the action and come back to it when it's time.
-    </p>
-    <a href="https://app.soletasker.com.au/signup" class="btn-teal lg" style="display:inline-flex;margin:0 auto">Start free trial</a>
-    <p class="close-tagline"><span>7 days free</span> · no card required</p>
-  </div>
-</section>'''
-
-if old not in html:
-    raise SystemExit('Final CTA block not found')
-
-html = html.replace(old, new, 1)
+html = html[:start] + new + html[end:]
 path.write_text(html, encoding='utf-8')
-print('Updated final CTA copy and reduced typography')
+print('Restored final CTA title and updated closing business-value copy')
