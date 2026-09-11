@@ -12,6 +12,7 @@ on:
       - scripts/patch_home_cta_brand_titles.py
       - scripts/patch_brand_consistency.py
       - scripts/patch_intake_and_copy.py
+      - scripts/patch_smart_onsite.py
       - .github/workflows/apply-lovable-update.yml
   workflow_dispatch:
 
@@ -41,6 +42,8 @@ jobs:
         run: python scripts/patch_brand_consistency.py
       - name: Sharpen copy and rebuild Job Intake flow
         run: python scripts/patch_intake_and_copy.py
+      - name: Build interactive smart on-site tools
+        run: python scripts/patch_smart_onsite.py
       - name: Commit generated index
         run: |
           if git diff --quiet -- index.html; then
