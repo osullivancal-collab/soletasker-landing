@@ -1294,7 +1294,7 @@ if(!location.hash){window.scrollTo(0,0);}
       <div class="wf-n">4</div>
       <span class="wf-icon"></span>
       <div class="wf-title">Nothing falls through</div>
-      <p class="wf-body">The invoice follow-up. The quote you owe. The callback you meant to make. It stays there until it's done. You don't forget it because you can't — it's not in your head anymore.</p>
+      <p class="wf-body">Quotes, callbacks and follow-ups stay visible until they're handled. You can see what still needs action without carrying the whole job in your head.</p>
     </div>
   </div>
 
@@ -1350,106 +1350,52 @@ if(!location.hash){window.scrollTo(0,0);}
      JOB INTAKE — dark, high presence
 ══════════════════════════════════════ -->
 <section class="intake-sec" id="intake">
-  <div class="intake-inner w">
+  <style id="intake-flow-refresh">
+    .intake-sec{background:var(--navy);padding:92px 32px;position:relative;overflow:hidden}
+    .intake-sec:after{content:'';position:absolute;right:-140px;bottom:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(44,185,157,.08),transparent 66%);pointer-events:none}
+    .intake-refresh{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:.92fr 1.08fr;gap:72px;align-items:center;position:relative;z-index:1}
+    .intake-copy{max-width:520px}
+    .intake-eyebrow{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:16px}
+    .intake-h{font-family:var(--fh);font-size:clamp(46px,5.2vw,68px);line-height:.94;color:#fff;margin-bottom:22px}.intake-h .a{color:var(--teal)}
+    .intake-desc{font-size:17px;line-height:1.72;color:rgba(255,255,255,.66);margin-bottom:28px}.intake-desc strong{color:#fff;font-weight:800}
+    .intake-steps{display:grid;gap:12px}.intake-step{display:grid;grid-template-columns:34px 1fr;gap:13px;align-items:start;padding:13px 0;border-top:1px solid rgba(255,255,255,.09)}.intake-step:first-child{border-top:0}.intake-n{width:28px;height:28px;border:1px solid rgba(44,185,157,.35);border-radius:50%;display:grid;place-items:center;color:var(--teal);font-size:12px;font-weight:900}.intake-step h3{color:#fff;font-size:15px;margin:2px 0 3px}.intake-step p{color:rgba(255,255,255,.52);font-size:13px;line-height:1.5}
 
-    <div class="rev">
-      <span class="intake-eyebrow">★ &nbsp;Major feature — Job intake link</span>
-      <h2 class="intake-h">
-        Send a link.<br/>
-        Client fills<br/>
-        it in.<br/>
-        <span class="a">You're done.</span>
-      </h2>
-      <p class="intake-desc">
-        Stop taking jobs over the phone and hoping you wrote everything down. Send clients a link — they fill in the address, describe the job, and upload their own photos.
-        <strong>A fully structured job card is waiting on Home before you've even called them back.</strong>
-      </p>
-
+    .intake-flow-demo{border:1px solid rgba(255,255,255,.12);border-radius:24px;background:rgba(255,255,255,.035);padding:26px;box-shadow:0 24px 60px rgba(0,0,0,.18);position:relative;overflow:hidden}
+    .flow-label{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:11px}
+    .flow-link{display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:13px 14px;margin-bottom:18px;color:#243247;position:relative}.flow-url{font-size:12px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#53617c}.flow-send{background:var(--teal);color:#fff;border-radius:10px;padding:9px 13px;font-size:11px;font-weight:900;position:relative;overflow:visible}.flow-send:after{content:'';position:absolute;inset:-7px;border:2px solid rgba(44,185,157,.45);border-radius:14px;animation:intakeTap 2.8s ease-out infinite}
+    .flow-status{display:flex;align-items:center;gap:9px;color:var(--teal);font-size:12px;font-weight:850;margin:0 0 18px;opacity:.35;animation:intakeStatus 5.6s ease-in-out infinite}.flow-status-dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
+    .flow-home{background:#fff;border-radius:16px;overflow:hidden;transform:translateY(18px);opacity:.3;animation:intakeHome 5.6s ease-in-out infinite}.flow-home-head{background:#15283a;padding:11px 14px;display:flex;align-items:center;justify-content:space-between}.flow-home-head span:first-child{font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.58)}.flow-home-head span:last-child{font-size:10px;font-weight:900;color:var(--teal)}.flow-request{padding:16px;display:flex;align-items:center;gap:12px}.flow-avatar{width:38px;height:38px;border-radius:50%;background:#497f72;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;flex:0 0 auto}.flow-request-body{min-width:0;flex:1}.flow-request-name{font-size:14px;font-weight:900;color:#1f2b3a;margin-bottom:2px}.flow-request-meta{font-size:11px;color:#7c8795;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.flow-review{border:1px solid #f2a11d;color:#e18d08;border-radius:8px;padding:7px 10px;font-size:10px;font-weight:900;white-space:nowrap}
+    .flow-caption{text-align:center;color:rgba(255,255,255,.46);font-size:12px;margin-top:16px}.flow-caption strong{color:var(--teal)}
+    @keyframes intakeTap{0%,18%{transform:scale(.8);opacity:0}26%{opacity:1}42%{transform:scale(1.08);opacity:0}100%{opacity:0}}
+    @keyframes intakeStatus{0%,28%{opacity:.25;transform:translateY(4px)}38%,72%{opacity:1;transform:translateY(0)}84%,100%{opacity:.25;transform:translateY(4px)}}
+    @keyframes intakeHome{0%,38%{opacity:.25;transform:translateY(18px)}48%,82%{opacity:1;transform:translateY(0)}94%,100%{opacity:.25;transform:translateY(18px)}}
+    @media(max-width:900px){.intake-refresh{grid-template-columns:1fr;gap:44px}.intake-copy{max-width:650px}}
+    @media(max-width:640px){.intake-sec{padding:68px 24px}.intake-h{font-size:46px}.intake-desc{font-size:16px}.intake-flow-demo{padding:19px;border-radius:20px}.flow-link{padding:11px 11px}.flow-url{font-size:11px}.flow-send{padding:8px 10px}.flow-request{padding:13px}.flow-request-name{font-size:13px}.flow-request-meta{font-size:10px}}
+    @media(prefers-reduced-motion:reduce){.flow-send:after,.flow-status,.flow-home{animation:none!important}.flow-status,.flow-home{opacity:1;transform:none}}
+  </style>
+  <div class="intake-refresh">
+    <div class="intake-copy rev">
+      <span class="intake-eyebrow">Job intake link</span>
+      <h2 class="intake-h">Send a link.<br/>Client fills it in.<br/><span class="a">You're done.</span></h2>
+      <p class="intake-desc">Send your intake link and let the client enter the address, job details and photos. <strong>The request lands on Home ready for review, with the information already together.</strong></p>
       <div class="intake-steps">
-        <div class="ist">
-          <div class="ist-n">1</div>
-          <div>
-            <div class="ist-title">You send the link</div>
-            <div class="ist-desc">One tap — SMS, WhatsApp, email. Five seconds. It's out.</div>
-          </div>
-        </div>
-        <div class="ist">
-          <div class="ist-n">2</div>
-          <div>
-            <div class="ist-title">Client fills in everything</div>
-            <div class="ist-desc">Address, what needs doing, photos of the problem — they do the data entry at their end.</div>
-          </div>
-        </div>
-        <div class="ist">
-          <div class="ist-n">3</div>
-          <div>
-            <div class="ist-title">Structured job card waiting for you</div>
-            <div class="ist-desc">Review it, add a voice note, and get started. All the details are already there — exactly where they need to be.</div>
-          </div>
-        </div>
+        <div class="intake-step"><div class="intake-n">1</div><div><h3>Send the link</h3><p>Share it by SMS, WhatsApp or email.</p></div></div>
+        <div class="intake-step"><div class="intake-n">2</div><div><h3>Client adds the details</h3><p>Address, job description and photos come back together.</p></div></div>
+        <div class="intake-step"><div class="intake-n">3</div><div><h3>Review it on Home</h3><p>Open the request, check the details and move into the job.</p></div></div>
       </div>
-
     </div>
 
-    <!-- intake form visual -->
-    <div class="rev" style="transition-delay:.12s">
-
-      <!-- CARD 1: What the client sees -->
-      <p style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">What the client sees</p>
-      <div class="intake-form-card" style="padding:20px;margin-bottom:16px">
-        <div class="ifc-top">
-          <div class="ifc-av">ST</div>
-          <div style="flex:1">
-            <div class="ifc-name">Jake — Metro Electrical</div>
-            <div class="ifc-sub">Sent their unique intake link</div>
-          </div>
-          <span class="ifc-new">New job</span>
-        </div>
-        <div class="ifc-fields">
-          <div class="ifc-f"><div class="ifc-fl">Your name</div><div class="ifc-fv">Sarah Thornton</div></div>
-          <div class="ifc-f"><div class="ifc-fl">Job address</div><div class="ifc-fv">14 Webb Street, Northbridge WA 6003</div></div>
-          <div class="ifc-f"><div class="ifc-fl">What needs doing?</div><div class="ifc-fv">Switchboard upgrade + 3 new power points in kitchen. Photos attached.</div></div>
-        </div>
-        <div class="ifc-photos">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          4 photos attached by client
-        </div>
+    <div class="intake-flow-demo rev" style="transition-delay:.12s" aria-label="Animated SoleTasker job intake flow">
+      <div class="flow-label">Send your intake link</div>
+      <div class="flow-link"><span aria-hidden="true">↗</span><div class="flow-url">soletasker.app/i/calec-electrical</div><div class="flow-send">Send</div></div>
+      <div class="flow-status"><span class="flow-status-dot"></span><span>Client submitted job details + photos</span></div>
+      <div class="flow-label">What appears on Home</div>
+      <div class="flow-home">
+        <div class="flow-home-head"><span>Home</span><span>Job request ready</span></div>
+        <div class="flow-request"><div class="flow-avatar">ST</div><div class="flow-request-body"><div class="flow-request-name">Sarah Thornton</div><div class="flow-request-meta">14 Webb St · 4 photos · Switchboard upgrade</div></div><div class="flow-review">Review →</div></div>
       </div>
-
-      <!-- CARD 2: What you see on Home -->
-      <p style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">What you see on Home</p>
-      <div style="background:var(--bg);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sl)">
-        <div style="background:var(--navy);padding:10px 16px;display:flex;align-items:center;justify-content:space-between">
-          <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase">Home</span>
-          <span style="font-size:11px;font-weight:800;color:var(--teal)">Job ready ✓</span>
-        </div>
-        <div style="padding:14px 16px">
-          <div style="font-size:11px;font-weight:800;color:var(--amber);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">⏳ Pending (2)</div>
-          <!-- Sarah -->
-          <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)">
-            <div style="width:32px;height:32px;border-radius:50%;background:#4A7A6D;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--white);flex-shrink:0">ST</div>
-            <div style="flex:1">
-              <div style="font-size:13px;font-weight:700;color:var(--ink)">Sarah Thornton</div>
-              <div style="font-size:11px;color:var(--ink-soft)">14 Webb St · 4 photos</div>
-            </div>
-            <span style="font-size:11px;font-weight:800;color:var(--amber);border:1.5px solid var(--amber);border-radius:6px;padding:4px 10px;white-space:nowrap">Review →</span>
-          </div>
-          <!-- Dave -->
-          <div style="display:flex;align-items:center;gap:10px;padding:10px 0">
-            <div style="width:32px;height:32px;border-radius:50%;background:#3A6B8A;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--white);flex-shrink:0">DM</div>
-            <div style="flex:1">
-              <div style="font-size:13px;font-weight:700;color:var(--ink)">Dave Mitchell</div>
-              <div style="font-size:11px;color:var(--ink-soft)">23 Mayfield St · 2 photos</div>
-            </div>
-            <span style="font-size:11px;font-weight:800;color:var(--amber);border:1.5px solid var(--amber);border-radius:6px;padding:4px 10px;white-space:nowrap">Review →</span>
-          </div>
-        </div>
-      </div>
-
-      <p style="text-align:center;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-top:16px">Client fills it in → lands on Home ready to review</p>
-
+      <div class="flow-caption"><strong>Client fills it in</strong> → lands on Home ready to review</div>
     </div>
-
   </div>
 </section>
 
@@ -1575,8 +1521,7 @@ if(!location.hash){window.scrollTo(0,0);}
         SoleTasker was built by Calec Electrical — a working Australian electrical business — around the way we actually work: on site, in the van and on the phone. It gives us a simple place to capture jobs, tasks, reminders and site admin without turning the day into more software.
       </p>
 
-      <p style="font-size:17px;font-weight:800;color:var(--ink);border-left:4px solid var(--teal);padding:12px 18px;background:var(--bg);border-radius:0 var(--r1) var(--r1) 0;margin-bottom:24px">Get it out of your head and into something you won't forget.</p>
-      <div class="bbt-quote">
+            <div class="bbt-quote">
         <p>"Every app we tried was built for someone sitting at a desk. We're not at a desk. We're on site, in the van, on the phone. We needed something that worked the way we actually work. So we built it."</p>
         <cite>— Calec Electrical, the team behind SoleTasker</cite>
       </div>
