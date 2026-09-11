@@ -4,12 +4,13 @@ import re
 path = Path('index.html')
 html = path.read_text(encoding='utf-8')
 
-# Light-section title blue: keep the muted SoleTasker character but move it
-# visibly bluer than the old grey-blue #53617C.
-html = html.replace(':root{--sole-blue:#53617C}', ':root{--sole-blue:#405F8A}')
+# Light-section title blue: use the same deep SoleTasker blue family as the app,
+# rather than the previous grey-blue.
+html = html.replace(':root{--sole-blue:#53617C}', ':root{--sole-blue:#1B2B6B}')
+html = html.replace(':root{--sole-blue:#405F8A}', ':root{--sole-blue:#1B2B6B}')
 
 # Dark navy sections must never inherit the light-section Sole-blue heading rule.
-# Keep their main title white, while existing .a/.hl accent spans remain teal.
+# Keep their main title white, while existing teal accent spans remain teal.
 dark_override = '''
 /* Dark-section title contrast: white title, teal accent. */
 section[style*="background:var(--navy)"] h1,
@@ -38,4 +39,4 @@ if count:
     html = html.replace('opacity:.75', 'opacity:1', 1)
 
 path.write_text(html, encoding='utf-8')
-print('Applied brand title contrast, bluer light-section headings, and canonical logo reference')
+print('Applied canonical SoleTasker title blue, dark-section contrast, and canonical logo reference')
