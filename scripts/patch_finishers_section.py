@@ -13,7 +13,7 @@ section_end = html.index('</section>', section_start) + len('</section>')
 
 new_section = r'''<section class="site-finishers-sec" style="background:var(--white);padding:74px 24px 82px">
   <div style="max-width:760px;margin:0 auto">
-    <h2 style="font-family:var(--fh);font-size:clamp(48px,6vw,68px);color:var(--teal);line-height:.94;letter-spacing:.4px;margin:0 0 34px">SWMS.</h2>
+    <h2 style="font-family:var(--fh);font-size:clamp(48px,6vw,68px);color:var(--navy);line-height:.94;letter-spacing:.4px;margin:0 0 34px">WHILE YOU'RE STILL ON SITE.<span style="display:block;color:var(--teal)">REQUEST THE REVIEW. TAG THE FUTURE WORK. SEND THE SWMS.</span></h2>
 
     <p style="font-size:clamp(17px,2vw,21px);color:#70798a;line-height:1.72;margin:0 0 42px;max-width:700px">Customer mentioned an EV charger or switchboard upgrade? Tag it before you leave — it'll be waiting when things go quiet.</p>
 
