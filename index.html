@@ -1057,6 +1057,22 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 @media(max-width:640px){.product-mock-deck{gap:0}.product-mock-deck .screen-card{width:200px}.mock-phone{height:402px}.myday-feature{padding:68px 24px 64px}.myday-feature h2{font-size:48px}.myday-lead{font-size:15.5px}.myday-points li{font-size:14px}.myday-device{width:264px;height:518px}.myday-cta{width:100%}}
 </style>
 
+
+<style id="sole-blue-title-rule">
+:root{--sole-blue:#53617C}
+section:not(.hero):not(.intake-sec):not(.myday-feature):not(.lovable-real-cost):not(.close-sec) h1,
+section:not(.hero):not(.intake-sec):not(.myday-feature):not(.lovable-real-cost):not(.close-sec) h2,
+section:not(.hero):not(.intake-sec):not(.myday-feature):not(.lovable-real-cost):not(.close-sec) h3,
+section:not(.hero):not(.intake-sec):not(.myday-feature):not(.lovable-real-cost):not(.close-sec) h4{
+  color:var(--sole-blue)!important;
+}
+/* Keep teal accent spans/labels teal when nested inside a blue title. */
+section h1 .a,section h2 .a,section h3 .a,section h4 .a,
+section h1 .hl,section h2 .hl,section h3 .hl,section h4 .hl{
+  color:var(--teal)!important;
+}
+</style>
+
 </head>
 <body>
 <script>
@@ -1334,7 +1350,7 @@ if(!location.hash){window.scrollTo(0,0);}
       </h2>
       <p class="intake-desc">
         Stop taking jobs over the phone and hoping you wrote everything down. Send clients a link — they fill in the address, describe the job, and upload their own photos.
-        <strong>A fully structured job card is waiting in your dashboard before you've even called them back.</strong>
+        <strong>A fully structured job card is waiting on Home before you've even called them back.</strong>
       </p>
 
       <div class="intake-steps">
@@ -1361,7 +1377,6 @@ if(!location.hash){window.scrollTo(0,0);}
         </div>
       </div>
 
-      <a href="https://app.soletasker.com.au/signup" class="btn-teal lg">Get Started</a>
     </div>
 
     <!-- intake form visual -->
@@ -1389,11 +1404,11 @@ if(!location.hash){window.scrollTo(0,0);}
         </div>
       </div>
 
-      <!-- CARD 2: What you see in your dashboard -->
-      <p style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">What you see in your dashboard</p>
+      <!-- CARD 2: What you see on Home -->
+      <p style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px">What you see on Home</p>
       <div style="background:var(--bg);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sl)">
         <div style="background:var(--navy);padding:10px 16px;display:flex;align-items:center;justify-content:space-between">
-          <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase">Dashboard</span>
+          <span style="font-size:11px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase">Home</span>
           <span style="font-size:11px;font-weight:800;color:var(--teal)">Job ready ✓</span>
         </div>
         <div style="padding:14px 16px">
@@ -1419,7 +1434,7 @@ if(!location.hash){window.scrollTo(0,0);}
         </div>
       </div>
 
-      <p style="text-align:center;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-top:16px">Client fills it in → lands in your dashboard ready to review</p>
+      <p style="text-align:center;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-top:16px">Client fills it in → lands on Home ready to review</p>
 
     </div>
 
