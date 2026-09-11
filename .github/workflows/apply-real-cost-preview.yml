@@ -1,0 +1,33 @@
+name: Apply real cost preview
+
+on:
+  push:
+    branches:
+      - preview/real-cost-lovable
+    paths:
+      - scripts/patch_real_cost_section.py
+      - .github/workflows/apply-real-cost-preview.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview/real-cost-lovable
+          fetch-depth: 0
+      - run: python scripts/patch_real_cost_section.py
+      - run: |
+          if git diff --quiet -- index.html; then
+            echo "No index changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Preview Lovable real-cost section"
+          git push origin HEAD:preview/real-cost-lovable
