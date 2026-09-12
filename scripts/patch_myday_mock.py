@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 path = Path('index.html')
 html = path.read_text(encoding='utf-8')
@@ -55,5 +56,32 @@ html = html.replace(
       <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS</span>'''
 )
 
+# Small copy cleanup requested after mobile review.
+old_trust = '<span class="htrust">7 days free · No card required</span>'
+new_trust = '<span class="htrust">7 days free · Then $29/month ex GST · No card required</span>'
+if old_trust in html:
+    html = html.replace(old_trust, new_trust, 1)
+elif new_trust not in html:
+    raise SystemExit('Hero trust line not found')
+
+html = html.replace('<li>Overdue, today and coming up, grouped for you.</li>', '', 1)
+
+old_contact = '<p class="fc-sub" style="margin-bottom:16px">Got questions about SoleTasker? Want a demo? Drop your details below and we\'ll reach out.</p>'
+new_contact = '<p class="fc-sub" style="margin-bottom:16px">Got a question about SoleTasker or a suggestion? Drop your details below and we\'ll get back to you.</p>'
+if old_contact in html:
+    html = html.replace(old_contact, new_contact, 1)
+elif new_contact not in html:
+    raise SystemExit('Contact-form intro copy not found')
+
+html, removed = re.subn(
+    r'\n\s*<p class="close-p">\s*Running a small trade business already means carrying enough\..*?</p>',
+    '',
+    html,
+    count=1,
+    flags=re.S,
+)
+if removed == 0 and '<p class="close-p">' in html:
+    raise SystemExit('Final CTA paragraph found but did not match expected copy')
+
 path.write_text(html, encoding='utf-8')
-print('Updated My Day mock, hero positioning and future work example')
+print('Updated My Day mock, hero copy and mobile copy cleanup')
