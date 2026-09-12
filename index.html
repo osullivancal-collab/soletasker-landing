@@ -554,16 +554,13 @@ nav{
 }
 
 /* ════════════════════════════════════
-   BUILT BY TRADIES + FORM
-   Two-column: story left, form right
+   BUILT BY TRADIES + CONTACT STRIP
 ════════════════════════════════════ */
 .bbt-sec{
-  background:var(--bg);padding:100px 32px;
+  background:var(--bg);padding:82px 32px;
 }
 .bbt-inner{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:80px;align-items:start;
+  max-width:860px;margin:0 auto;
 }
 .bbt-left{}
 .bbt-head{
@@ -586,6 +583,18 @@ nav{
 .bbt-quote p{font-size:16px;color:var(--ink-mid);line-height:1.7;font-style:italic}
 .bbt-quote p strong{font-style:normal;font-weight:700;color:var(--ink)}
 .bbt-quote cite{display:block;margin-top:10px;font-size:13px;font-weight:800;color:var(--teal);font-style:normal}
+
+.contact-strip{margin-top:34px;background:var(--white);border:1px solid var(--line);border-radius:var(--r3);padding:24px 26px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:var(--sh)}
+.contact-strip-copy strong{display:block;font-size:17px;color:var(--ink);margin-bottom:4px}
+.contact-strip-copy span{display:block;font-size:14px;line-height:1.55;color:var(--ink-soft)}
+.contact-strip .btn-teal{white-space:nowrap;padding:12px 22px;border-radius:var(--r2)}
+
+/* One visible, natural-language trade list. Useful to people and crawlable. */
+.trade-fit-sec{background:var(--white);padding:46px 32px;border-bottom:1px solid var(--line)}
+.trade-fit-inner{max-width:1040px;margin:0 auto;text-align:center}
+.trade-fit-inner h2{font-family:var(--fh);font-size:clamp(30px,4vw,44px);line-height:1;color:var(--sole-blue);margin-bottom:12px}
+.trade-fit-inner p{max-width:900px;margin:0 auto;font-size:15px;line-height:1.75;color:var(--ink-soft)}
+.trade-fit-inner strong{color:var(--ink-mid)}
 
 .bbt-creds{display:flex;flex-wrap:wrap;gap:8px}
 .bbt-cred{
@@ -703,43 +712,43 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 /* ─── REAL VOICE CAPTURE DEMO ─── */
 .voice-capture-demo{max-width:520px;margin:0 auto 56px;position:relative}
 .vc-modal{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 46px rgba(28,43,58,.13);overflow:hidden}
-.vc-modal-head{height:58px;padding:0 18px 0 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.vc-modal-head{height:50px;padding:0 16px 0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
 .vc-modal-title{font-size:16px;font-weight:800;color:var(--ink)}
-.vc-close{width:34px;height:34px;border-radius:9px;background:var(--bg);display:grid;place-items:center;color:var(--ink-soft)}
+.vc-close{width:30px;height:30px;border-radius:8px;background:var(--bg);display:grid;place-items:center;color:var(--ink-soft)}
 .vc-close svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round}
-.vc-stage-wrap{position:relative;height:300px;background:var(--white)}
-.vc-stage{position:absolute;inset:0;padding:28px 28px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.vc-stage-wrap{position:relative;height:236px;background:var(--white)}
+.vc-stage{position:absolute;inset:0;padding:18px 24px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .vc-stage-idle{animation:vcIdle 8s ease-in-out infinite}
 .vc-stage-recording{opacity:0;visibility:hidden;animation:vcRecording 8s ease-in-out infinite}
 @keyframes vcIdle{0%,22%{opacity:1;visibility:visible}28%,94%{opacity:0;visibility:hidden}100%{opacity:1;visibility:visible}}
 @keyframes vcRecording{0%,22%{opacity:0;visibility:hidden}28%,94%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
-.vc-record-button{width:80px;height:80px;border-radius:50%;display:grid;place-items:center;color:#fff;border:0}
-.vc-record-button svg{width:32px;height:32px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.vc-record-button{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;color:#fff;border:0}
+.vc-record-button svg{width:27px;height:27px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .vc-record-button.idle{background:#1D6CE8;box-shadow:0 4px 20px rgba(29,108,232,.4);animation:vcTap 8s ease-in-out infinite}
 @keyframes vcTap{0%,12%,22%,100%{transform:scale(1)}16%{transform:scale(.9);box-shadow:0 2px 10px rgba(29,108,232,.3)}19%{transform:scale(1.05)}}
-.vc-idle-title{margin-top:16px;font-size:16px;font-weight:700;color:var(--ink)}
+.vc-idle-title{margin-top:12px;font-size:15px;font-weight:700;color:var(--ink)}
 .vc-idle-copy{margin-top:6px;font-size:13px;color:var(--ink-soft);line-height:1.6}
 .vc-idle-copy small{font-size:12px;color:var(--ink-ghost)}
-.vc-wave{height:36px;display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:10px}
+.vc-wave{height:30px;display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:7px}
 .vc-wave span{display:block;width:4px;height:var(--bar);border-radius:3px;background:#1D6CE8;animation:vcWave 1s ease-in-out infinite;animation-delay:var(--delay)}
 @keyframes vcWave{0%,100%{transform:scaleY(.28);opacity:.55}50%{transform:scaleY(1);opacity:1}}
-.vc-time{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:34px;font-weight:750;letter-spacing:-2px;line-height:1;color:#EF4444}
-.vc-listening{font-size:13px;color:var(--ink-soft);margin:6px 0 14px}
-.vc-record-button.stop{width:62px;height:62px;background:#EF4444;animation:vcPulse 1.4s ease-in-out infinite}
+.vc-time{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:29px;font-weight:750;letter-spacing:-2px;line-height:1;color:#EF4444}
+.vc-listening{font-size:12px;color:var(--ink-soft);margin:4px 0 10px}
+.vc-record-button.stop{width:50px;height:50px;background:#EF4444;animation:vcPulse 1.4s ease-in-out infinite}
 .vc-record-button.stop svg{width:24px;height:24px;fill:#fff;stroke:none}
 @keyframes vcPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.28)}50%{box-shadow:0 0 0 13px rgba(239,68,68,0)}}
-.vc-transcript{width:100%;margin-top:18px;padding:11px 13px;background:var(--bg);border-radius:9px;text-align:left;opacity:0;transform:translateY(5px);animation:vcTranscript 8s ease-in-out infinite}
+.vc-transcript{width:100%;margin-top:12px;padding:9px 12px;background:var(--bg);border-radius:9px;text-align:left;opacity:0;transform:translateY(5px);animation:vcTranscript 8s ease-in-out infinite}
 @keyframes vcTranscript{0%,43%{opacity:0;transform:translateY(5px)}50%,94%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(5px)}}
 .vc-transcript-label{font-size:10px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
-.vc-transcript-text{font-size:13px;color:var(--ink);line-height:1.55;font-style:italic}
-.vc-modal-foot{height:62px;padding:12px 18px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:flex-end;position:relative}
-.vc-foot-idle,.vc-foot-recording{position:absolute;right:18px;left:18px;display:flex;align-items:center}
+.vc-transcript-text{font-size:12.5px;color:var(--ink);line-height:1.45;font-style:italic}
+.vc-modal-foot{height:54px;padding:9px 16px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:flex-end;position:relative}
+.vc-foot-idle,.vc-foot-recording{position:absolute;right:16px;left:16px;display:flex;align-items:center}
 .vc-foot-idle{justify-content:flex-end;animation:vcIdle 8s ease-in-out infinite}
 .vc-foot-recording{opacity:0;visibility:hidden;animation:vcRecording 8s ease-in-out infinite}
-.vc-cancel{padding:10px 16px;border-radius:9px;background:var(--bg);color:var(--ink-mid);font-size:13px;font-weight:750}
-.vc-stop-wide{width:100%;padding:11px 16px;border-radius:9px;background:#EF4444;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:7px}
+.vc-cancel{padding:8px 14px;border-radius:8px;background:var(--bg);color:var(--ink-mid);font-size:12px;font-weight:750}
+.vc-stop-wide{width:100%;padding:9px 14px;border-radius:8px;background:#EF4444;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:7px}
 .vc-stop-wide::before{content:'';width:9px;height:9px;border-radius:2px;background:#fff}
-@media(max-width:640px){.voice-capture-demo{max-width:calc(100% - 8px);margin-bottom:52px}.vc-stage-wrap{height:310px}.vc-stage{padding:24px 20px 18px}.vc-modal-head{height:56px}.vc-transcript-text{font-size:12.5px}}
+@media(max-width:640px){.voice-capture-demo{max-width:calc(100% - 8px);margin-bottom:44px}.vc-stage-wrap{height:242px}.vc-stage{padding:18px 18px 14px}.vc-transcript-text{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.vc-stage-idle,.vc-foot-idle,.vc-record-button.idle{animation:none}.vc-stage-recording,.vc-foot-recording{display:none}.vc-wave span,.vc-record-button.stop,.vc-transcript{animation:none}}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s}
@@ -863,7 +872,6 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
   .workflow-steps::before{display:none}
   .intake-inner{grid-template-columns:1fr;gap:48px}
   .pain-inner{grid-template-columns:1fr;gap:48px}
-  .bbt-inner{grid-template-columns:1fr;gap:48px}
   .form-card{position:static}
 }
 @media(max-width:768px){
@@ -882,6 +890,10 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
   .hero-lead{font-size:17px;line-height:1.55}
   .workflow-steps{grid-template-columns:1fr}
   .form-card{padding:28px 20px}
+  .bbt-sec{padding:64px 22px}
+  .contact-strip{align-items:flex-start;flex-direction:column;padding:22px}
+  .contact-strip .btn-teal{width:100%;justify-content:center}
+  .trade-fit-sec{padding:38px 22px}
   .btn-outline.sm{display:none}
   footer{flex-direction:column;text-align:center}
   .flinks{justify-content:center}
@@ -937,7 +949,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
   "applicationCategory": "BusinessApplication",
   "applicationSubCategory": "TradeBusinessManagement",
   "operatingSystem": "Web, iOS, Android",
-  "description": "SoleTasker is an Australian voice-to-task app for tradespeople. Electricians, plumbers, builders, landscapers and other tradies speak job notes, tasks, invoices and reminders on-site — SoleTasker captures and structures them instantly. Built by Australian tradies, for Australian tradies.",
+  "description": "SoleTasker is an Australian voice-to-task app for tradespeople. Electricians, plumbers, builders, landscapers and other tradies speak job notes, tasks and reminders on site, then review and save them where they belong.",
   "url": "https://soletasker.com.au",
   "inLanguage": "en-AU",
   "audience": {
@@ -1234,7 +1246,7 @@ if(!location.hash){window.scrollTo(0,0);}
       <a href="/#intake">Job intake</a>
       <a href="/pricing">Pricing</a>
       <a href="/#faq-page">FAQ</a>
-      <a href="/#access">Contact us</a>
+      <a href="/contact">Contact us</a>
     </div>
     <div class="nav-r">
       <a href="https://app.soletasker.com.au" style="font-size:13px;font-weight:800;color:var(--ink);border:1.5px solid var(--line);border-radius:var(--r1);padding:9px 18px;margin-right:10px;white-space:nowrap;transition:all .15s" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink)'">Log in</a>
@@ -1251,7 +1263,7 @@ if(!location.hash){window.scrollTo(0,0);}
   <a href="/#intake" onclick="closeMenu()">Job intake</a>
   <a href="/pricing" onclick="closeMenu()">Pricing</a>
   <a href="/#faq-page" onclick="closeMenu()">FAQ</a>
-  <a href="/#access" onclick="closeMenu()">Contact us</a>
+  <a href="/contact" onclick="closeMenu()">Contact us</a>
   <a href="https://app.soletasker.com.au" onclick="closeMenu()" style="color:var(--navy);font-weight:800;border-top:1px solid var(--line);margin-top:8px;padding-top:16px">Log in to app →</a>
 </div>
 
@@ -1793,13 +1805,20 @@ if(!location.hash){window.scrollTo(0,0);}
     <h2 style="font-family:var(--fh);font-size:clamp(32px,5vw,56px);color:var(--white)!important;line-height:.93;margin-bottom:16px">See exactly how <span style="color:var(--teal)">tradies</span><br/>use SoleTasker <span style="color:var(--teal)">every day.</span></h2>
     <p style="font-size:16px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto">From finishing a cert on a Friday arvo to chasing a review on the way to the van. Every scenario. Every trade.</p>
     <a href="/use-cases" style="display:inline-flex;background:var(--teal);color:var(--white);font-family:var(--fb);font-weight:800;font-size:16px;padding:15px 32px;border-radius:var(--r3);text-decoration:none;transition:background .15s,transform .15s" onmouseover="this.style.background='var(--teal-dk)';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--teal)';this.style.transform='none'">See Use Cases →</a>
-    <p style="font-size:13px;color:rgba(255,255,255,.3);margin-top:14px">Electricians · Plumbers · Air Con · Builders · HVAC · Painters</p>
+  </div>
+</section>
+
+<section class="trade-fit-sec" aria-labelledby="trade-fit-title">
+  <div class="trade-fit-inner rev">
+    <p class="s-eyebrow">Built for Australian trades</p>
+    <h2 id="trade-fit-title">LIGHTWEIGHT JOB ADMIN ACROSS THE TRADES.</h2>
+    <p>SoleTasker suits <strong>electricians, plumbers, builders, carpenters, landscapers, painters, tilers, roofers, HVAC and air-conditioning technicians, refrigeration mechanics, solar installers, security installers</strong> and <strong>maintenance contractors</strong> who want simpler task and job management.</p>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════
-     BUILT BY TRADIES + FORM
+     BUILT BY TRADIES + CONTACT STRIP
 ══════════════════════════════════════ -->
 <section class="bbt-sec" id="access">
   <div class="bbt-inner w">
@@ -1813,48 +1832,16 @@ if(!location.hash){window.scrollTo(0,0);}
         SoleTasker was built by Calec Electrical — a working Australian electrical business — around the way we actually work: on site, in the van and on the phone. It gives us a simple place to capture jobs, tasks, reminders and site admin without turning the day into more software.
       </p>
 
-            <div class="bbt-quote">
+      <div class="bbt-quote">
         <p>"Every app we tried was built for someone sitting at a desk. We're not at a desk. We're on site, in the van, on the phone. We needed something that worked the way we actually work. So we built it."</p>
         <cite>— Calec Electrical, the team behind SoleTasker</cite>
       </div>
-    </div>
-
-    <!-- FORM — sticky right panel -->
-    <div class="rev" style="transition-delay:.14s">
-      <div class="form-card" id="signup-form">
-        <div class="fc-eyebrow">Questions?</div>
-        <h3 class="fc-title">Let's chat.</h3>
-        <p class="fc-sub" style="margin-bottom:16px">Got a question about SoleTasker or a suggestion? Drop your details below and we'll get back to you.</p>
-        <div style="background:rgba(44,185,157,.08);border:1px solid rgba(44,185,157,.18);border-radius:var(--r2);padding:12px 16px;margin-bottom:20px">
-          <p style="font-size:13px;color:var(--teal-dk);font-weight:700;margin:0">✓ We typically respond within 24 hours.</p>
+      <div class="contact-strip">
+        <div class="contact-strip-copy">
+          <strong>Questions or feedback?</strong>
+          <span>Contact SoleTasker and we’ll get back to you within one business day.</span>
         </div>
-        <form id="eaForm" action="https://soletasker.us3.list-manage.com/subscribe/post?u=0b8393d20f19aedd2e79388d8&amp;id=d367ba9c02&amp;f_id=0050c2e0f0" method="POST" target="_blank" onsubmit="handleSub(event)">
-          <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_0b8393d20f19aedd2e79388d8_d367ba9c02" tabindex="-1" value=""/></div>
-          <div class="ff">
-            <label class="fl">Your email address</label>
-            <input class="fi" type="email" name="EMAIL" id="mce-EMAIL" placeholder="jake@example.com.au" required/>
-          </div>
-          <div class="ff" style="margin-top:12px">
-            <label class="fl">Mobile number</label>
-            <input class="fi" type="tel" name="MOBILE" id="mce-MOBILE" placeholder="0400 000 000"/>
-          </div>
-          <div class="ff" style="margin-top:12px">
-            <label class="fl">Your trade</label>
-            <input class="fi" type="text" name="COMPANY" id="mce-COMPANY" placeholder="e.g. Electrician, Plumber, Painter" required/>
-          </div>
-          <div id="mce-responses">
-            <div id="mce-error-response" style="display:none"></div>
-            <div id="mce-success-response" style="display:none"></div>
-          </div>
-          <button type="submit" class="f-submit" style="margin-top:16px">Send Message →</button>
-          <p class="f-note">We'll get back to you within 24 hours.</p>
-        </form>
-
-        <div class="form-ok" id="formOk">
-          <div class="oico">✓</div>
-          <h3>Thanks for reaching out.</h3>
-          <p>We've got your message and we'll be in touch within 24 hours. <br/>Keep an eye on your inbox.</p>
-        </div>
+        <a href="/contact" class="btn-teal">Contact us →</a>
       </div>
     </div>
 
@@ -1877,8 +1864,6 @@ if(!location.hash){window.scrollTo(0,0);}
 
 
 
-<!-- AEO: Entity clarity for AI answer engines -->
-<p style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap" aria-hidden="true">SoleTasker is an Australian voice-to-task app built for tradespeople including electricians, plumbers, builders, landscapers, carpenters, and HVAC technicians. Tradies speak job notes, tasks, invoices, and reminders on-site and SoleTasker instantly captures and structures them. Built by Australian tradies, for Australian tradies. Available across Australia.</p>
 <footer style="background:var(--navy);padding:48px 32px 28px">
   <div style="max-width:1100px;margin:0 auto">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:28px">
@@ -1889,7 +1874,7 @@ if(!location.hash){window.scrollTo(0,0);}
           <a href="/#workflow" style="font-size:14px;color:rgba(255,255,255,.6)">How it works</a>
           <a href="/#intake" style="font-size:14px;color:rgba(255,255,255,.6)">Job intake</a>
           <a href="/#faq-page" style="font-size:14px;color:rgba(255,255,255,.6)">FAQ</a>
-          <a href="/#access" style="font-size:14px;color:rgba(255,255,255,.6)">Contact us</a>
+          <a href="/contact" style="font-size:14px;color:rgba(255,255,255,.6)">Contact us</a>
           <a href="/pricing" style="font-size:14px;color:rgba(255,255,255,.6)">Pricing</a>
         </div>
       </div>
@@ -1908,7 +1893,7 @@ if(!location.hash){window.scrollTo(0,0);}
         <div style="display:flex;flex-direction:column;gap:10px">
           <a href="/privacy" style="font-size:14px;color:rgba(255,255,255,.6)">Privacy Policy</a>
           <a href="/terms" style="font-size:14px;color:rgba(255,255,255,.6)">Terms of Service</a>
-          <a href="javascript:void(0)" onclick="document.getElementById('contact-page').style.display='block';document.getElementById('contact-page').scrollIntoView({behavior:'smooth'})" style="font-size:14px;color:rgba(255,255,255,.6)">Contact Us</a>
+          <a href="/contact" style="font-size:14px;color:rgba(255,255,255,.6)">Contact Us</a>
           <a href="javascript:void(0)" onclick="document.getElementById('faq-page').style.display='block';document.getElementById('faq-page').scrollIntoView({behavior:'smooth'})" style="font-size:14px;color:rgba(255,255,255,.6)">FAQ</a>
         </div>
       </div>
@@ -1924,18 +1909,6 @@ if(!location.hash){window.scrollTo(0,0);}
     </div>
   </div>
 </footer>
-<section id="contact-page" style="display:none;background:var(--bg);padding:80px 32px">
-  <div style="max-width:720px;margin:0 auto">
-    <h2 style="font-family:var(--fh);font-size:52px;color:var(--ink);margin-bottom:8px">Contact Us</h2>
-    <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:32px">Got a question, feedback, or want to talk about SoleTasker? We'd love to hear from you.</p>
-    <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:8px"><strong>Email:</strong> info@soletasker.com.au</p>
-    <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:8px"><strong>Business:</strong> SoleTasker.com.au</p>
-    <p style="font-size:15px;color:var(--ink-soft);line-height:1.8;margin-bottom:40px"><strong>Response time:</strong> Within 1 business day</p>
-    <a href="javascript:void(0)" onclick="document.getElementById('contact-page').style.display='none';window.scrollTo({top:0,behavior:'smooth'})" style="display:inline-block;font-size:14px;font-weight:700;color:var(--teal)">&#8592; Close</a>
-  </div>
-</section>
-
-
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer>
 /* ── BURGER ── */
 function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
@@ -1971,41 +1944,6 @@ document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
     el.style.transitionDelay=`${i*65}ms`;
   });
 });
-
-/* ── FORM ── */
-function handleSub(e){
-  e.preventDefault();
-  const form = document.getElementById('eaForm');
-  const emailInput = form.querySelector('[name="EMAIL"]');
-  const mobileInput = form.querySelector('[name="MOBILE"]');
-  const tradeInput = form.querySelector('[name="COMPANY"]');
-  if(!emailInput.value || !tradeInput.value){ return; }
-
-  // Use JSONP — required for Mailchimp cross-origin submission
-  const base = form.action.replace('/post?', '/post-json?');
-  const params = new URLSearchParams();
-  params.append('EMAIL', emailInput.value);
-  params.append('MOBILE', mobileInput.value);
-  params.append('COMPANY', tradeInput.value);
-  params.append('b_0b8393d20f19aedd2e79388d8_d367ba9c02', '');
-  params.append('c', 'mcCallback');
-
-  window.mcCallback = function(data){
-    form.style.display='none';
-    document.getElementById('formOk').style.display='block';
-    if(typeof gtag !== 'undefined'){
-      gtag('event','sign_up',{event_category:'early_access',event_label:'hero_form'});
-    }
-    document.body.removeChild(document.getElementById('mcScript'));
-  };
-
-  const old = document.getElementById('mcScript');
-  if(old){ document.body.removeChild(old); }
-  const script = document.createElement('script');
-  script.id = 'mcScript';
-  script.src = base + '&' + params.toString();
-  document.body.appendChild(script);
-}
 
 /* ── FAQ ACCORDION ── */
 function toggleFaq(btn){
@@ -2146,7 +2084,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 
     <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--line);text-align:center">
       <p style="font-size:15px;color:var(--ink-soft);margin-bottom:16px">Still have questions?</p>
-      <a href="javascript:void(0)" onclick="document.getElementById('faq-page').style.display='none';document.getElementById('contact-page').style.display='block';document.getElementById('contact-page').scrollIntoView({behavior:'smooth'})" style="display:inline-flex;background:var(--teal);color:var(--white);font-size:14px;font-weight:800;padding:12px 24px;border-radius:var(--r2);text-decoration:none">Contact Us</a>
+      <a href="/contact" style="display:inline-flex;background:var(--teal);color:var(--white);font-size:14px;font-weight:800;padding:12px 24px;border-radius:var(--r2);text-decoration:none">Contact Us</a>
     </div>
 
     <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">
