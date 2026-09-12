@@ -116,6 +116,7 @@ use_block = html[use_start:built_start]
 use_block = use_block.replace('background:var(--navy);padding:56px 32px;text-align:center', 'background:var(--white);padding:56px 32px;text-align:center', 1)
 use_block = use_block.replace('color:var(--white)!important', 'color:var(--sole-blue)!important', 1)
 use_block = use_block.replace('color:rgba(255,255,255,.55)', 'color:var(--ink-soft)', 1)
+use_block = use_block.replace('color:rgba(255,255,255,.3);margin-top:14px', 'color:var(--ink-ghost);margin-top:14px', 1)
 html = html[:use_start] + use_block + html[built_start:]
 
 # Give the Built by Tradies / Why We Built It section a very light blue-grey background
