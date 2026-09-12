@@ -3,7 +3,7 @@ name: Apply Lovable landing update
 on:
   push:
     branches:
-      - update/lovable-mocks-myday
+      - redesign/smart-tools-extracted-panels
     paths:
       - scripts/apply_lovable_update.py
       - scripts/patch_finishers_section.py
@@ -28,7 +28,7 @@ jobs:
       - name: Checkout branch
         uses: actions/checkout@v4
         with:
-          ref: update/lovable-mocks-myday
+          ref: redesign/smart-tools-extracted-panels
           fetch-depth: 0
       - name: Apply product mocks and My Day update
         run: python scripts/apply_lovable_update.py
@@ -60,4 +60,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           git commit -m "Update cumulative landing preview"
-          git push origin HEAD:update/lovable-mocks-myday
+          git push origin HEAD:redesign/smart-tools-extracted-panels
