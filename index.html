@@ -1042,6 +1042,51 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 .request-card{border:1px solid #e1e6ec;border-radius:10px;padding:9px}.request-card h4{font-size:8px;margin-bottom:5px}.request-card p{font-size:6.7px;line-height:1.45;color:#6f7c89}.request-actions{display:flex;gap:5px;margin-top:9px}
 .product-mock-deck .screen-cap{margin-top:13px}.product-mock-deck .sc-t{font-size:14px}.product-mock-deck .sc-d{font-size:11px;max-width:180px;margin:3px auto 0}
 
+/* Mock-only theme control. The surrounding website deliberately stays unchanged. */
+.mock-showcase{position:relative}
+.mock-theme-row{display:flex;justify-content:center;margin:-7px 0 14px}
+.mock-theme-toggle{display:inline-grid;grid-template-columns:1fr 1fr;gap:3px;padding:4px;border:1px solid #dce3ea;border-radius:999px;background:rgba(255,255,255,.96);box-shadow:0 10px 28px rgba(28,43,58,.13);font-family:var(--fb);cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.mock-theme-toggle:hover{transform:translateY(-1px);border-color:#bdc9d4;box-shadow:0 13px 32px rgba(28,43,58,.16)}
+.mock-theme-toggle:focus-visible{outline:3px solid rgba(44,185,157,.28);outline-offset:3px}
+.mock-theme-option{display:flex;align-items:center;justify-content:center;gap:6px;min-width:76px;padding:8px 12px;border-radius:999px;color:#718096;font-size:12px;font-weight:900;line-height:1;transition:background .2s,color .2s,box-shadow .2s}
+.mock-theme-option svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.mock-theme-toggle[data-theme="light"] .mock-theme-light{background:#f2f5f8;color:#1B2B6B;box-shadow:inset 0 0 0 1px rgba(27,43,107,.08)}
+.mock-theme-toggle[data-theme="dark"]{background:#101d30;border-color:#2b4267}
+.mock-theme-toggle[data-theme="dark"] .mock-theme-dark{background:#1c2e4a;color:#eef4ff;box-shadow:inset 0 0 0 1px rgba(99,151,255,.2)}
+.product-mock-deck .mock-phone,.product-mock-deck .mock-top,.product-mock-deck .mock-body,.product-mock-deck .mock-chip,.product-mock-deck .mock-row,.product-mock-deck .voice-box,.product-mock-deck .mock-field,.product-mock-deck .link-box,.product-mock-deck .request-card,.product-mock-deck .mock-btn{transition:background-color .28s,border-color .28s,color .28s,box-shadow .28s}
+.product-mock-deck[data-theme="dark"] .mock-phone{background:#0f1d2f;border-color:#2c4770;color:#eef3ff;box-shadow:0 20px 48px rgba(15,29,47,.34)}
+.product-mock-deck[data-theme="dark"] .mock-top{background:#172a44;border-color:#365986;color:#eef3ff}
+.product-mock-deck[data-theme="dark"] .mock-top small{color:#8795b1}
+.product-mock-deck[data-theme="dark"] .mock-body{min-height:calc(100% - 43px);background:#0f1d2f}
+.product-mock-deck[data-theme="dark"] .mock-chip{background:#14243a;border-color:#365986;color:#93a0bb}
+.product-mock-deck[data-theme="dark"] .mock-chip.active{background:#4b8df8;border-color:#4b8df8;color:#fff}
+.product-mock-deck[data-theme="dark"] .mock-row{background:#192d49;border-color:#365986;box-shadow:0 3px 8px rgba(0,0,0,.16)}
+.product-mock-deck[data-theme="dark"] .mock-title{color:#eef3ff}
+.product-mock-deck[data-theme="dark"] .mock-meta{color:#8795b1}
+.product-mock-deck[data-theme="dark"] .mock-pill{background:rgba(75,141,248,.17);color:#81adff}
+.product-mock-deck[data-theme="dark"] .mock-pill.red{background:rgba(239,68,68,.18);color:#ff858b}
+.product-mock-deck[data-theme="dark"] .mock-pill.green{background:rgba(44,185,157,.17);color:#63d3bd}
+.product-mock-deck[data-theme="dark"] .mock-pill.amber{background:rgba(245,158,11,.16);color:#f6bd58}
+.product-mock-deck[data-theme="dark"] .mock-pill.gray{background:#223754;color:#aab6cb}
+.product-mock-deck[data-theme="dark"] .mock-note,.product-mock-deck[data-theme="dark"] .mock-label{color:#8290aa}
+.product-mock-deck[data-theme="dark"] .voice-box{background:#142844;border-color:#41699f}
+.product-mock-deck[data-theme="dark"] .voice-copy{color:#c7d1e3}
+.product-mock-deck[data-theme="dark"] .mock-field{background:#192d49;border-color:#365986}
+.product-mock-deck[data-theme="dark"] .mock-field .lbl{color:#8492ad}
+.product-mock-deck[data-theme="dark"] .mock-field .val{color:#eef3ff}
+.product-mock-deck[data-theme="dark"] .mock-field.notes .val{color:#b2bdd1}
+.product-mock-deck[data-theme="dark"] .link-box{background:#142844;border-color:#41699f}
+.product-mock-deck[data-theme="dark"] .link-row{color:#75a8ff}
+.product-mock-deck[data-theme="dark"] .request-card{background:#192d49;border-color:#365986}
+.product-mock-deck[data-theme="dark"] .request-card h4{color:#eef3ff}
+.product-mock-deck[data-theme="dark"] .request-card p{color:#aeb9cd}
+.product-mock-deck[data-theme="dark"] .request-card strong{color:#dce5f4}
+.product-mock-deck[data-theme="dark"] .mock-btn{background:#14243a;border-color:#365986;color:#aeb9cd}
+.product-mock-deck[data-theme="dark"] .mock-btn.primary{background:#1c2e4a;border-color:#365986;color:#fff}
+.product-mock-deck[data-theme="dark"] .mock-btn.blue,.product-mock-deck[data-theme="dark"] .copy-bar,.product-mock-deck[data-theme="dark"] .mock-mic{background:#4b8df8;border-color:#4b8df8;color:#fff}
+.product-mock-deck[data-theme="dark"] .voice-wave i{background:#4b8df8}
+@media(max-width:640px){.mock-theme-row{margin:0 0 -22px;position:relative;z-index:12}.mock-theme-option{min-width:70px;padding:8px 10px}.product-mock-deck[data-theme="dark"] .screen-card.active .screen-frame{box-shadow:0 30px 64px rgba(15,29,47,.5),0 0 0 1px rgba(75,141,248,.4)}}
+
 /* My Day feature section — deliberately mirrors the supplied Lovable layout */
 .myday-feature{background:#1c2e40;color:#fff;padding:82px 32px 76px;position:relative;overflow:hidden}
 .myday-feature:before{content:'';position:absolute;right:-180px;top:-220px;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(44,185,157,.07),transparent 67%);pointer-events:none}
@@ -1326,9 +1371,15 @@ if(!location.hash){window.scrollTo(0,0);}
 
   
 <!-- SoleTasker product mock deck — current product flows, styled from supplied Lovable reference -->
-<div style="margin:0 auto 32px;text-align:center" class="rev">
+<div style="margin:0 auto 32px;text-align:center" class="rev mock-showcase">
   <p style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:24px">What it looks like</p>
-  <div class="screens-deck product-mock-deck">
+  <div class="mock-theme-row">
+    <button class="mock-theme-toggle" id="mockThemeToggle" type="button" data-theme="light" aria-pressed="false" aria-label="Switch product previews to dark mode">
+      <span class="mock-theme-option mock-theme-light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>Light</span>
+      <span class="mock-theme-option mock-theme-dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.4A8.5 8.5 0 0 1 8.6 3.5 8.5 8.5 0 1 0 20.5 15.4Z"></path></svg>Dark</span>
+    </button>
+  </div>
+  <div class="screens-deck product-mock-deck" id="productMockDeck" data-theme="light">
     <div class="screen-card" data-i="0">
       <div class="mock-phone">
         <div class="mock-top"><span>My Day</span><small>Thu 10 Sep</small></div>
@@ -2213,6 +2264,30 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     update();
   },100);});
   update();
+})();
+</script>
+<script>
+/* Mock-screen theme only: default light, persist the visitor's explicit choice. */
+(function(){
+  var deck=document.getElementById('productMockDeck');
+  var toggle=document.getElementById('mockThemeToggle');
+  if(!deck||!toggle)return;
+  var storageKey='soletasker-mock-theme';
+  function applyMockTheme(theme,remember){
+    var next=theme==='dark'?'dark':'light';
+    var dark=next==='dark';
+    deck.setAttribute('data-theme',next);
+    toggle.setAttribute('data-theme',next);
+    toggle.setAttribute('aria-pressed',dark?'true':'false');
+    toggle.setAttribute('aria-label',dark?'Switch product previews to light mode':'Switch product previews to dark mode');
+    if(remember){try{localStorage.setItem(storageKey,next)}catch(e){}}
+  }
+  var saved='';
+  try{saved=localStorage.getItem(storageKey)||''}catch(e){}
+  applyMockTheme(saved==='dark'?'dark':'light',false);
+  toggle.addEventListener('click',function(){
+    applyMockTheme(deck.getAttribute('data-theme')==='dark'?'light':'dark',true);
+  });
 })();
 </script>
 </body>
