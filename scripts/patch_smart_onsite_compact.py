@@ -39,7 +39,7 @@ css = r'''
 .smart-phone-footer{height:60px!important;flex:0 0 60px!important;position:relative!important;z-index:8!important}
 
 /* Soft crop so every state ends consistently rather than exposing blank white space. */
-.smart-phone-body:after{content:'';position:absolute;left:0;right:0;bottom:0;height:64px;background:linear-gradient(to bottom,rgba(247,249,251,0),rgba(247,249,251,.76) 46%,#f7f9fb 100%);backdrop-filter:blur(2.5px);-webkit-backdrop-filter:blur(2.5px);pointer-events:none;z-index:7}
+.smart-phone-body:after{content:'';position:absolute;left:0;right:0;bottom:0;height:64px;background:linear-gradient(to bottom,rgba(247,249,251,0),rgba(247,249,251,.76) 46%,#f7f9fb 100%);pointer-events:none;z-index:7}
 .smart-phone-caption{margin-top:8px!important;font-size:10px!important}
 
 @media(max-width:900px){
