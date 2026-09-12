@@ -58,12 +58,16 @@ html = html.replace(
 # Reorder the lower landing-page story without redesigning any feature content.
 # Old: Intake -> Smart Tools -> Real Cost -> Pricing -> Use Cases -> Built by Tradies
 # New: Smart Tools -> Real Cost -> Use Cases -> Built by Tradies -> Intake -> Pricing
-# The markers are existing section comments, so all approved section internals remain untouched.
+# Search only inside <body> so similarly named CSS comments in <head> cannot be mistaken for sections.
+body_start = html.find('<body')
+if body_start == -1:
+    raise SystemExit('Body start not found')
+
 def comment_start(keyword: str) -> int:
-    keyword_pos = html.find(keyword)
+    keyword_pos = html.find(keyword, body_start)
     if keyword_pos == -1:
         raise SystemExit(f'Section marker not found: {keyword}')
-    start = html.rfind('<!--', 0, keyword_pos)
+    start = html.rfind('<!--', body_start, keyword_pos)
     if start == -1:
         raise SystemExit(f'Section comment start not found: {keyword}')
     return start
@@ -71,7 +75,7 @@ def comment_start(keyword: str) -> int:
 intake_start = comment_start('JOB INTAKE — dark, high presence')
 smart_start = comment_start('FEATURE CARDS — 3 key differentiators')
 pain_start = comment_start('PAIN — editorial two-col layout')
-pricing_start = html.find('<!-- pricing teaser -->')
+pricing_start = html.find('<!-- pricing teaser -->', body_start)
 use_cases_start = comment_start('CTA INTERRUPT — use cases band')
 bbt_start = comment_start('BUILT BY TRADIES + FORM')
 close_start = comment_start('CLOSE')
@@ -105,6 +109,7 @@ elif not new_order:
 
 # Background-only visual rhythm pass for the reordered sections.
 # Use Cases becomes a clean white break after the long dark Real Cost section.
+body_start = html.find('<body')
 use_start = comment_start('CTA INTERRUPT — use cases band')
 built_start = comment_start('BUILT BY TRADIES + FORM')
 use_block = html[use_start:built_start]
