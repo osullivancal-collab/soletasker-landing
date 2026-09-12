@@ -720,8 +720,6 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 .vc-record-button.idle{background:#1D6CE8;box-shadow:0 4px 20px rgba(29,108,232,.4);animation:vcTap 8s ease-in-out infinite}
 @keyframes vcTap{0%,12%,22%,100%{transform:scale(1)}16%{transform:scale(.9);box-shadow:0 2px 10px rgba(29,108,232,.3)}19%{transform:scale(1.05)}}
 .vc-idle-title{margin-top:12px;font-size:15px;font-weight:700;color:var(--ink)}
-.vc-idle-copy{margin-top:6px;font-size:13px;color:var(--ink-soft);line-height:1.6}
-.vc-idle-copy small{font-size:12px;color:var(--ink-ghost)}
 .vc-wave{height:30px;display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:7px}
 .vc-wave span{display:block;width:4px;height:var(--bar);border-radius:3px;background:#1D6CE8;animation:vcWave 1s ease-in-out infinite;animation-delay:var(--delay)}
 @keyframes vcWave{0%,100%{transform:scaleY(.28);opacity:.55}50%{transform:scaleY(1);opacity:1}}
@@ -1321,7 +1319,6 @@ if(!location.hash){window.scrollTo(0,0);}
             <svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="12" rx="4"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></svg>
           </span>
           <div class="vc-idle-title">Tap to record</div>
-          <div class="vc-idle-copy">Say anything — a job, a task, a reminder, a thought.<br/><small>Max 2 minutes. We'll sort the rest.</small></div>
         </div>
         <div class="vc-stage vc-stage-recording">
           <div class="vc-wave" aria-hidden="true">
@@ -1332,7 +1329,7 @@ if(!location.hash){window.scrollTo(0,0);}
           <span class="vc-record-button stop" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1"/></svg></span>
           <div class="vc-transcript">
             <div class="vc-transcript-label">Live transcript</div>
-            <div class="vc-transcript-text">“Call Dave back about the Webb Street quote — it's urgent. Assign it to Jake.”</div>
+            <div class="vc-transcript-text" id="voiceDemoTranscript" data-full-text="Webb Street rewire is done, Laura to do invoice." aria-label="Webb Street rewire is done, Laura to do invoice."></div>
           </div>
         </div>
       </div>
@@ -2155,6 +2152,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     update();
   },100);});
   update();
+})();
+</script>
+<script>
+/* Type the example transcript in step with the eight-second recording animation. */
+(function(){
+  var transcript=document.getElementById('voiceDemoTranscript');
+  if(!transcript)return;
+  var fullText=transcript.getAttribute('data-full-text')||'';
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    transcript.textContent=fullText;
+    return;
+  }
+  var cycleStarted=performance.now();
+  function typeTranscript(now){
+    var elapsed=(now-cycleStarted)%8000;
+    var characterCount=elapsed<4000?0:Math.min(fullText.length,Math.floor((elapsed-4000)/55));
+    var nextText=fullText.slice(0,characterCount);
+    if(transcript.textContent!==nextText)transcript.textContent=nextText;
+    requestAnimationFrame(typeTranscript);
+  }
+  requestAnimationFrame(typeTranscript);
 })();
 </script>
 <script>
