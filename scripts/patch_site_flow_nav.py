@@ -85,8 +85,6 @@ def patch_nav(text: str, desktop: str, label: str) -> str:
 
 
 def patch_footer(text: str) -> str:
-    # Global footer navigation should mirror the real site journey. Keep the
-    # existing layout/styling and only normalize destinations/labels.
     text = re.sub(
         r'<a href="/#pain"([^>]*)>The problem</a>',
         r'<a href="/#faq-page"\1>FAQ</a>',
@@ -121,8 +119,6 @@ def reorder_landing(text: str) -> str:
             raise RuntimeError(f"Missing landing marker: {name}")
 
     starts = {name: marker_start(text, tag) for name, tag in tags.items()}
-
-    # If already in the approved order, do nothing.
     approved = ["smart", "pain", "use", "bbt", "intake", "pricing", "close"]
     if all(starts[approved[i]] < starts[approved[i + 1]] for i in range(len(approved) - 1)):
         return text
@@ -200,10 +196,8 @@ def patch_landing() -> None:
     html = patch_use_cases_band(html)
     html = reorder_landing(html)
 
-    # Safety checks: the problem remains as valuable content, but is no longer
-    # exposed as a global navigation destination.
-    nav_zone = html[html.index('<!-- NAV -->'):html.index('<!-- HERO -->')]
-    if 'The problem' in nav_zone:
+    nav_zone = html[:html.index('<section class="hero">')]
+    if 'The problem</a>' in nav_zone:
         raise RuntimeError("The problem still appears in landing global nav")
     for required in ['/#workflow', '/use-cases', '/#intake', '/pricing', '/#faq-page', '/#access']:
         if required not in nav_zone:
