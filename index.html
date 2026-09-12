@@ -1050,11 +1050,10 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 .myday-feature h2{font-family:var(--fh);font-size:clamp(46px,5vw,70px);line-height:.92;letter-spacing:.3px;margin:0 0 25px;color:#fff}.myday-feature h2 span{display:block;color:var(--teal)}
 .myday-lead{font-size:17px;line-height:1.68;color:rgba(255,255,255,.76);max-width:620px;margin-bottom:27px}
 .myday-points{list-style:none;display:grid;gap:15px;margin:0 0 27px}.myday-points li{font-size:15px;line-height:1.55;color:rgba(255,255,255,.78);display:flex;gap:13px;align-items:flex-start}.myday-points li:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:8px;flex:0 0 auto}
-.myday-note{border-left:2px solid var(--teal);padding:3px 0 3px 16px;font-size:14px;color:rgba(255,255,255,.62);line-height:1.5;margin-bottom:30px}
-.myday-cta{display:inline-flex;align-items:center;justify-content:center;background:var(--teal);color:#fff;border-radius:100px;padding:14px 27px;font-size:15px;font-weight:800;transition:.18s}.myday-cta:hover{background:var(--teal-dk);transform:translateY(-1px)}
+.myday-note{border-left:2px solid var(--teal);padding:3px 0 3px 16px;font-size:14px;color:rgba(255,255,255,.62);line-height:1.5;margin-bottom:0}
 .myday-device-wrap{text-align:center}.myday-device{width:300px;height:586px;margin:0 auto;background:#fff;border:8px solid #182838;border-radius:37px;overflow:hidden;box-shadow:0 28px 65px rgba(0,0,0,.28);color:#1f2937;text-align:left}.myday-device .mock-top{height:49px;padding:17px 15px 9px;font-size:13px}.myday-device .mock-top small{font-size:9px}.myday-device .mock-body{padding:13px 12px}.myday-device .mock-chip{font-size:9px;padding:5px 10px}.myday-device .mock-list{gap:9px}.myday-device .mock-row{padding:11px 10px;border-radius:11px;font-size:10px}.myday-device .mock-meta{font-size:8px}.myday-device .mock-pill{padding:2px 6px}.myday-device .mock-note{font-size:8px;margin-top:12px}.myday-caption{font-size:12px;color:rgba(255,255,255,.34);margin-top:14px}
 @media(max-width:900px){.product-mock-deck .screen-card{width:178px}.myday-inner{grid-template-columns:1fr;gap:48px}.myday-copy{max-width:680px}.myday-device{width:280px;height:548px}}
-@media(max-width:640px){.product-mock-deck{gap:0}.product-mock-deck .screen-card{width:200px}.mock-phone{height:402px}.myday-feature{padding:68px 24px 64px}.myday-feature h2{font-size:48px}.myday-lead{font-size:15.5px}.myday-points li{font-size:14px}.myday-device{width:264px;height:518px}.myday-cta{width:100%}}
+@media(max-width:640px){.product-mock-deck{gap:0}.product-mock-deck .screen-card{width:200px}.mock-phone{height:402px}.myday-feature{padding:68px 24px 64px}.myday-feature h2{font-size:48px}.myday-lead{font-size:15.5px}.myday-points li{font-size:14px}.myday-device{width:264px;height:518px}}
 </style>
 
 
@@ -1438,30 +1437,28 @@ if(!location.hash){window.scrollTo(0,0);}
   <div class="myday-inner">
     <div class="myday-copy rev">
       <div class="myday-eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><span>NEW — MY DAY</span></div>
-      <h2>OPEN YOUR PHONE.<span>TODAY'S WORK IS RIGHT THERE.</span></h2>
-      <p class="myday-lead">One short list of the tasks that are actually on today — each still carrying the job it belongs to and the person it's assigned to. Overdue at the top, done at the bottom, nothing else in the way.</p>
+      <h2>BUILD THE DAY.<span>KEEP THE TEAM CLEAR.</span></h2>
+      <p class="myday-lead">Build a simple run sheet for yourself or an individual team member. Add the tasks and jobs that matter for that day, in the order you want them.</p>
       <ul class="myday-points">
-        <li>Tasks only — reminders stay in their own list, so today stays clean.</li>
-        <li>Filter to you, one worker, or everyone on the team.</li>
-
-        <li>Tick it off on site — no going back to the office to update anything.</li>
+        <li>Choose your own My Day, one team member, or everyone.</li>
+        <li>Putting a task in someone&apos;s My Day does not change who it is assigned to.</li>
+        <li>Tick work off on site so the day stays clear.</li>
       </ul>
-      <div class="myday-note">It's a plan for your day, not a dispatch board. You decide what's on it.</div>
-      <a class="myday-cta" href="https://app.soletasker.com.au/signup">Try My Day free</a>
+      <div class="myday-note">It&apos;s a deliberate daily view, not scheduling or dispatch. You decide what belongs there.</div>
     </div>
     <div class="myday-device-wrap rev">
 
 <div class="myday-device" aria-label="SoleTasker My Day mock based on the current app">
   <div class="mock-top"><span>My Day</span><small>Thu 10 Sep</small></div>
   <div class="mock-body">
-    <div class="mock-chips"><span class="mock-chip active">Me</span><span class="mock-chip">Dave</span><span class="mock-chip">Sam</span><span class="mock-chip">Everyone</span></div>
+    <div class="mock-chips"><span class="mock-chip">Me</span><span class="mock-chip active">Dave</span><span class="mock-chip">Sam</span><span class="mock-chip">Everyone</span></div>
     <div class="mock-list">
-      <div class="mock-row"><div class="mock-title">Wire and install new aircon</div><div class="mock-meta"><span class="mock-pill red">Overdue</span><span>14 Kingston St</span></div></div>
-      <div class="mock-row"><div class="mock-title">Fit off switchboard and test house</div><div class="mock-meta"><span class="mock-pill">High</span><span>7 Marra Ct · Me</span></div></div>
-      <div class="mock-row"><div class="mock-title">Terminate switchboard, unit 4</div><div class="mock-meta"><span class="mock-pill gray">Today</span><span>Bayside Units · Me</span></div></div>
-      <div class="mock-row done"><div class="mock-title">Pick up cable from wholesaler</div><div class="mock-meta"><span class="mock-pill green">Done</span><span>Me</span></div></div>
+      <div class="mock-row"><div class="mock-title">Wire and install new aircon</div><div class="mock-meta"><span class="mock-pill">Dave&apos;s day</span><span>14 Kingston St</span></div></div>
+      <div class="mock-row"><div class="mock-title">Fit off switchboard and test house</div><div class="mock-meta"><span class="mock-pill gray">Assigned: Dave</span><span>7 Marra Ct</span></div></div>
+      <div class="mock-row"><div class="mock-title">Terminate switchboard, unit 4</div><div class="mock-meta"><span class="mock-pill gray">Assigned: Sam</span><span>Bayside Units</span></div></div>
+      <div class="mock-row done"><div class="mock-title">Pick up cable from wholesaler</div><div class="mock-meta"><span class="mock-pill green">Done</span><span>Dave&apos;s day</span></div></div>
     </div>
-    <div class="mock-note">Tasks only. Reminders stay in their own list.</div>
+    <div class="mock-note">A simple run sheet for Dave. Assignment stays separate.</div>
   </div>
   <div class="myday-app-footer" aria-label="SoleTasker app footer navigation">
     <div class="myday-app-nav active"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span>Home</span></div>
@@ -1719,8 +1716,7 @@ if(!location.hash){window.scrollTo(0,0);}
     .lovable-real-cost .real-cost-copy{max-width:780px;color:rgba(255,255,255,.72);font-size:17px;line-height:1.72;margin-bottom:28px}
     .lovable-real-cost .real-cost-copy strong{color:#fff;font-weight:800}
     .lovable-real-cost .real-cost-quote{max-width:820px;border-left:3px solid #5ec4af;padding:0 0 0 22px;margin:0 0 28px;font-size:22px;line-height:1.45;color:#fff}
-    .lovable-real-cost .real-cost-follow{max-width:780px;color:rgba(255,255,255,.62);font-size:17px;line-height:1.72;margin-bottom:28px}
-    .lovable-real-cost .real-cost-cta{display:inline-flex;align-items:center;justify-content:center;background:#62c0ad;color:#fff;font-weight:900;font-size:16px;border-radius:999px;padding:14px 28px;margin-bottom:52px;box-shadow:0 10px 26px rgba(44,185,157,.18)}
+    .lovable-real-cost .real-cost-follow{max-width:780px;color:rgba(255,255,255,.62);font-size:17px;line-height:1.72;margin-bottom:42px}
     .lovable-real-cost .real-cost-cards{display:grid;gap:18px}
     .lovable-real-cost .real-cost-card{background:#2b3948;border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:26px 28px}
     .lovable-real-cost .real-cost-card h3{font-family:var(--fb);font-size:21px;line-height:1.34;font-weight:900;color:#fff;margin:0 0 10px}
@@ -1747,7 +1743,6 @@ if(!location.hash){window.scrollTo(0,0);}
     <p class="real-cost-copy">Between jobs, calls and quotes, the follow-ups end up in your head. That's normal — there's only so much one person can hold. <strong>You don't need to try harder. You need a place to put it.</strong></p>
     <div class="real-cost-quote">“We don't manage your jobs. We make sure nothing in them gets missed.”</div>
     <p class="real-cost-follow">Capture it when it happens. Action it when it's due. Keep work moving. Keep cashflow moving.</p>
-    <a class="real-cost-cta" href="https://app.soletasker.com.au/signup">Get Started</a>
     <div class="real-cost-cards">
       <article class="real-cost-card"><h3>Invoice you forgot to send</h3><p>Job done. On to the next one. Six weeks later — it hits you. That invoice never went out. That money is yours. It's just not in your account.</p><p class="impact">↑ THAT'S REAL MONEY GONE</p></article>
       <article class="real-cost-card"><h3>Photos buried in your camera roll</h3><p>Before shots, after shots, damage proof — mixed in with 4,000 personal photos. Client disputes the job. You spend an hour finding nothing.</p><p class="impact">↑ A LIABILITY YOU CAN'T DEFEND</p></article>
