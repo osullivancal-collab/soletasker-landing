@@ -48,6 +48,12 @@ html = html.replace(
     '''VOICE TO TASK JOB MANAGEMENT
       <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS</span>'''
 )
+html = html.replace(
+    '''VOICE TO TASK JOB MANAGEMENT
+      <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS.</span>''',
+    '''VOICE TO TASK JOB MANAGEMENT
+      <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS</span>'''
+)
 
 path.write_text(html, encoding='utf-8')
 print('Updated My Day mock, hero positioning and future work example')
