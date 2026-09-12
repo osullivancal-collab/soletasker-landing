@@ -40,5 +40,14 @@ if 'class="myday-app-footer"' not in html:
     absolute = device_start + note_pos
     html = html[:absolute] + footer + html[absolute + len(old):]
 
+# Latest approved landing-page copy.
+html = html.replace('garage sub-board', 'switchboard upgrade')
+html = html.replace(
+    '''LIGHTWEIGHT JOB MANAGEMENT
+      <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS.</span>''',
+    '''VOICE TO TASK JOB MANAGEMENT
+      <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS.</span>'''
+)
+
 path.write_text(html, encoding='utf-8')
-print('Updated My Day task examples and added app footer')
+print('Updated My Day mock, hero positioning and future work example')
