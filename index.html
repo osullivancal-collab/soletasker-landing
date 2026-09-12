@@ -1104,12 +1104,42 @@ section[style*="background:var(--navy)"] h4{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="smart-onsite-compact-overrides">
-/* Compact smart-tools pass: same interaction, tighter section, uniform mock crop */
-.smart-onsite-sec{padding:66px 32px 68px!important}
-.smart-onsite-head{margin-bottom:24px!important;max-width:720px!important}
+/* Smart-tools extracted-panel pass: preserve interaction, remove duplicate phone chrome. */
+.smart-onsite-sec{padding:66px 32px 72px!important}
+.smart-onsite-head{margin-bottom:26px!important;max-width:720px!important}
 .smart-onsite-intro{font-size:16px!important;line-height:1.62!important;max-width:620px!important;color:#667385!important}
-.smart-tools-shell{grid-template-columns:minmax(0,1fr) 420px!important;gap:48px!important;align-items:start!important}
+.smart-tools-shell{grid-template-columns:minmax(0,1fr) 460px!important;gap:58px!important;align-items:start!important}
 .smart-tools-rail{max-width:520px!important;padding-top:0!important;align-self:start!important}
 .smart-rail-group+.smart-rail-group{margin-top:16px!important}
 .smart-rail-label{color:#6f7f91!important;margin-bottom:8px!important}
@@ -1124,36 +1154,62 @@ section[style*="background:var(--navy)"] h4{
 .smart-feature-btn.active{background:#1C2B3A!important;border-color:#1C2B3A!important;color:#fff!important;box-shadow:0 8px 20px rgba(28,43,58,.16)!important}
 .smart-feature-btn.active .sf-ic{background:rgba(44,185,157,.14)!important;color:#2CB99D!important}
 
-/* Same outer size for every state. Do not show a full blank phone. */
-.smart-phone{height:468px!important;max-width:420px!important;border-width:7px!important;border-radius:28px!important}
-.smart-phone-top{height:55px!important;flex:0 0 55px!important}
-.smart-phone-body{height:346px!important;flex:0 0 346px!important;padding:14px!important;overflow:hidden!important;position:relative!important;align-items:flex-start!important}
-.smart-state{height:100%!important;overflow:hidden!important}
-.smart-card{min-height:232px!important;padding:15px!important}
-.smart-phone-footer{height:60px!important;flex:0 0 60px!important;position:relative!important;z-index:8!important}
+/* Extract the useful app containers instead of showing another full device mock. */
+.smart-phone-wrap{justify-content:center!important;align-items:flex-start!important;position:relative!important;height:500px!important;min-height:500px!important;padding:10px 0 0!important}
+.smart-phone-wrap:before{content:'';position:absolute;inset:30px 18px 112px;border-radius:30px;background:linear-gradient(145deg,rgba(45,91,227,.045),rgba(44,185,157,.055));border:1px solid rgba(28,43,58,.055);transform:rotate(-1deg);pointer-events:none}
+.smart-phone-wrap>div{width:100%!important;max-width:440px!important;display:flex!important;flex-direction:column!important;height:100%!important;position:relative!important;z-index:1!important}
+.smart-phone{width:100%!important;max-width:440px!important;height:auto!important;min-height:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;display:block!important;color:#18283a!important;position:relative!important;z-index:1!important}
+.smart-phone-top,.smart-phone-footer{display:none!important}
+.smart-phone-body{height:382px!important;min-height:382px!important;flex:none!important;padding:18px!important;background:transparent!important;overflow:visible!important;display:flex!important;align-items:flex-start!important;justify-content:center!important;position:relative!important}
+.smart-phone-body:after{display:none!important}
+.smart-state{width:100%!important;height:auto!important;overflow:visible!important}
+.smart-state>div{width:100%;animation:smartPanelIn .32s cubic-bezier(.2,.72,.2,1) both}
+@keyframes smartPanelIn{from{opacity:0;transform:translateY(10px) scale(.988)}to{opacity:1;transform:none}}
 
-/* Soft crop so every state ends consistently rather than exposing blank white space. */
-.smart-phone-body:after{content:'';position:absolute;left:0;right:0;bottom:0;height:64px;background:linear-gradient(to bottom,rgba(247,249,251,0),rgba(247,249,251,.76) 46%,#f7f9fb 100%);pointer-events:none;z-index:7}
-.smart-phone-caption{margin-top:8px!important;font-size:10px!important}
+.smart-screen-title{display:inline-flex!important;align-items:center!important;gap:7px!important;margin:0 0 10px 4px!important;padding:6px 10px!important;border:1px solid rgba(44,185,157,.2)!important;border-radius:999px!important;background:rgba(255,255,255,.88)!important;color:#647486!important;box-shadow:0 4px 12px rgba(28,43,58,.045)!important}
+.smart-screen-title:before{content:'';width:6px;height:6px;border-radius:50%;background:#2CB99D;box-shadow:0 0 0 4px rgba(44,185,157,.1)}
+.smart-card{min-height:0!important;padding:18px!important;border:1px solid #dce4ea!important;border-radius:20px!important;background:rgba(255,255,255,.97)!important;box-shadow:0 20px 48px rgba(28,43,58,.105)!important}
+.smart-card+.smart-card{margin-top:10px!important}
+.smart-meta{gap:9px!important;margin-bottom:10px!important}
+.smart-meta-box{border-color:#dde5eb!important;border-radius:13px!important;box-shadow:0 9px 24px rgba(28,43,58,.055)!important}
+.smart-note-box{background:#f7fafb!important;border-left-color:#2CB99D!important}
+.smart-status-strip{background:#eef9f6!important}
+.smart-field{border-color:#dfe6ec!important;background:#fff!important}
+.smart-scan-drop{border-color:#a7cfee!important;background:rgba(247,251,255,.96)!important;box-shadow:0 12px 30px rgba(28,43,58,.055)!important}
+.smart-toast{top:3px!important;box-shadow:0 12px 28px rgba(28,43,58,.2)!important}
+
+/* Fixed copy zone prevents layout shift while explaining each active tool. */
+.smart-phone-caption{display:none!important}
+.smart-tool-copy{height:98px;min-height:98px;padding:12px 20px 0;text-align:left;transition:opacity .18s ease,transform .18s ease}
+.smart-tool-copy.swap{opacity:.25;transform:translateY(3px)}
+.smart-tool-copy strong{display:block;font-size:14px;line-height:1.35;color:#1B2B6B;margin-bottom:5px;font-weight:900}
+.smart-tool-copy span{display:block;font-size:12.5px;line-height:1.55;color:#697786;max-width:410px}
 
 @media(max-width:900px){
-  .smart-tools-shell{grid-template-columns:1fr!important;gap:26px!important}
+  .smart-tools-shell{grid-template-columns:1fr!important;gap:28px!important}
   .smart-tools-rail{max-width:none!important}
-  .smart-phone-wrap{justify-content:flex-start!important}
+  .smart-phone-wrap{justify-content:center!important;height:500px!important;min-height:500px!important}
 }
 @media(max-width:640px){
-  .smart-onsite-sec{padding:54px 20px 58px!important}
+  .smart-onsite-sec{padding:54px 20px 60px!important}
   .smart-onsite-head{margin-bottom:20px!important}
-  .smart-tools-shell{gap:22px!important}
+  .smart-tools-shell{gap:20px!important}
   .smart-quick{height:56px!important;font-size:9.5px!important}
   .smart-feature-btn{height:50px!important;font-size:10.5px!important;padding:0 10px!important}
-  .smart-phone-wrap{justify-content:center!important}
-  .smart-phone{height:440px!important;max-width:380px!important;border-width:6px!important;border-radius:25px!important}
-  .smart-phone-top{height:53px!important;flex-basis:53px!important}
-  .smart-phone-body{height:322px!important;flex-basis:322px!important;padding:12px!important}
-  .smart-phone-footer{height:59px!important;flex-basis:59px!important}
-  .smart-card{min-height:214px!important;padding:13px!important}
+  .smart-phone-wrap{height:530px!important;min-height:530px!important;padding:2px 0 0!important}
+  .smart-phone-wrap:before{inset:26px 4px 122px;border-radius:24px!important}
+  .smart-phone-wrap>div{max-width:100%!important}
+  .smart-phone{max-width:100%!important}
+  .smart-phone-body{height:402px!important;min-height:402px!important;padding:14px 8px!important}
+  .smart-card{padding:15px!important;border-radius:17px!important}
+  .smart-card h3{font-size:16px!important}
+  .smart-meta{grid-template-columns:1fr 1fr!important;gap:7px!important}
+  .smart-screen-title{margin-left:2px!important}
+  .smart-tool-copy{height:112px;min-height:112px;padding:12px 12px 0}
+  .smart-tool-copy strong{font-size:13.5px}
+  .smart-tool-copy span{font-size:12px;line-height:1.5}
 }
+@media(prefers-reduced-motion:reduce){.smart-state>div{animation:none!important}.smart-tool-copy{transition:none!important}}
 </style>
 
 </head>
@@ -1208,8 +1264,8 @@ if(!location.hash){window.scrollTo(0,0);}
     </div>
 
     <h1 class="hero-h1">
-      LIGHTWEIGHT JOB MANAGEMENT
-      <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS.</span>
+      VOICE TO TASK JOB MANAGEMENT
+      <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS</span>
     </h1>
 
     <p class="hero-lead">
@@ -1587,7 +1643,7 @@ if(!location.hash){window.scrollTo(0,0);}
               <div class="smart-nav-item"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h14"/></svg><span>More</span></div>
             </div>
           </div>
-          <div class="smart-phone-caption">Auto-cycling through the smart tools. <strong>Tap any tool to jump to it.</strong></div>
+          <div class="smart-tool-copy" data-smart-copy aria-live="polite"><strong>Get the review while the job is fresh.</strong><span>Send or copy your review link before you leave site, instead of remembering to chase it later.</span></div>
         </div>
       </div>
     </div>
@@ -1599,19 +1655,33 @@ if(!location.hash){window.scrollTo(0,0);}
     if(!root) return;
     const state=root.querySelector('[data-smart-state]');
     const toast=root.querySelector('[data-smart-toast]');
+    const copy=root.querySelector('[data-smart-copy]');
     const buttons=[...root.querySelectorAll('[data-smart]')];
     const quick=[...root.querySelectorAll('[data-quick]')];
     const states={
       review:`<div><div class="smart-screen-title">Job detail</div><div class="smart-meta"><div class="smart-meta-box"><span>Customer</span><strong>Sarah Thornton</strong></div><div class="smart-meta-box"><span>Mobile</span><strong>0412 908 331</strong></div></div><div class="smart-card"><h3>Request review</h3><p>Send the review link while the job is still fresh.</p><div class="smart-action-row"><span class="smart-action primary">Send review</span><span class="smart-action secondary">Copy link</span></div><div class="smart-status-strip">✓ Review link ready</div></div></div>`,
-      future:`<div><div class="smart-screen-title">Job detail</div><div class="smart-card"><h3>Future work</h3><p>Keep the next opportunity attached to this job.</p><div class="smart-note-box"><strong>Saved for later</strong><span>EV charger and garage sub-board — follow up after handover.</span></div><div class="smart-action-row"><span class="smart-action primary">Save note</span></div></div></div>`,
+      future:`<div><div class="smart-screen-title">Job detail</div><div class="smart-card"><h3>Future work</h3><p>Keep the next opportunity attached to this job.</p><div class="smart-note-box"><strong>Saved for later</strong><span>EV charger and switchboard upgrade — follow up after handover.</span></div><div class="smart-action-row"><span class="smart-action primary">Save note</span></div></div></div>`,
       swms:`<div><div class="smart-screen-title">SWMS</div><div class="smart-card"><h3>Ready to check and send</h3><div class="smart-fields"><div class="smart-field"><label>Site</label><div>29 Sherwood Ave, Mornington</div></div><div class="smart-field"><label>Work</label><div>Electrical fit-off and switchboard works</div></div><div class="smart-field"><label>Builder</label><div>Harding Constructions</div></div></div><div class="smart-action-row"><span class="smart-action primary">Sign &amp; send</span><span class="smart-action secondary">Preview PDF</span></div></div></div>`,
       scan:`<div><div class="smart-screen-title">Doc scan</div><div class="smart-scan-drop"><div><svg viewBox="0 0 24 24"><path d="M9 3h6l1 3h3v14H5V6h3z"/><circle cx="12" cy="13" r="4"/></svg><strong>Point your camera at the work order</strong><span>Photo or PDF</span></div></div><div class="smart-card"><h3>Extracted — check before saving</h3><div class="smart-fields"><div class="smart-field"><label>Site address</label><div>9 Verdon St, lot 12</div></div><div class="smart-field"><label>Contact</label><div>Trent Harding · 0412 908 331</div></div><div class="smart-field"><label>Order no.</label><div>WO-20418</div></div></div></div></div>`
+    };
+    const copyTexts={
+      review:['Get the review while the job is fresh.','Send or copy your review link before you leave site, instead of remembering to chase it later.'],
+      future:["Don't lose the ‘maybe later’ work.",'Customer mentions an EV charger, switchboard upgrade or another future job? Tag it against the job so you can come back to it later.'],
+      swms:['Check it, sign it, send it.','Keep the site and work details together, review the SWMS, then sign and send it from the job.'],
+      scan:['Turn a work order into usable details.','Scan a work order or upload a PDF to pull out the site, contact and order details fast — then check them before saving.']
     };
     let current=0;
     let timer=null;
     let resumeTimer=null;
     const show=(key)=>{
       state.innerHTML=states[key];
+      if(copy&&copyTexts[key]){
+        copy.classList.add('swap');
+        window.setTimeout(()=>{
+          copy.innerHTML='<strong>'+copyTexts[key][0]+'</strong><span>'+copyTexts[key][1]+'</span>';
+          copy.classList.remove('swap');
+        },90);
+      }
       buttons.forEach((b,i)=>{const on=b.dataset.smart===key;b.classList.toggle('active',on);if(on){current=i;b.style.animation='none';void b.offsetWidth;b.style.animation='';}});
     };
     const startAuto=()=>{
