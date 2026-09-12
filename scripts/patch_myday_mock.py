@@ -28,6 +28,8 @@ if 'class="myday-app-footer"' not in html:
     old = '''    <div class="mock-note">Tasks only. Reminders stay in their own list.</div>\n  </div>\n</div>'''
     footer = '''    <div class="mock-note">Tasks only. Reminders stay in their own list.</div>\n  </div>\n  <div class="myday-app-footer" aria-label="SoleTasker app footer navigation">\n    <div class="myday-app-nav active"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span>Home</span></div>\n    <div class="myday-app-nav"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4z"/><path d="M8 7V4h8v3"/></svg><span>Jobs</span></div>\n    <div class="myday-app-nav memo"><div class="myday-memo-circle"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><span>Memo</span></div>\n    <div class="myday-app-nav"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg><span>Tasks</span></div>\n    <div class="myday-app-nav"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h14"/></svg><span>More</span></div>\n  </div>\n</div>'''
 
+    # The first matching note belongs to the compact deck mock. Target the full My Day device
+    # by locating it first, then replace within that slice only.
     device_start = html.find('<div class="myday-device"')
     if device_start == -1:
         raise SystemExit('Full My Day device not found')
@@ -53,62 +55,5 @@ html = html.replace(
       <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS</span>'''
 )
 
-# Temporary recovery pass: restore the exact pre-reorder landing journey and backgrounds.
-body_start = html.find('<body')
-if body_start == -1:
-    raise SystemExit('Body start not found')
-
-def comment_start(keyword: str) -> int:
-    keyword_pos = html.find(keyword, body_start)
-    if keyword_pos == -1:
-        raise SystemExit(f'Section marker not found: {keyword}')
-    start = html.rfind('<!--', body_start, keyword_pos)
-    if start == -1:
-        raise SystemExit(f'Section comment start not found: {keyword}')
-    return start
-
-smart_start = comment_start('FEATURE CARDS — 3 key differentiators')
-pain_start = comment_start('PAIN — editorial two-col layout')
-use_start = comment_start('CTA INTERRUPT — use cases band')
-bbt_start = comment_start('BUILT BY TRADIES + FORM')
-intake_start = comment_start('JOB INTAKE — dark, high presence')
-pricing_start = html.find('<!-- pricing teaser -->', body_start)
-close_start = comment_start('CLOSE')
-
-new_order = smart_start < pain_start < use_start < bbt_start < intake_start < pricing_start < close_start
-old_order = intake_start < smart_start < pain_start < pricing_start < use_start < bbt_start < close_start
-
-if new_order:
-    smart_block = html[smart_start:pain_start]
-    pain_block = html[pain_start:use_start]
-    use_block = html[use_start:bbt_start]
-    bbt_block = html[bbt_start:intake_start]
-    intake_block = html[intake_start:pricing_start]
-    pricing_block = html[pricing_start:close_start]
-    html = (
-        html[:smart_start]
-        + intake_block
-        + smart_block
-        + pain_block
-        + pricing_block
-        + use_block
-        + bbt_block
-        + html[close_start:]
-    )
-elif not old_order:
-    raise SystemExit('Landing sections are in an unexpected order; refusing recovery')
-
-# Restore pre-reorder colour treatment.
-body_start = html.find('<body')
-use_start = comment_start('CTA INTERRUPT — use cases band')
-bbt_start = comment_start('BUILT BY TRADIES + FORM')
-use_block = html[use_start:bbt_start]
-use_block = use_block.replace('background:var(--white);padding:56px 32px;text-align:center', 'background:var(--navy);padding:56px 32px;text-align:center', 1)
-use_block = use_block.replace('color:var(--sole-blue)!important', 'color:var(--white)!important', 1)
-use_block = use_block.replace('color:var(--ink-soft);line-height:1.7', 'color:rgba(255,255,255,.55);line-height:1.7', 1)
-use_block = use_block.replace('color:var(--ink-ghost);margin-top:14px', 'color:rgba(255,255,255,.3);margin-top:14px', 1)
-html = html[:use_start] + use_block + html[bbt_start:]
-html = html.replace('.bbt-sec{\n  background:#F4F7FB;padding:100px 32px;', '.bbt-sec{\n  background:var(--white);padding:100px 32px;', 1)
-
 path.write_text(html, encoding='utf-8')
-print('Restored original landing flow and backgrounds')
+print('Updated My Day mock, hero positioning and future work example')
