@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soletasker.com.au/sitemap.xml
