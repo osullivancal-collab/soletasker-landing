@@ -16,9 +16,9 @@ Then create your account and access the app here:
 
 Once you’re in, just use it as naturally as possible during your normal work.
 
-Try things like creating a job, adding tasks, using voice capture, building your My Day, adding job notes or photos, and moving around the app as you normally would.
+Try things like creating a job, adding tasks, using voice capture, building your My Day, assigning work to someone else, adding job notes or photos, and moving around the app as you normally would.
 
-You’ll also have a **unique Scan Doc email address** connected to your SoleTasker account. Once it appears in the app, save it to your contacts. You’ll be able to forward or send documents to that address and have them come into SoleTasker for processing through Scan Doc.
+I’d especially like you to try using it during a normal working day rather than sitting down and testing everything at once. Capture something when it comes up, add information to a job, move tasks into My Day, assign something to someone if you need to, and see whether SoleTasker actually helps you keep track of the small things that normally end up in your head, texts, notes or scraps of paper.
 
 You don’t need to follow a testing script or deliberately try to break anything. I’m more interested in what using it actually feels like — what makes sense immediately, what’s confusing, what feels unnecessary, and anything you think is missing.
 
