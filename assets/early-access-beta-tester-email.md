@@ -27,10 +27,3 @@ It’s still in early release, so if you find a bug or something doesn’t behav
 Even feedback as simple as **“I didn’t understand what this button did”** is useful.
 
 Thanks for helping me test it.
-
-**Callan O’Sullivan**  
-Founder · **SoleTasker**  
-Voice-to-task job management for sole traders & small teams  
-info@soletasker.com.au  
-soletasker.com.au  
-*Say it once · Done · Not forgotten*
