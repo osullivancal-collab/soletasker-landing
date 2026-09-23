@@ -1283,7 +1283,7 @@ if(!location.hash){window.scrollTo(0,0);}
     </h1>
 
     <p class="hero-lead">
-      Tap the mic and say what needs doing. Create a task or reminder. Link it to a job. Assign it to yourself, admin or worker. When the job is finished, Wrap Up turns one voice memo into the notes, follow-ups and admin ready for you to review.
+      Tap the mic and say what needs doing. Create a task or reminder. Link it to a job. Assign it to yourself, admin or worker. Keep the notes, photos and certs together.
     </p>
 
     <div class="hero-ctas">
@@ -1349,75 +1349,88 @@ if(!location.hash){window.scrollTo(0,0);}
   
 
 <style id="wrap-up-showcase-styles">
-  .wrapup-showcase{max-width:1120px;margin:64px auto 72px;padding:clamp(28px,5vw,56px);border:1px solid rgba(37,99,235,.15);border-radius:30px;background:linear-gradient(135deg,#f7fbff 0%,#eef6ff 52%,#ebfbf8 100%);box-shadow:0 24px 70px rgba(15,42,68,.10);display:grid;grid-template-columns:minmax(0,.88fr) minmax(420px,1.12fr);gap:clamp(32px,5vw,64px);align-items:center;overflow:hidden;position:relative}
-  .wrapup-showcase:before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(20,184,166,.09);filter:blur(2px);right:-130px;top:-150px;pointer-events:none}
-  .wrapup-copy,.wrapup-panel{position:relative;z-index:1}
-  .wrapup-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;padding:7px 11px;border-radius:999px;background:#0f2a44;color:#fff;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
-  .wrapup-eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#2dd4bf;box-shadow:0 0 0 4px rgba(45,212,191,.17)}
-  .wrapup-title{margin:0 0 18px;color:#0f2a44;font-size:clamp(36px,4.6vw,58px);line-height:1.02;letter-spacing:-.045em}
-  .wrapup-title span{color:#2563eb}
-  .wrapup-lede{margin:0 0 24px;max-width:520px;color:#385168;font-size:18px;line-height:1.62}
-  .wrapup-quote{margin:0 0 22px;padding:17px 18px;border-left:3px solid #14b8a6;border-radius:0 14px 14px 0;background:rgba(255,255,255,.72);color:#274258;font-size:14px;line-height:1.55}
-  .wrapup-assurance{display:flex;align-items:center;gap:9px;margin:0;color:#0f2a44;font-size:14px;font-weight:750}
-  .wrapup-assurance svg{width:19px;height:19px;color:#14b8a6;flex:none}
-  .wrapup-panel{border:1px solid rgba(15,42,68,.12);border-radius:24px;background:#fff;box-shadow:0 22px 50px rgba(15,42,68,.14);overflow:hidden}
-  .wrapup-panel-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:#0f2a44;color:#fff}
-  .wrapup-panel-kicker{margin:0 0 4px;color:#73e0d4;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
-  .wrapup-panel-job{margin:0;font-size:18px;font-weight:800}
-  .wrapup-beta{padding:6px 9px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.10);font-size:11px;font-weight:800;white-space:nowrap}
-  .wrapup-review{padding:20px 22px 0}
-  .wrapup-review-label{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px;color:#60778c;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
-  .wrapup-action-list{display:grid;gap:9px}
-  .wrapup-action{display:grid;grid-template-columns:22px minmax(0,1fr);gap:11px;align-items:start;padding:12px 13px;border:1px solid #dfe9f2;border-radius:13px;background:#fbfdff}
-  .wrapup-check{display:grid;place-items:center;width:20px;height:20px;margin-top:1px;border-radius:6px;background:#2563eb;color:#fff;font-size:13px;font-weight:900}
-  .wrapup-action strong{display:block;margin-bottom:2px;color:#0f2a44;font-size:13px;line-height:1.25}
-  .wrapup-action span{display:block;color:#60778c;font-size:12px;line-height:1.35}
-  .wrapup-action-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-  .wrapup-panel-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;padding:17px 22px;border-top:1px solid #e5edf4;background:#f8fbfd}
-  .wrapup-selected{color:#60778c;font-size:13px;font-weight:700}
-  .wrapup-save{border:0;border-radius:11px;background:#2563eb;color:#fff;padding:11px 16px;font:inherit;font-size:13px;font-weight:800;box-shadow:0 8px 20px rgba(37,99,235,.24)}
-  @media(max-width:900px){.wrapup-showcase{grid-template-columns:1fr;max-width:680px}.wrapup-copy{max-width:590px}.wrapup-lede{max-width:none}}
-  @media(max-width:620px){.wrapup-showcase{margin:44px 16px 56px;padding:25px 18px;border-radius:22px}.wrapup-title{font-size:38px}.wrapup-lede{font-size:16px}.wrapup-panel{border-radius:18px}.wrapup-panel-head,.wrapup-review{padding-left:16px;padding-right:16px}.wrapup-action-grid{grid-template-columns:1fr}.wrapup-panel-foot{padding:15px 16px}}
+  .wrapup-showcase{max-width:1120px;m<style id="wrap-up-showcase-styles">
+  .wu-showcase{max-width:620px;margin:0 auto 64px;text-align:center}
+  .wu-kicker{display:block;margin-bottom:8px;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .wu-title{margin:0 0 8px;color:var(--ink);font-size:clamp(25px,3vw,32px);line-height:1.12;letter-spacing:-.025em}
+  .wu-intro{max-width:500px;margin:0 auto 22px;color:var(--ink-soft);font-size:15px;line-height:1.55}
+  .wu-demo{position:relative;overflow:hidden;text-align:left;background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 46px rgba(28,43,58,.13)}
+  .wu-head{height:50px;padding:0 16px 0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+  .wu-head-title{display:flex;align-items:center;gap:8px;color:var(--ink);font-size:15px;font-weight:800}
+  .wu-spark{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px rgba(44,185,157,.12)}
+  .wu-beta{padding:5px 8px;border-radius:999px;background:var(--bg);color:var(--ink-soft);font-size:10px;font-weight:850;letter-spacing:.05em;text-transform:uppercase}
+  .wu-stage{position:relative;height:332px;padding:18px;background:linear-gradient(180deg,#fff 0%,#fbfcfe 100%)}
+  .wu-transcript{display:flex;gap:11px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:13px;background:var(--bg);animation:wuTranscript 12s ease-in-out infinite}
+  .wu-mic{width:27px;height:27px;flex:none;display:grid;place-items:center;border-radius:50%;background:var(--blue);color:#fff}
+  .wu-mic svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+  .wu-spoken{margin:0;color:var(--ink);font-size:12px;line-height:1.45}
+  .wu-extract-head{display:flex;align-items:center;justify-content:space-between;margin:14px 2px 9px;color:var(--ink-soft);font-size:10px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}
+  .wu-thinking{display:flex;gap:3px}
+  .wu-thinking i{width:4px;height:4px;border-radius:50%;background:var(--teal);animation:wuDot 1.1s ease-in-out infinite}
+  .wu-thinking i:nth-child(2){animation-delay:.14s}.wu-thinking i:nth-child(3){animation-delay:.28s}
+  .wu-items{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .wu-item{min-width:0;padding:10px 11px;border:1px solid var(--line);border-radius:11px;background:#fff;box-shadow:0 5px 14px rgba(28,43,58,.055);opacity:0}
+  .wu-item strong{display:block;margin-bottom:2px;color:var(--ink);font-size:11px;line-height:1.2}
+  .wu-item span{display:block;overflow:hidden;color:var(--ink-soft);font-size:10px;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
+  .wu-item:nth-child(1){animation:wuItem1 12s ease-in-out infinite}.wu-item:nth-child(2){animation:wuItem2 12s ease-in-out infinite}
+  .wu-item:nth-child(3){animation:wuItem3 12s ease-in-out infinite}.wu-item:nth-child(4){animation:wuItem4 12s ease-in-out infinite}
+  .wu-item:nth-child(5){animation:wuItem5 12s ease-in-out infinite}.wu-item:nth-child(6){animation:wuItem6 12s ease-in-out infinite}
+  .wu-success{position:absolute;inset:51px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;animation:wuSuccess 12s ease-in-out infinite}
+  .wu-success:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(44,185,157,.18) 0%,rgba(29,108,232,.08) 44%,transparent 72%);animation:wuGlow 12s ease-in-out infinite}
+  .wu-orbit{position:relative;width:78px;height:78px;display:grid;place-items:center;border-radius:50%;background:#fff;border:1px solid rgba(44,185,157,.24);box-shadow:0 16px 40px rgba(44,185,157,.2);color:var(--teal)}
+  .wu-orbit svg{width:31px;height:31px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .wu-orbit i{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px rgba(29,108,232,.55)}
+  .wu-orbit i:nth-child(2){top:-12px;left:36px}.wu-orbit i:nth-child(3){right:-16px;top:31px}.wu-orbit i:nth-child(4){bottom:-10px;left:8px}.wu-orbit i:nth-child(5){left:-14px;top:18px;background:var(--teal)}
+  .wu-success strong{position:relative;margin-top:16px;color:var(--ink);font-size:15px}.wu-success span{position:relative;margin-top:4px;color:var(--ink-soft);font-size:12px}
+  .wu-foot{padding:12px 16px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:11px;font-weight:750;text-align:center}
+  @keyframes wuTranscript{0%,18%{border-color:var(--line);box-shadow:none}24%,67%{border-color:rgba(29,108,232,.25);box-shadow:0 0 0 3px rgba(29,108,232,.05)}73%,100%{opacity:.18;transform:translateY(-4px)}}
+  @keyframes wuDot{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-2px)}}
+  @keyframes wuItem1{0%,23%{opacity:0;transform:translateY(8px)}28%,70%{opacity:1;transform:none}77%,100%{opacity:0;transform:translateY(-12px) scale(.97)}}
+  @keyframes wuItem2{0%,28%{opacity:0;transform:translateY(8px)}33%,70%{opacity:1;transform:none}77%,100%{opacity:0;transform:translateY(-12px) scale(.97)}}
+  @keyframes wuItem3{0%,33%{opacity:0;transform:translateY(8px)}38%,70%{opacity:1;transform:none}77%,100%{opacity:0;transform:translateY(-12px) scale(.97)}}
+  @keyframes wuItem4{0%,38%{opacity:0;transform:translateY(8px)}43%,70%{opacity:1;transform:none}77%,100%{opacity:0;transform:translateY(-12px) scale(.97)}}
+  @keyframes wuItem5{0%,43%{opacity:0;transform:translateY(8px)}48%,70%{opacity:1;transform:none}77%,100%{opacity:0;transform:translateY(-12px) scale(.97)}}
+  @keyframes wuItem6{0%,48%{opacity:0;transform:translateY(8px)}53%,70%{opacity:1;transform:none}77%,100%{opacity:0;transform:translateY(-12px) scale(.97)}}
+  @keyframes wuSuccess{0%,74%{opacity:0;transform:scale(.88)}81%,94%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.04)}}
+  @keyframes wuGlow{0%,74%{opacity:0;transform:scale(.55) rotate(0)}84%,94%{opacity:1;transform:scale(1) rotate(18deg)}100%{opacity:0;transform:scale(1.18) rotate(24deg)}}
+  @media(max-width:650px){.wu-showcase{margin:0 16px 54px}.wu-stage{height:350px;padding:14px}.wu-spoken{font-size:11px}.wu-items{gap:7px}.wu-item{padding:9px}.wu-title{font-size:26px}}
+  @media(prefers-reduced-motion:reduce){.wu-transcript,.wu-thinking i,.wu-item,.wu-success,.wu-success:before{animation:none}.wu-item{opacity:1}.wu-success{display:none}}
 </style>
 
-<section class="wrapup-showcase rev" id="wrap-up" aria-labelledby="wrapup-title">
-  <div class="wrapup-copy">
-    <span class="wrapup-eyebrow">New · Wrap Up</span>
-    <h2 class="wrapup-title" id="wrapup-title">Finish the job before you leave the <span>driveway.</span></h2>
-    <p class="wrapup-lede">One natural voice memo becomes the job updates and follow-ups you choose — ready to review before anything is saved.</p>
-    <blockquote class="wrapup-quote">“Installed the two sweep fans. Invoice $168. Certificate for the same work. Email Rob and let him know it’s finished. Task for me to return Friday and replace the damaged switch. Future prospect, they might want an EV charger. Mark the job complete.”</blockquote>
-    <p class="wrapup-assurance">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Nothing changes until you confirm it.
-    </p>
-  </div>
-  <div class="wrapup-panel" aria-label="Example Wrap Up review">
-    <div class="wrapup-panel-head">
-      <div><p class="wrapup-panel-kicker">Wrap Up · Beta</p><p class="wrapup-panel-job">29 Sherwood Ave</p></div>
-      <span class="wrapup-beta">Review first</span>
+<section class="wu-showcase rev" id="wrap-up" aria-labelledby="wrapup-title">
+  <span class="wu-kicker">New · Wrap Up</span>
+  <h2 class="wu-title" id="wrapup-title">One memo. The whole job wrapped up.</h2>
+  <p class="wu-intro">Speak naturally when the work is done. SoleTasker pulls out the updates for you to review.</p>
+  <div class="wu-demo" aria-label="Animated example of Wrap Up extracting job actions">
+    <div class="wu-head">
+      <div class="wu-head-title"><span class="wu-spark"></span>Wrap Up · 29 Sherwood Ave</div>
+      <span class="wu-beta">Beta</span>
     </div>
-    <div class="wrapup-review">
-      <p class="wrapup-review-label"><span>Ready to save</span><span>7 actions</span></p>
-      <div class="wrapup-action-list">
-        <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Job note</strong><span>Installed two sweep fans</span></div></div>
-        <div class="wrapup-action-grid">
-          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Invoice follow-up</strong><span>$168</span></div></div>
-          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Certificate follow-up</strong><span>Two sweep fans</span></div></div>
-          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Email draft</strong><span>Tell Rob it’s finished</span></div></div>
-          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Task · Friday</strong><span>Replace damaged switch</span></div></div>
-          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Future prospect</strong><span>EV charger</span></div></div>
-          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Job status</strong><span>Mark complete</span></div></div>
-        </div>
+    <div class="wu-stage">
+      <div class="wu-transcript">
+        <span class="wu-mic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+        <p class="wu-spoken">“Two fans installed. Invoice $168, certificate needed. Email Rob. Return Friday for the damaged switch. EV charger prospect. Mark complete.”</p>
+      </div>
+      <div class="wu-extract-head"><span>Extracting from your memo</span><span class="wu-thinking"><i></i><i></i><i></i></span></div>
+      <div class="wu-items">
+        <div class="wu-item"><strong>Job note</strong><span>Two fans installed</span></div>
+        <div class="wu-item"><strong>Invoice follow-up</strong><span>$168</span></div>
+        <div class="wu-item"><strong>Certificate follow-up</strong><span>Two sweep fans</span></div>
+        <div class="wu-item"><strong>Email draft</strong><span>Tell Rob it’s finished</span></div>
+        <div class="wu-item"><strong>Task · Friday</strong><span>Replace damaged switch</span></div>
+        <div class="wu-item"><strong>Future prospect</strong><span>EV charger</span></div>
+      </div>
+      <div class="wu-success" aria-hidden="true">
+        <div class="wu-orbit"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><i></i><i></i><i></i><i></i></div>
+        <strong>Ready to create</strong>
+        <span>Review and save the updates you want</span>
       </div>
     </div>
-    <div class="wrapup-panel-foot">
-      <span class="wrapup-selected">7 selected</span>
-      <button class="wrapup-save" type="button" tabindex="-1">Save selected</button>
-    </div>
+    <div class="wu-foot">Speak once · review everything · save selected</div>
   </div>
 </section>
 
-<!-- SoleTasker product mock deck — current product flows, styled from supplied Lovable reference -->
+plied Lovable reference -->
 <div style="margin:0 auto 32px;text-align:center" class="rev mock-showcase">
   <p style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:24px">What it looks like</p>
   <div class="mock-theme-row">
