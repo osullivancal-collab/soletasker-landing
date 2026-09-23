@@ -1283,7 +1283,7 @@ if(!location.hash){window.scrollTo(0,0);}
     </h1>
 
     <p class="hero-lead">
-      Tap the mic and say what needs doing. Create a task or reminder. Link it to a job. Assign it to yourself, admin or worker. Keep the notes, photos and certs together.
+      Tap the mic and say what needs doing. Create a task or reminder. Link it to a job. Assign it to yourself, admin or worker. When the job is finished, Wrap Up turns one voice memo into the notes, follow-ups and admin ready for you to review.
     </p>
 
     <div class="hero-ctas">
@@ -1347,6 +1347,76 @@ if(!location.hash){window.scrollTo(0,0);}
   </div>
 
   
+
+<style id="wrap-up-showcase-styles">
+  .wrapup-showcase{max-width:1120px;margin:64px auto 72px;padding:clamp(28px,5vw,56px);border:1px solid rgba(37,99,235,.15);border-radius:30px;background:linear-gradient(135deg,#f7fbff 0%,#eef6ff 52%,#ebfbf8 100%);box-shadow:0 24px 70px rgba(15,42,68,.10);display:grid;grid-template-columns:minmax(0,.88fr) minmax(420px,1.12fr);gap:clamp(32px,5vw,64px);align-items:center;overflow:hidden;position:relative}
+  .wrapup-showcase:before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(20,184,166,.09);filter:blur(2px);right:-130px;top:-150px;pointer-events:none}
+  .wrapup-copy,.wrapup-panel{position:relative;z-index:1}
+  .wrapup-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px;padding:7px 11px;border-radius:999px;background:#0f2a44;color:#fff;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+  .wrapup-eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:#2dd4bf;box-shadow:0 0 0 4px rgba(45,212,191,.17)}
+  .wrapup-title{margin:0 0 18px;color:#0f2a44;font-size:clamp(36px,4.6vw,58px);line-height:1.02;letter-spacing:-.045em}
+  .wrapup-title span{color:#2563eb}
+  .wrapup-lede{margin:0 0 24px;max-width:520px;color:#385168;font-size:18px;line-height:1.62}
+  .wrapup-quote{margin:0 0 22px;padding:17px 18px;border-left:3px solid #14b8a6;border-radius:0 14px 14px 0;background:rgba(255,255,255,.72);color:#274258;font-size:14px;line-height:1.55}
+  .wrapup-assurance{display:flex;align-items:center;gap:9px;margin:0;color:#0f2a44;font-size:14px;font-weight:750}
+  .wrapup-assurance svg{width:19px;height:19px;color:#14b8a6;flex:none}
+  .wrapup-panel{border:1px solid rgba(15,42,68,.12);border-radius:24px;background:#fff;box-shadow:0 22px 50px rgba(15,42,68,.14);overflow:hidden}
+  .wrapup-panel-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;background:#0f2a44;color:#fff}
+  .wrapup-panel-kicker{margin:0 0 4px;color:#73e0d4;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+  .wrapup-panel-job{margin:0;font-size:18px;font-weight:800}
+  .wrapup-beta{padding:6px 9px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.10);font-size:11px;font-weight:800;white-space:nowrap}
+  .wrapup-review{padding:20px 22px 0}
+  .wrapup-review-label{display:flex;align-items:center;justify-content:space-between;margin:0 0 12px;color:#60778c;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+  .wrapup-action-list{display:grid;gap:9px}
+  .wrapup-action{display:grid;grid-template-columns:22px minmax(0,1fr);gap:11px;align-items:start;padding:12px 13px;border:1px solid #dfe9f2;border-radius:13px;background:#fbfdff}
+  .wrapup-check{display:grid;place-items:center;width:20px;height:20px;margin-top:1px;border-radius:6px;background:#2563eb;color:#fff;font-size:13px;font-weight:900}
+  .wrapup-action strong{display:block;margin-bottom:2px;color:#0f2a44;font-size:13px;line-height:1.25}
+  .wrapup-action span{display:block;color:#60778c;font-size:12px;line-height:1.35}
+  .wrapup-action-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .wrapup-panel-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px;padding:17px 22px;border-top:1px solid #e5edf4;background:#f8fbfd}
+  .wrapup-selected{color:#60778c;font-size:13px;font-weight:700}
+  .wrapup-save{border:0;border-radius:11px;background:#2563eb;color:#fff;padding:11px 16px;font:inherit;font-size:13px;font-weight:800;box-shadow:0 8px 20px rgba(37,99,235,.24)}
+  @media(max-width:900px){.wrapup-showcase{grid-template-columns:1fr;max-width:680px}.wrapup-copy{max-width:590px}.wrapup-lede{max-width:none}}
+  @media(max-width:620px){.wrapup-showcase{margin:44px 16px 56px;padding:25px 18px;border-radius:22px}.wrapup-title{font-size:38px}.wrapup-lede{font-size:16px}.wrapup-panel{border-radius:18px}.wrapup-panel-head,.wrapup-review{padding-left:16px;padding-right:16px}.wrapup-action-grid{grid-template-columns:1fr}.wrapup-panel-foot{padding:15px 16px}}
+</style>
+
+<section class="wrapup-showcase rev" id="wrap-up" aria-labelledby="wrapup-title">
+  <div class="wrapup-copy">
+    <span class="wrapup-eyebrow">New · Wrap Up</span>
+    <h2 class="wrapup-title" id="wrapup-title">Finish the job before you leave the <span>driveway.</span></h2>
+    <p class="wrapup-lede">One natural voice memo becomes the job updates and follow-ups you choose — ready to review before anything is saved.</p>
+    <blockquote class="wrapup-quote">“Installed the two sweep fans. Invoice $168. Certificate for the same work. Email Rob and let him know it’s finished. Task for me to return Friday and replace the damaged switch. Future prospect, they might want an EV charger. Mark the job complete.”</blockquote>
+    <p class="wrapup-assurance">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Nothing changes until you confirm it.
+    </p>
+  </div>
+  <div class="wrapup-panel" aria-label="Example Wrap Up review">
+    <div class="wrapup-panel-head">
+      <div><p class="wrapup-panel-kicker">Wrap Up · Beta</p><p class="wrapup-panel-job">29 Sherwood Ave</p></div>
+      <span class="wrapup-beta">Review first</span>
+    </div>
+    <div class="wrapup-review">
+      <p class="wrapup-review-label"><span>Ready to save</span><span>7 actions</span></p>
+      <div class="wrapup-action-list">
+        <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Job note</strong><span>Installed two sweep fans</span></div></div>
+        <div class="wrapup-action-grid">
+          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Invoice follow-up</strong><span>$168</span></div></div>
+          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Certificate follow-up</strong><span>Two sweep fans</span></div></div>
+          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Email draft</strong><span>Tell Rob it’s finished</span></div></div>
+          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Task · Friday</strong><span>Replace damaged switch</span></div></div>
+          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Future prospect</strong><span>EV charger</span></div></div>
+          <div class="wrapup-action"><span class="wrapup-check">✓</span><div><strong>Job status</strong><span>Mark complete</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapup-panel-foot">
+      <span class="wrapup-selected">7 selected</span>
+      <button class="wrapup-save" type="button" tabindex="-1">Save selected</button>
+    </div>
+  </div>
+</section>
+
 <!-- SoleTasker product mock deck — current product flows, styled from supplied Lovable reference -->
 <div style="margin:0 auto 32px;text-align:center" class="rev mock-showcase">
   <p style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:24px">What it looks like</p>
