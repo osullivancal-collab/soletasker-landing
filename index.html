@@ -4,9 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>SoleTasker — Voice to Task App for Tradies Australia</title>
-<meta name="description" content="Say it once. Jobs, invoices, certs and reminders — captured instantly. Nothing forgotten. Built by tradies for tradies."/>
+<meta name="description" content="Say it once. Tasks, job notes and admin follow-ups — captured from one voice memo. Nothing forgotten. Built by tradies for tradies."/>
 <meta property="og:title" content="SoleTasker — Voice to Task for Tradies"/>
-<meta property="og:description" content="Say it once. Jobs, invoices, certs and reminders — captured instantly. Nothing forgotten. Built by tradies for tradies."/>
+<meta property="og:description" content="Say it once. Tasks, job notes and admin follow-ups — captured from one voice memo. Nothing forgotten. Built by tradies for tradies."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://soletasker.com.au"/>
 <meta property="og:locale" content="en_AU"/>
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="SoleTasker — Voice to Task for Tradies"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="SoleTasker — Voice to Task for Tradies"/>
-<meta name="twitter:description" content="Say it once. Jobs, invoices, certs — captured instantly. Nothing forgotten."/>
+<meta name="twitter:description" content="Say it once. Tasks, job notes and admin follow-ups — captured from one voice memo."/>
 <meta name="twitter:image" content="https://soletasker.com.au/og-image.png"/>
 <meta name="twitter:image:alt" content="SoleTasker — Voice to Task for Tradies"/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C2B3A'/%3E%3Crect x='10' y='8' width='3' height='16' rx='1.5' fill='%232CB99D'/%3E%3Crect x='15' y='5' width='3' height='22' rx='1.5' fill='%232196F3'/%3E%3Crect x='20' y='10' width='3' height='12' rx='1.5' fill='%232CB99D'/%3E%3C/svg%3E"/>
@@ -2049,7 +2049,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
           <span class="faq-icon" style="font-size:22px;color:var(--teal);flex-shrink:0;transition:transform .3s">+</span>
         </button>
         <div class="faq-ans" style="display:none;padding-top:14px">
-          <p style="font-size:15px;color:var(--ink-soft);line-height:1.8">Tap the microphone and speak naturally. SoleTasker transcribes the recording and helps turn it into a task, reminder or job note. You review the result, make any changes and save it to the right place.</p>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.8">Tap the microphone and speak naturally. A normal capture can become a task, reminder or job note. From an existing job, Wrap Up can propose several actions from one memo. You review and choose what to save before anything changes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" style="border-bottom:1px solid var(--line);padding:20px 0">
+        <button onclick="toggleFaq(this)" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0">
+          <span style="font-size:17px;font-weight:700;color:var(--ink);line-height:1.4">What is Wrap Up?</span>
+          <span class="faq-icon" style="font-size:22px;color:var(--teal);flex-shrink:0;transition:transform .3s">+</span>
+        </button>
+        <div class="faq-ans" style="display:none;padding-top:14px">
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.8">Wrap Up lets you finish a job with one voice memo. SoleTasker can propose job notes, tasks, unfinished work, invoice and certificate admin items, email drafts, future prospects and job completion. You review and choose what to save. Nothing is created, sent or changed until you confirm it.</p>
         </div>
       </div>
 
@@ -2079,7 +2089,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
           <span class="faq-icon" style="font-size:22px;color:var(--teal);flex-shrink:0;transition:transform .3s">+</span>
         </button>
         <div class="faq-ans" style="display:none;padding-top:14px">
-          <p style="font-size:15px;color:var(--ink-soft);line-height:1.8">You can keep invoice and certificate records against the relevant job and track outstanding admin. SoleTasker does not create an accounting invoice or replace Xero. Review all dictated notes and documents before using or sending them.</p>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.8">You can keep invoice and certificate records against the relevant job and track outstanding admin. Wrap Up can propose invoice and certificate admin items for you to review, but SoleTasker does not create an accounting invoice, generate a certificate or replace Xero.</p>
         </div>
       </div>
 
@@ -2164,10 +2174,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"What is SoleTasker?","acceptedAnswer":{"@type":"Answer","text":"SoleTasker is an Australian voice-to-task web app for tradies, sole traders and small trade teams. It helps electricians, plumbers, builders, HVAC technicians and other trades capture tasks, reminders and job notes without taking on a full field-service system."}},
-    {"@type":"Question","name":"How does voice to structured tasks work for electricians, plumbers, and builders?","acceptedAnswer":{"@type":"Answer","text":"Tap the microphone and speak naturally. SoleTasker transcribes the recording and helps turn it into a task, reminder or job note. You review the result, make any changes and save it to the right place."}},
+    {"@type":"Question","name":"How does voice to structured tasks work for electricians, plumbers, and builders?","acceptedAnswer":{"@type":"Answer","text":"Tap the microphone and speak naturally. A normal capture can become a task, reminder or job note. From an existing job, Wrap Up can propose several actions from one memo. You review and choose what to save before anything changes."}},
+    {"@type":"Question","name":"What is Wrap Up?","acceptedAnswer":{"@type":"Answer","text":"Wrap Up lets you finish a job with one voice memo. SoleTasker can propose job notes, tasks, unfinished work, invoice and certificate admin items, email drafts, future prospects and job completion. You review and choose what to save. Nothing is created, sent or changed until you confirm it."}},
     {"@type":"Question","name":"Can I use voice capture on site without typing?","acceptedAnswer":{"@type":"Answer","text":"Yes. Voice capture avoids typing long notes while you are on site or in the van. It is not always listening or completely hands-free: you tap the microphone, speak, then review and save the result."}},
     {"@type":"Question","name":"What is the simplest tradie task management software for small operators?","acceptedAnswer":{"@type":"Answer","text":"SoleTasker is lightweight tradie task-management software for operators who need voice capture, tasks, reminders and job records but do not need scheduling, dispatch or a large field-service platform."}},
-    {"@type":"Question","name":"Can I track invoices and certificates using voice notes?","acceptedAnswer":{"@type":"Answer","text":"You can keep invoice and certificate records against the relevant job and track outstanding admin. SoleTasker does not create an accounting invoice or replace Xero. Review all dictated notes and documents before using or sending them."}},
+    {"@type":"Question","name":"Can I track invoices and certificates using voice notes?","acceptedAnswer":{"@type":"Answer","text":"You can keep invoice and certificate records against the relevant job and track outstanding admin. Wrap Up can propose invoice and certificate admin items for you to review, but SoleTasker does not create an accounting invoice, generate a certificate or replace Xero."}},
     {"@type":"Question","name":"Can I structure my day and the day of my team?","acceptedAnswer":{"@type":"Answer","text":"Yes. My Day is a simple run sheet you build deliberately for yourself or an individual team member. Add the tasks and jobs that person needs in front of them without turning SoleTasker into scheduling software."}},
     {"@type":"Question","name":"Can customers send job details directly into the system?","acceptedAnswer":{"@type":"Answer","text":"Yes. Send a secure, single-use job intake link to a customer or builder. Their details and photos arrive as a job request for you to review and edit before accepting it as a job."}},
     {"@type":"Question","name":"Does SoleTasker send Google review requests for me?","acceptedAnswer":{"@type":"Answer","text":"Yes. Save your Google review link and SoleTasker can prepare a review-request message using the customer's phone number. You check the message and tap send from your phone."}},
