@@ -709,19 +709,19 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 }
 
 /* ─── REAL VOICE CAPTURE DEMO ─── */
-.voice-capture-demo{max-width:520px;margin:0 auto 56px;position:relative}
+.voice-capture-demo{max-width:480px;margin:0 auto 42px;position:relative}
 .vc-modal{background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 46px rgba(28,43,58,.13);overflow:hidden}
 .vc-modal-head{height:50px;padding:0 16px 0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
 .vc-modal-title{font-size:16px;font-weight:800;color:var(--ink)}
 .vc-close{width:30px;height:30px;border-radius:8px;background:var(--bg);display:grid;place-items:center;color:var(--ink-soft)}
 .vc-close svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round}
-.vc-stage-wrap{position:relative;height:236px;background:var(--white)}
-.vc-stage{position:absolute;inset:0;padding:18px 24px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.vc-stage-wrap{position:relative;height:210px;background:var(--white)}
+.vc-stage{position:absolute;inset:0;padding:14px 20px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .vc-stage-idle{animation:vcIdle 8s ease-in-out infinite}
 .vc-stage-recording{opacity:0;visibility:hidden;animation:vcRecording 8s ease-in-out infinite}
 @keyframes vcIdle{0%,22%{opacity:1;visibility:visible}28%,94%{opacity:0;visibility:hidden}100%{opacity:1;visibility:visible}}
 @keyframes vcRecording{0%,22%{opacity:0;visibility:hidden}28%,94%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
-.vc-record-button{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;color:#fff;border:0}
+.vc-record-button{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;color:#fff;border:0}
 .vc-record-button svg{width:27px;height:27px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .vc-record-button.idle{background:#1D6CE8;box-shadow:0 4px 20px rgba(29,108,232,.4);animation:vcTap 8s ease-in-out infinite}
 @keyframes vcTap{0%,12%,22%,100%{transform:scale(1)}16%{transform:scale(.9);box-shadow:0 2px 10px rgba(29,108,232,.3)}19%{transform:scale(1.05)}}
@@ -731,10 +731,10 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 @keyframes vcWave{0%,100%{transform:scaleY(.28);opacity:.55}50%{transform:scaleY(1);opacity:1}}
 .vc-time{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:29px;font-weight:750;letter-spacing:-2px;line-height:1;color:#EF4444}
 .vc-listening{font-size:12px;color:var(--ink-soft);margin:4px 0 10px}
-.vc-record-button.stop{width:50px;height:50px;background:#EF4444;animation:vcPulse 1.4s ease-in-out infinite}
+.vc-record-button.stop{width:44px;height:44px;background:#EF4444;animation:vcPulse 1.4s ease-in-out infinite}
 .vc-record-button.stop svg{width:24px;height:24px;fill:#fff;stroke:none}
 @keyframes vcPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.28)}50%{box-shadow:0 0 0 13px rgba(239,68,68,0)}}
-.vc-transcript{width:100%;margin-top:12px;padding:9px 12px;background:var(--bg);border-radius:9px;text-align:left;opacity:0;transform:translateY(5px);animation:vcTranscript 8s ease-in-out infinite}
+.vc-transcript{width:100%;margin-top:8px;padding:9px 12px;background:var(--bg);border-radius:9px;text-align:left;opacity:0;transform:translateY(5px);animation:vcTranscript 8s ease-in-out infinite}
 @keyframes vcTranscript{0%,43%{opacity:0;transform:translateY(5px)}50%,94%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(5px)}}
 .vc-transcript-label{font-size:10px;font-weight:800;color:var(--teal);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
 .vc-transcript-text{font-size:12.5px;color:var(--ink);line-height:1.45;font-style:italic}
@@ -745,7 +745,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 .vc-cancel{padding:8px 14px;border-radius:8px;background:var(--bg);color:var(--ink-mid);font-size:12px;font-weight:750}
 .vc-stop-wide{width:100%;padding:9px 14px;border-radius:8px;background:#EF4444;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:7px}
 .vc-stop-wide::before{content:'';width:9px;height:9px;border-radius:2px;background:#fff}
-@media(max-width:640px){.voice-capture-demo{max-width:calc(100% - 8px);margin-bottom:44px}.vc-stage-wrap{height:242px}.vc-stage{padding:18px 18px 14px}.vc-transcript-text{font-size:12px}}
+@media(max-width:640px){.voice-capture-demo{max-width:calc(100% - 16px);margin-bottom:38px}.vc-stage-wrap{height:218px}.vc-stage{padding:14px 16px 12px}.vc-transcript-text{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.vc-stage-idle,.vc-foot-idle,.vc-record-button.idle{animation:none}.vc-stage-recording,.vc-foot-recording{display:none}.vc-wave span,.vc-record-button.stop,.vc-transcript{animation:none}}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .burger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all .25s}
@@ -1351,7 +1351,7 @@ if(!location.hash){window.scrollTo(0,0);}
 <style id="wrap-up-showcase-styles">
   .wu-showcase{max-width:620px;margin:0 auto 64px;text-align:center}
   .wu-kicker{display:block;margin-bottom:8px;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-  .wu-title{margin:0 0 8px;color:var(--ink);font-size:clamp(25px,3vw,32px);line-height:1.12;letter-spacing:-.025em}
+  .wu-title{margin:0 0 8px;color:var(--ink);font-family:var(--fh);font-size:clamp(34px,4vw,42px);font-weight:400;line-height:.98;letter-spacing:.01em;text-transform:uppercase}.wu-title span{color:var(--teal)}
   .wu-intro{max-width:500px;margin:0 auto 22px;color:var(--ink-soft);font-size:15px;line-height:1.55}
   .wu-demo{position:relative;overflow:hidden;text-align:left;background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 46px rgba(28,43,58,.13)}
   .wu-head{height:50px;padding:0 16px 0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
@@ -1398,8 +1398,8 @@ if(!location.hash){window.scrollTo(0,0);}
 
 <section class="wu-showcase rev" id="wrap-up" aria-labelledby="wrapup-title">
   <span class="wu-kicker">New · Wrap Up</span>
-  <h2 class="wu-title" id="wrapup-title">One memo. The whole job wrapped up.</h2>
-  <p class="wu-intro">Speak naturally when the work is done. SoleTasker pulls out the updates for you to review.</p>
+  <h2 class="wu-title" id="wrapup-title">Say it once. <span>Wrap it up.</span></h2>
+  <p class="wu-intro">Speak naturally when the work is done. SoleTasker pulls out the tasks for you to review.</p>
   <div class="wu-demo" aria-label="Animated example of Wrap Up extracting job actions">
     <div class="wu-head">
       <div class="wu-head-title"><span class="wu-spark"></span>Wrap Up · 29 Sherwood Ave</div>
@@ -1408,21 +1408,21 @@ if(!location.hash){window.scrollTo(0,0);}
     <div class="wu-stage">
       <div class="wu-transcript">
         <span class="wu-mic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
-        <p class="wu-spoken">“Two fans installed. Invoice $168, certificate needed. Email Rob. Return Friday for the damaged switch. EV charger prospect. Mark complete.”</p>
+        <p class="wu-spoken">“Two fans installed. Invoice $560, certificate needed. Email Rob. Return Friday for the damaged switch. EV charger prospect. Mark complete.”</p>
       </div>
       <div class="wu-extract-head"><span>Extracting from your memo</span><span class="wu-thinking"><i></i><i></i><i></i></span></div>
       <div class="wu-items">
         <div class="wu-item"><strong>Job note</strong><span>Two fans installed</span></div>
-        <div class="wu-item"><strong>Invoice follow-up</strong><span>$168</span></div>
-        <div class="wu-item"><strong>Certificate follow-up</strong><span>Two sweep fans</span></div>
+        <div class="wu-item"><strong>Invoice</strong><span>$560</span></div>
+        <div class="wu-item"><strong>Certificate</strong><span>Two sweep fans</span></div>
         <div class="wu-item"><strong>Email draft</strong><span>Tell Rob it’s finished</span></div>
         <div class="wu-item"><strong>Task · Friday</strong><span>Replace damaged switch</span></div>
         <div class="wu-item"><strong>Future prospect</strong><span>EV charger</span></div>
       </div>
       <div class="wu-success" aria-hidden="true">
         <div class="wu-orbit"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><i></i><i></i><i></i><i></i></div>
-        <strong>Ready to create</strong>
-        <span>Review and save the updates you want</span>
+        <strong>Tasks ready to create</strong>
+        <span>Review and save the tasks you want</span>
       </div>
     </div>
     <div class="wu-foot">Speak once · review everything · save selected</div>
