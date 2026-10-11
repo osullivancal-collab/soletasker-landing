@@ -1225,6 +1225,25 @@ section[style*="background:var(--navy)"] h4{
 @media(prefers-reduced-motion:reduce){.smart-state>div{animation:none!important}.smart-tool-copy{transition:none!important}}
 </style>
 
+<style id="trades-nav-styles">
+.nav-trades{position:relative;display:flex;align-items:center}
+.nav-trades summary{list-style:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--ink-soft);transition:color .15s;display:flex;align-items:center;gap:6px;padding:8px 0}
+.nav-trades summary::-webkit-details-marker{display:none}
+.nav-trades summary::after{content:'⌄';font-size:13px;line-height:1;transition:transform .18s}
+.nav-trades[open] summary,.nav-trades summary:hover{color:var(--ink)}
+.nav-trades[open] summary::after{transform:rotate(180deg)}
+.nav-trades-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 16px 38px rgba(28,43,58,.14);display:grid;z-index:400}
+.nav-trades-menu a{font-size:13px!important;font-weight:700!important;color:var(--ink-mid)!important;padding:10px 12px;border-radius:9px;white-space:nowrap}
+.nav-trades-menu a:hover{background:var(--bg);color:var(--teal-dk)!important}
+.mob-trades{border-bottom:1px solid var(--line-lt)}
+.mob-trades summary{list-style:none;cursor:pointer;font-size:15px;font-weight:700;color:var(--ink-mid);padding:13px 0;display:flex;align-items:center;justify-content:space-between}
+.mob-trades summary::-webkit-details-marker{display:none}
+.mob-trades summary::after{content:'+';font-size:19px;color:var(--teal);line-height:1}
+.mob-trades[open] summary::after{content:'−'}
+.mob-trade-links{padding:0 0 8px 14px}
+.mob-menu .mob-trade-links a{font-size:14px;font-weight:650;padding:10px 0;color:var(--ink-soft);border-bottom:0}
+@media(max-width:640px){.nav-trades{display:none}}
+</style>
 </head>
 <body>
 <script>
@@ -1239,6 +1258,19 @@ if(!location.hash){window.scrollTo(0,0);}
     <div class="nav-links">
       <a href="/#workflow">How it works</a>
       <a href="/use-cases">Use Cases</a>
+      <details class="nav-trades">
+        <summary>Trades</summary>
+        <div class="nav-trades-menu">
+          <a href="/electricians">Electricians</a>
+          <a href="/plumbers">Plumbers</a>
+          <a href="/builders">Builders</a>
+          <a href="/hvac">HVAC technicians</a>
+          <a href="/solar-installers">Solar installers</a>
+          <a href="/carpenters">Carpenters</a>
+          <a href="/landscapers">Landscapers</a>
+          <a href="/painters">Painters</a>
+        </div>
+      </details>
       <a href="/#intake">Job intake</a>
       <a href="/pricing">Pricing</a>
       <a href="/#faq-page">FAQ</a>
@@ -1246,7 +1278,7 @@ if(!location.hash){window.scrollTo(0,0);}
     </div>
     <div class="nav-r">
       <a href="https://app.soletasker.com.au" style="font-size:13px;font-weight:800;color:var(--ink);border:1.5px solid var(--line);border-radius:var(--r1);padding:9px 18px;margin-right:10px;white-space:nowrap;transition:all .15s" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink)'">Log in</a>
-      <button class="burger" onclick="toggleMenu()" aria-label="Menu">
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu" aria-controls="mobMenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1256,6 +1288,19 @@ if(!location.hash){window.scrollTo(0,0);}
   <a href="/" onclick="closeMenu()">Home</a>
   <a href="/#workflow" onclick="closeMenu()">How it works</a>
   <a href="/use-cases" onclick="closeMenu()">Use Cases</a>
+  <details class="mob-trades">
+    <summary>Trades</summary>
+    <div class="mob-trade-links">
+      <a href="/electricians" onclick="closeMenu()">Electricians</a>
+      <a href="/plumbers" onclick="closeMenu()">Plumbers</a>
+      <a href="/builders" onclick="closeMenu()">Builders</a>
+      <a href="/hvac" onclick="closeMenu()">HVAC technicians</a>
+      <a href="/solar-installers" onclick="closeMenu()">Solar installers</a>
+      <a href="/carpenters" onclick="closeMenu()">Carpenters</a>
+      <a href="/landscapers" onclick="closeMenu()">Landscapers</a>
+      <a href="/painters" onclick="closeMenu()">Painters</a>
+    </div>
+  </details>
   <a href="/#intake" onclick="closeMenu()">Job intake</a>
   <a href="/pricing" onclick="closeMenu()">Pricing</a>
   <a href="/#faq-page" onclick="closeMenu()">FAQ</a>
@@ -1974,8 +2019,21 @@ if(!location.hash){window.scrollTo(0,0);}
 </footer>
 <script defer>
 /* ── BURGER ── */
-function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open')}
-function closeMenu(){document.getElementById('mobMenu').classList.remove('open')}
+function toggleMenu(){
+  const menu=document.getElementById('mobMenu');
+  const button=document.querySelector('.burger');
+  const open=!menu.classList.contains('open');
+  menu.classList.toggle('open',open);
+  if(button)button.setAttribute('aria-expanded',open?'true':'false');
+}
+function closeMenu(){
+  const menu=document.getElementById('mobMenu');
+  const button=document.querySelector('.burger');
+  if(menu)menu.classList.remove('open');
+  if(button)button.setAttribute('aria-expanded','false');
+  const trades=document.querySelector('.mob-trades');
+  if(trades)trades.removeAttribute('open');
+}
 
 function openHashDestination(){
   if(location.hash==='#faq-page'){
