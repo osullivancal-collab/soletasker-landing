@@ -138,3 +138,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:300;height:64px;min-height:64px;
   .proof-transcript{padding:18px}
 }
 @media(prefers-reduced-motion:reduce){.wave i{animation:none}}
+
+/* Trades navigation shared across PSEO pages */
+.nav-trades{position:relative;display:flex;align-items:center}
+.nav-trades summary{list-style:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--ink-soft);transition:color .15s;display:flex;align-items:center;gap:6px;padding:8px 0}
+.nav-trades summary::-webkit-details-marker{display:none}
+.nav-trades summary::after{content:'⌄';font-size:13px;line-height:1;transition:transform .18s}
+.nav-trades[open] summary,.nav-trades summary:hover{color:var(--ink)}
+.nav-trades[open] summary::after{transform:rotate(180deg)}
+.nav-trades-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 16px 38px rgba(28,43,58,.14);display:grid;z-index:400}
+.nav-trades-menu a{font-size:13px!important;font-weight:700!important;color:var(--ink-mid)!important;padding:10px 12px;border-radius:9px;white-space:nowrap}
+.nav-trades-menu a:hover{background:var(--bg);color:var(--teal-dk)!important}
+.mob-trades{border-bottom:1px solid var(--line-lt)}
+.mob-trades summary{list-style:none;cursor:pointer;font-size:15px;font-weight:700;color:var(--ink-mid);padding:13px 0;display:flex;align-items:center;justify-content:space-between}
+.mob-trades summary::-webkit-details-marker{display:none}
+.mob-trades summary::after{content:'+';font-size:19px;color:var(--teal);line-height:1}
+.mob-trades[open] summary::after{content:'−'}
+.mob-trade-links{padding:0 0 8px 14px}
+.mob-menu .mob-trade-links a{font-size:14px;font-weight:650;padding:10px 0;color:var(--ink-soft);border-bottom:0}
+@media(max-width:640px){.nav-trades{display:none}}
