@@ -129,8 +129,8 @@
 <script>
 function toggleMenu(){const m=document.getElementById('mobMenu'),b=document.getElementById('menuButton');const open=!m.classList.contains('open');m.classList.toggle('open',open);if(b)b.setAttribute('aria-expanded',open?'true':'false')}
 function closeMenu(){const m=document.getElementById('mobMenu'),b=document.getElementById('menuButton');if(m)m.classList.remove('open');if(b)b.setAttribute('aria-expanded','false');const t=document.querySelector('.mob-trades');if(t)t.removeAttribute('open')}
-document.addEventListener('click',e=>{if(!e.target.closest('nav')&&!e.target.closest('.mob-menu'))closeMenu()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+document.addEventListener('click',e=>{if(!e.target.closest('nav')&&!e.target.closest('.mob-menu'))closeMenu();if(!e.target.closest('.nav-trades')){const t=document.querySelector('.nav-trades');if(t)t.removeAttribute('open')}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();const t=document.querySelector('.nav-trades');if(t)t.removeAttribute('open')}});
 window.addEventListener('resize',()=>{if(window.innerWidth>640)closeMenu()});
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a voice to task app for painters?","acceptedAnswer":{"@type":"Answer","text":"It lets a painter speak job details and turn them into tasks, colour notes, reminders, quote follow-up and other structured job records."}},
