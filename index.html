@@ -2046,6 +2046,17 @@ window.addEventListener('hashchange',openHashDestination);
 
 document.addEventListener('click',e=>{
   if(!e.target.closest('nav')&&!e.target.closest('.mob-menu'))closeMenu();
+  if(!e.target.closest('.nav-trades')){
+    const trades=document.querySelector('.nav-trades');
+    if(trades)trades.removeAttribute('open');
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeMenu();
+    const trades=document.querySelector('.nav-trades');
+    if(trades)trades.removeAttribute('open');
+  }
 });
 
 
