@@ -873,6 +873,7 @@ footer p{font-size:13px;color:rgba(255,255,255,.3)}
 }
 @media(max-width:768px){
   nav .nav-links{display:none}
+  .burger{display:flex}
 }
 @media(max-width:600px){
   nav{padding:0}
@@ -2040,10 +2041,19 @@ function closeMenu(){
 }
 
 function openHashDestination(){
-  if(location.hash==='#faq-page'){
-    const faq=document.getElementById('faq-page');
-    if(faq){faq.style.display='block';requestAnimationFrame(()=>faq.scrollIntoView({behavior:'smooth',block:'start'}));}
-  }
+  const hash=location.hash;
+  if(!hash)return;
+  const id=hash.slice(1);
+  if(!['workflow','intake','faq-page'].includes(id))return;
+  const target=document.getElementById(id);
+  if(!target)return;
+  if(id==='faq-page')target.style.display='block';
+  requestAnimationFrame(()=>{
+    target.scrollIntoView({behavior:'smooth',block:'start'});
+    window.setTimeout(()=>{
+      if(location.hash===hash)history.replaceState(null,'',location.pathname+location.search);
+    },120);
+  });
 }
 window.addEventListener('DOMContentLoaded',openHashDestination);
 window.addEventListener('hashchange',openHashDestination);
