@@ -660,6 +660,23 @@ nav{
 .form-ok h3{font-family:var(--fh);font-size:36px;color:var(--ink);margin-bottom:8px}
 .form-ok p{font-size:15px;color:var(--ink-soft);line-height:1.6}
 
+/* ─── FEATURED BLOG STORIES ─── */
+.blog-preview{background:var(--bg);padding:72px 32px}
+.blog-preview-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:28px}
+.blog-preview-heading .s-eyebrow{display:block;margin-bottom:12px}
+.blog-preview-heading h2{max-width:700px;font-family:var(--fh);font-weight:400;font-size:clamp(34px,4.5vw,52px);line-height:.98;color:var(--navy)}
+.blog-preview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:20px}
+.blog-preview-card{max-width:540px;overflow:hidden;background:var(--white);border:1px solid var(--line);border-radius:var(--r3);box-shadow:var(--sh);transition:transform .18s,box-shadow .18s}
+.blog-preview-card:hover{transform:translateY(-3px);box-shadow:var(--sl)}
+.blog-preview-card img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.blog-preview-card-copy{padding:22px 24px 24px}
+.blog-preview-meta{margin-bottom:9px;color:var(--teal-dk);font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+.blog-preview-card h3{margin-bottom:10px;font-family:var(--fh);font-size:28px;font-weight:400;line-height:1.04;color:var(--navy)}
+.blog-preview-card p:not(.blog-preview-meta){margin-bottom:16px;color:var(--ink-soft);font-size:14px;line-height:1.65}
+.blog-preview-read{color:var(--teal-dk);font-size:13px;font-weight:800}
+.blog-preview-card:hover .blog-preview-read{color:var(--navy)}
+@media(max-width:700px){.blog-preview{padding:54px 24px}.blog-preview-heading{align-items:flex-start;flex-direction:column;gap:16px}.blog-preview-grid{grid-template-columns:1fr}.blog-preview-card{max-width:none}}
+
 /* ════════════════════════════════════
    FINAL CLOSE
 ════════════════════════════════════ */
@@ -1955,6 +1972,33 @@ if(!location.hash){window.scrollTo(0,0);}
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FEATURED BLOG STORIES
+══════════════════════════════════════ -->
+<section class="blog-preview" aria-labelledby="blog-preview-title">
+  <div class="blog-preview-inner w">
+    <div class="blog-preview-heading">
+      <div>
+        <span class="s-eyebrow">From the SoleTasker blog</span>
+        <h2 id="blog-preview-title">Stories for running your trade business with less admin.</h2>
+      </div>
+    </div>
+    <div class="blog-preview-grid">
+      <article class="blog-preview-card">
+        <a href="/blog" aria-label="Read the story: When your wife wants to help, but can’t see what needs doing">
+          <img src="/assets/blog-admin-view.jpg" alt="A partner using SoleTasker to view assigned job tasks on a laptop." width="634" height="421" loading="lazy" decoding="async"/>
+        </a>
+        <div class="blog-preview-card-copy">
+          <p class="blog-preview-meta">A sole-trader story · 6 min read</p>
+          <h3><a href="/blog">When your wife wants to help, but can’t see what needs doing</a></h3>
+          <p>See how turning job details into clear tasks can bring your partner into the business and give you more time with your family.</p>
+          <a class="blog-preview-read" href="/blog">Read the story →</a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
