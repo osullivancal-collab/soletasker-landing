@@ -669,14 +669,16 @@ nav{
 .blog-preview-track:focus-visible{outline:2px solid var(--teal-dk);outline-offset:3px;border-radius:var(--r2)}
 .blog-preview-card{display:flex;flex:0 0 min(440px,82vw);min-height:176px;max-width:440px;overflow:hidden;background:var(--white);border:1px solid var(--line);border-radius:var(--r2);box-shadow:var(--sh);scroll-snap-align:start;transition:transform .18s,box-shadow .18s}
 .blog-preview-card:hover{transform:translateY(-2px);box-shadow:var(--sm)}
-.blog-preview-card img{display:block;flex:0 0 35%;width:35%;min-width:132px;object-fit:cover}
+.blog-preview-card>a{display:block;flex:0 0 35%;min-width:132px;overflow:hidden}
+.blog-preview-card>a img{display:block;width:100%;height:100%;min-height:176px;object-fit:cover}
+.blog-preview-card-copy{min-width:0}
 .blog-preview-card-copy{display:flex;flex:1;flex-direction:column;align-items:flex-start;justify-content:center;padding:16px 18px}
 .blog-preview-meta{margin-bottom:7px;color:var(--teal-dk);font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
 .blog-preview-card h3{margin-bottom:7px;font-family:var(--fh);font-size:23px;font-weight:400;line-height:1.02;color:var(--sole-blue,#1B2B6B)}
 .blog-preview-card p:not(.blog-preview-meta){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin-bottom:9px;color:var(--ink-soft);font-size:12px;line-height:1.45}
 .blog-preview-read{color:var(--teal-dk);font-size:11px;font-weight:800}
 .blog-preview-card:hover .blog-preview-read{color:var(--sole-blue,#1B2B6B)}
-@media(max-width:700px){.blog-preview{padding:40px 24px}.blog-preview-heading h2{font-size:32px}.blog-preview-card{flex-basis:min(88vw,390px);min-height:156px}.blog-preview-card img{flex-basis:34%;width:34%;min-width:112px}.blog-preview-card-copy{padding:13px 14px}.blog-preview-card h3{font-size:21px}.blog-preview-card p:not(.blog-preview-meta){font-size:11px}}
+@media(max-width:700px){.blog-preview{padding:40px 24px}.blog-preview-heading h2{font-size:32px}.blog-preview-card{flex-basis:min(88vw,390px);min-height:156px}.blog-preview-card>a{flex-basis:34%;min-width:112px}.blog-preview-card>a img{min-height:156px}.blog-preview-card-copy{padding:13px 14px}.blog-preview-card h3{font-size:21px}.blog-preview-card p:not(.blog-preview-meta){font-size:11px}}
 
 /* ════════════════════════════════════
    FINAL CLOSE
