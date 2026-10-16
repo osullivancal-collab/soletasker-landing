@@ -1,3 +1,9 @@
+Warning: truncated output (original token count: 30027)
+Total output lines: 1896
+
+Warning: truncated output (original token count: 41414)
+Total output lines: 2438
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -661,24 +667,32 @@ nav{
 .form-ok p{font-size:15px;color:var(--ink-soft);line-height:1.6}
 
 /* ─── FEATURED BLOG STORIES ─── */
-.blog-preview{background:var(--bg);padding:48px 32px}
-.blog-preview-heading{margin-bottom:18px}
+.blog-preview{box-sizing:border-box;width:100%;background:var(--bg);padding:48px 32px;overflow:hidden}
+.blog-preview-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;width:min(100%,850px);margin-bottom:18px}
+.blog-preview-heading-copy{min-width:0}
 .blog-preview-heading .s-eyebrow{display:block;margin-bottom:8px}
 .blog-preview-heading h2{max-width:700px;font-family:var(--fh);font-weight:400;font-size:clamp(30px,3.5vw,40px);line-height:1;color:var(--sole-blue,#1B2B6B)}
-.blog-preview-track{display:flex;max-width:850px;gap:12px;overflow-x:auto;padding:3px 2px 12px;scroll-padding-inline:2px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.blog-preview-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.blog-preview-count{min-width:38px;color:var(--ink-soft);font-size:12px;font-weight:800;text-align:center;font-variant-numeric:tabular-nums}
+.blog-preview-arrow{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--navy);font-size:30px;line-height:1;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.blog-preview-arrow:hover:not(:disabled){background:var(--navy);border-color:var(--navy);color:var(--white)}
+.blog-preview-arrow:disabled{opacity:.38;cursor:default}
+.blog-preview-arrow:focus-visible{outline:2px solid var(--teal-dk);outline-offset:3px}
+.blog-preview-track{display:flex;box-sizing:border-box;width:min(100%,850px);gap:12px;overflow-x:auto;padding:3px 2px 12px;scroll-padding-inline:2px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.blog-preview-track::-webkit-scrollbar{display:none}
 .blog-preview-track:focus-visible{outline:2px solid var(--teal-dk);outline-offset:3px;border-radius:var(--r2)}
-.blog-preview-card{display:flex;flex:0 0 100%;min-width:0;min-height:176px;max-width:none;overflow:hidden;background:var(--white);border:1px solid var(--line);border-radius:var(--r2);box-shadow:var(--sh);scroll-snap-align:start;transition:transform .18s,box-shadow .18s}
+.blog-preview-card{display:flex;box-sizing:border-box;flex:0 0 100%;width:100%;min-width:0;min-height:190px;max-width:100%;overflow:hidden;background:var(--white);border:1px solid var(--line);border-radius:var(--r2);box-shadow:var(--sh);scroll-snap-align:start;transition:transform .18s,box-shadow .18s}
 .blog-preview-card:hover{transform:translateY(-2px);box-shadow:var(--sm)}
-.blog-preview-card>a{display:block;flex:0 0 35%;min-width:132px;overflow:hidden}
-.blog-preview-card>a img{display:block;width:100%;height:100%;min-height:176px;object-fit:cover}
-.blog-preview-card-copy{min-width:0}
-.blog-preview-card-copy{display:flex;flex:1;flex-direction:column;align-items:flex-start;justify-content:center;padding:16px 18px}
+.blog-preview-card>a{display:block;box-sizing:border-box;flex:0 0 35%;min-width:0;overflow:hidden}
+.blog-preview-card>a img{display:block;width:100%;height:100%;min-height:190px;object-fit:cover}
+.blog-preview-card-copy{display:flex;box-sizing:border-box;flex:1 1 0;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;padding:18px 20px}
 .blog-preview-meta{margin-bottom:7px;color:var(--teal-dk);font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
-.blog-preview-card h3{margin-bottom:7px;font-family:var(--fh);font-size:23px;font-weight:400;line-height:1.02;color:var(--sole-blue,#1B2B6B)}
+.blog-preview-card h3{width:100%;margin-bottom:7px;font-family:var(--fh);font-size:23px;font-weight:400;line-height:1.02;color:var(--sole-blue,#1B2B6B);overflow-wrap:anywhere}
 .blog-preview-card p:not(.blog-preview-meta){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin-bottom:9px;color:var(--ink-soft);font-size:12px;line-height:1.45}
 .blog-preview-read{color:var(--teal-dk);font-size:11px;font-weight:800}
 .blog-preview-card:hover .blog-preview-read{color:var(--sole-blue,#1B2B6B)}
-@media(max-width:700px){.blog-preview{padding:40px 24px}.blog-preview-inner.w{padding:0}.blog-preview-heading h2{font-size:32px}.blog-preview-card{flex-basis:100%;min-height:156px}.blog-preview-card>a{flex-basis:34%;min-width:112px}.blog-preview-card>a img{min-height:156px}.blog-preview-card-copy{padding:13px 14px}.blog-preview-card h3{font-size:21px}.blog-preview-card p:not(.blog-preview-meta){font-size:11px}}
+@media(max-width:700px){.blog-preview{padding:40px 24px}.blog-preview-inner.w{padding:0}.blog-preview-heading{align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:14px}.blog-preview-heading-copy{flex:1 1 100%}.blog-preview-heading h2{font-size:32px}.blog-preview-controls{margin-left:auto}.blog-preview-track{max-width:none;padding-bottom:8px}.blog-preview-card{height:220px;min-height:220px}.blog-preview-card>a{height:100%;flex:0 0 32%;min-width:0}.blog-preview-card>a img{height:100%;min-height:0}.blog-preview-card-copy{height:100%;min-height:0;overflow:hidden;padding:14px 13px}.blog-preview-meta{font-size:8px;letter-spacing:.7px}.blog-preview-card h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;font-size:20px;line-height:1.04}.blog-preview-card p:not(.blog-preview-meta){font-size:11px;line-height:1.4}}
+@media(max-width:360px){.blog-preview{padding-right:18px;padding-left:18px}.blog-preview-heading h2{font-size:29px}.blog-preview-card>a{flex-basis:29%}.blog-preview-card-copy{padding:12px 10px}.blog-preview-card h3{font-size:18px}}
 
 /* ════════════════════════════════════
    FINAL CLOSE
@@ -1172,553 +1186,7 @@ section[style*="background:var(--navy)"] h4{
 /* Smart-tools extracted-panel pass: preserve interaction, remove duplicate phone chrome. */
 .smart-onsite-sec{padding:66px 32px 72px!important}
 .smart-onsite-head{margin-bottom:26px!important;max-width:720px!important}
-.smart-onsite-intro{font-size:16px!important;line-height:1.62!important;max-width:620px!important;color:#667385!important}
-.smart-tools-shell{grid-template-columns:minmax(0,1fr) 460px!important;gap:58px!important;align-items:start!important}
-.smart-tools-rail{max-width:520px!important;padding-top:0!important;align-self:start!important}
-.smart-rail-group+.smart-rail-group{margin-top:16px!important}
-.smart-rail-label{color:#6f7f91!important;margin-bottom:8px!important}
-
-.smart-quick{height:60px!important;border:1.5px solid #c8d2dc!important;background:#f8fafc!important;color:#1B2B6B!important;border-radius:12px!important;font-weight:900!important;box-shadow:0 2px 7px rgba(28,43,58,.05)!important}
-.smart-quick svg{stroke:#1E9C83!important;stroke-width:2!important}
-.smart-quick:hover,.smart-quick:focus-visible{background:#fff!important;border-color:#2CB99D!important;box-shadow:0 7px 18px rgba(28,43,58,.09)!important}
-
-.smart-feature-btn{height:54px!important;border:1.5px solid #bbc7d2!important;background:#fff!important;color:#1B2B6B!important;font-weight:900!important;box-shadow:0 2px 8px rgba(28,43,58,.045)!important}
-.smart-feature-btn .sf-ic{background:#e8f6f3!important;color:#1E9C83!important}
-.smart-feature-btn:hover,.smart-feature-btn:focus-visible{border-color:#2CB99D!important;transform:translateY(-1px)!important}
-.smart-feature-btn.active{background:#1C2B3A!important;border-color:#1C2B3A!important;color:#fff!important;box-shadow:0 8px 20px rgba(28,43,58,.16)!important}
-.smart-feature-btn.active .sf-ic{background:rgba(44,185,157,.14)!important;color:#2CB99D!important}
-
-/* Extract the useful app containers instead of showing another full device mock. */
-.smart-phone-wrap{justify-content:center!important;align-items:flex-start!important;position:relative!important;height:500px!important;min-height:500px!important;padding:10px 0 0!important}
-.smart-phone-wrap:before{content:'';position:absolute;inset:30px 18px 112px;border-radius:30px;background:linear-gradient(145deg,rgba(45,91,227,.045),rgba(44,185,157,.055));border:1px solid rgba(28,43,58,.055);transform:rotate(-1deg);pointer-events:none}
-.smart-phone-wrap>div{width:100%!important;max-width:440px!important;display:flex!important;flex-direction:column!important;height:100%!important;position:relative!important;z-index:1!important}
-.smart-phone{width:100%!important;max-width:440px!important;height:auto!important;min-height:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;display:block!important;color:#18283a!important;position:relative!important;z-index:1!important}
-.smart-phone-top,.smart-phone-footer{display:none!important}
-.smart-phone-body{height:382px!important;min-height:382px!important;flex:none!important;padding:18px!important;background:transparent!important;overflow:visible!important;display:flex!important;align-items:flex-start!important;justify-content:center!important;position:relative!important}
-.smart-phone-body:after{display:none!important}
-.smart-state{width:100%!important;height:auto!important;overflow:visible!important}
-.smart-state>div{width:100%;animation:smartPanelIn .32s cubic-bezier(.2,.72,.2,1) both}
-@keyframes smartPanelIn{from{opacity:0;transform:translateY(10px) scale(.988)}to{opacity:1;transform:none}}
-
-.smart-screen-title{display:inline-flex!important;align-items:center!important;gap:7px!important;margin:0 0 10px 4px!important;padding:6px 10px!important;border:1px solid rgba(44,185,157,.2)!important;border-radius:999px!important;background:rgba(255,255,255,.88)!important;color:#647486!important;box-shadow:0 4px 12px rgba(28,43,58,.045)!important}
-.smart-screen-title:before{content:'';width:6px;height:6px;border-radius:50%;background:#2CB99D;box-shadow:0 0 0 4px rgba(44,185,157,.1)}
-.smart-card{min-height:0!important;padding:18px!important;border:1px solid #dce4ea!important;border-radius:20px!important;background:rgba(255,255,255,.97)!important;box-shadow:0 20px 48px rgba(28,43,58,.105)!important}
-.smart-card+.smart-card{margin-top:10px!important}
-.smart-meta{gap:9px!important;margin-bottom:10px!important}
-.smart-meta-box{border-color:#dde5eb!important;border-radius:13px!important;box-shadow:0 9px 24px rgba(28,43,58,.055)!important}
-.smart-note-box{background:#f7fafb!important;border-left-color:#2CB99D!important}
-.smart-status-strip{background:#eef9f6!important}
-.smart-field{border-color:#dfe6ec!important;background:#fff!important}
-.smart-scan-drop{border-color:#a7cfee!important;background:rgba(247,251,255,.96)!important;box-shadow:0 12px 30px rgba(28,43,58,.055)!important}
-.smart-toast{top:3px!important;box-shadow:0 12px 28px rgba(28,43,58,.2)!important}
-
-/* Fixed copy zone prevents layout shift while explaining each active tool. */
-.smart-phone-caption{display:none!important}
-.smart-tool-copy{height:98px;min-height:98px;padding:12px 20px 0;text-align:left;transition:opacity .18s ease,transform .18s ease}
-.smart-tool-copy.swap{opacity:.25;transform:translateY(3px)}
-.smart-tool-copy strong{display:block;font-size:14px;line-height:1.35;color:#1B2B6B;margin-bottom:5px;font-weight:900}
-.smart-tool-copy span{display:block;font-size:12.5px;line-height:1.55;color:#697786;max-width:410px}
-
-@media(max-width:900px){
-  .smart-tools-shell{grid-template-columns:1fr!important;gap:28px!important}
-  .smart-tools-rail{max-width:none!important}
-  .smart-phone-wrap{justify-content:center!important;height:500px!important;min-height:500px!important}
-}
-@media(max-width:640px){
-  .smart-onsite-sec{padding:54px 20px 60px!important}
-  .smart-onsite-head{margin-bottom:20px!important}
-  .smart-tools-shell{gap:20px!important}
-  .smart-quick{height:56px!important;font-size:9.5px!important}
-  .smart-feature-btn{height:50px!important;font-size:10.5px!important;padding:0 10px!important}
-  .smart-phone-wrap{height:530px!important;min-height:530px!important;padding:2px 0 0!important}
-  .smart-phone-wrap:before{inset:26px 4px 122px;border-radius:24px!important}
-  .smart-phone-wrap>div{max-width:100%!important}
-  .smart-phone{max-width:100%!important}
-  .smart-phone-body{height:402px!important;min-height:402px!important;padding:14px 8px!important}
-  .smart-card{padding:15px!important;border-radius:17px!important}
-  .smart-card h3{font-size:16px!important}
-  .smart-meta{grid-template-columns:1fr 1fr!important;gap:7px!important}
-  .smart-screen-title{margin-left:2px!important}
-  .smart-tool-copy{height:112px;min-height:112px;padding:12px 12px 0}
-  .smart-tool-copy strong{font-size:13.5px}
-  .smart-tool-copy span{font-size:12px;line-height:1.5}
-}
-@media(prefers-reduced-motion:reduce){.smart-state>div{animation:none!important}.smart-tool-copy{transition:none!important}}
-</style>
-
-<style id="trades-nav-styles">
-.nav-trades{position:relative;display:flex;align-items:center}
-.nav-trades summary{list-style:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--ink-soft);transition:color .15s;display:flex;align-items:center;gap:6px;padding:8px 0}
-.nav-trades summary::-webkit-details-marker{display:none}
-.nav-trades summary::after{content:'⌄';font-size:13px;line-height:1;transition:transform .18s}
-.nav-trades[open] summary,.nav-trades summary:hover{color:var(--ink)}
-.nav-trades[open] summary::after{transform:rotate(180deg)}
-.nav-trades-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 16px 38px rgba(28,43,58,.14);display:grid;z-index:400}
-.nav-trades-menu a{font-size:13px!important;font-weight:700!important;color:var(--ink-mid)!important;padding:10px 12px;border-radius:9px;white-space:nowrap}
-.nav-trades-menu a:hover{background:var(--bg);color:var(--teal-dk)!important}
-.mob-trades{border-bottom:1px solid var(--line-lt)}
-.mob-trades summary{list-style:none;cursor:pointer;font-size:15px;font-weight:700;color:var(--ink-mid);padding:13px 0;display:flex;align-items:center;justify-content:space-between}
-.mob-trades summary::-webkit-details-marker{display:none}
-.mob-trades summary::after{content:'+';font-size:19px;color:var(--teal);line-height:1}
-.mob-trades[open] summary::after{content:'−'}
-.mob-trade-links{padding:0 0 8px 14px}
-.mob-menu .mob-trade-links a{font-size:14px;font-weight:650;padding:10px 0;color:var(--ink-soft);border-bottom:0}
-@media(max-width:640px){.nav-trades{display:none}}
-</style>
-</head>
-<body>
-<script>
-if('scrollRestoration' in history){history.scrollRestoration='manual';}
-if(!location.hash){window.scrollTo(0,0);}
-</script>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-in">
-    <a href="/" style="display:flex;align-items:center;flex-shrink:0"><img width="160" height="40" loading="lazy" src="/logo.png" alt="SoleTasker" style="height:48px;width:auto;object-fit:contain;display:block;opacity:1"/></a>
-    <div class="nav-links">
-      <a href="/#workflow">How it works</a>
-      <a href="/use-cases">Use Cases</a>
-      <details class="nav-trades">
-        <summary>Trades</summary>
-        <div class="nav-trades-menu">
-          <a href="/electricians">Electricians</a>
-          <a href="/plumbers">Plumbers</a>
-          <a href="/builders">Builders</a>
-          <a href="/hvac">HVAC technicians</a>
-          <a href="/solar-installers">Solar installers</a>
-          <a href="/carpenters">Carpenters</a>
-          <a href="/landscapers">Landscapers</a>
-          <a href="/painters">Painters</a>
-        </div>
-      </details>
-      <a href="/#intake">Job intake</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/#faq-page">FAQ</a>
-      <a href="/contact/">Contact us</a>
-    </div>
-    <div class="nav-r">
-      <a href="https://app.soletasker.com.au" style="font-size:13px;font-weight:800;color:var(--ink);border:1.5px solid var(--line);border-radius:var(--r1);padding:9px 18px;margin-right:10px;white-space:nowrap;transition:all .15s" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink)'">Log in</a>
-      <button class="burger" onclick="toggleMenu()" aria-label="Menu" aria-controls="mobMenu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</nav>
-<div class="mob-menu" id="mobMenu">
-  <a href="/" onclick="closeMenu()">Home</a>
-  <a href="/#workflow" onclick="closeMenu()">How it works</a>
-  <a href="/use-cases" onclick="closeMenu()">Use Cases</a>
-  <details class="mob-trades">
-    <summary>Trades</summary>
-    <div class="mob-trade-links">
-      <a href="/electricians" onclick="closeMenu()">Electricians</a>
-      <a href="/plumbers" onclick="closeMenu()">Plumbers</a>
-      <a href="/builders" onclick="closeMenu()">Builders</a>
-      <a href="/hvac" onclick="closeMenu()">HVAC technicians</a>
-      <a href="/solar-installers" onclick="closeMenu()">Solar installers</a>
-      <a href="/carpenters" onclick="closeMenu()">Carpenters</a>
-      <a href="/landscapers" onclick="closeMenu()">Landscapers</a>
-      <a href="/painters" onclick="closeMenu()">Painters</a>
-    </div>
-  </details>
-  <a href="/#intake" onclick="closeMenu()">Job intake</a>
-  <a href="/pricing" onclick="closeMenu()">Pricing</a>
-  <a href="/#faq-page" onclick="closeMenu()">FAQ</a>
-  <a href="/contact/" onclick="closeMenu()">Contact us</a>
-  <a href="https://app.soletasker.com.au" onclick="closeMenu()" style="color:var(--navy);font-weight:800;border-top:1px solid var(--line);margin-top:8px;padding-top:16px">Log in to app →</a>
-</div>
-
-<!-- PRICING PAGE — full overlay, opened from burger -->
-
-
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-inner">
-
-    <div class="hero-badge">
-      <span class="stt-wave"><span></span><span></span><span></span><span></span><span></span></span>
-      <span>Voice-first · Phone-first</span>
-    </div>
-
-    <h1 class="hero-h1">
-      VOICE TO TASK JOB MANAGEMENT
-      <span class="hl">FOR SOLE TRADERS AND SMALL TEAMS</span>
-    </h1>
-
-    <p class="hero-lead">
-      Tap the mic and say what needs doing. Create a task or reminder. Link it to a job. Assign it to yourself, admin or worker. Keep the notes, photos and certs together.
-    </p>
-
-    <div class="hero-ctas">
-      <a href="https://app.soletasker.com.au/signup" class="btn-teal lg">Start Free</a>
-      <a href="javascript:void(0)" onclick="document.getElementById('workflow').scrollIntoView({behavior:'smooth'})" class="btn-outline md" style="color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.15);border-radius:var(--r2)">See how it works ↓</a>
-    </div>
-
-    <div class="hero-trust">
-      <span class="htrust">Australian-built</span>
-      <span class="htrust-dot"></span>
-      <span class="htrust">7 days free · Then $29/month ex GST · No card required</span>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-<!-- ══════════════════════════════════════
-     HOW IT WORKS — moved up
-══════════════════════════════════════ -->
-<section class="workflow-sec" id="workflow">
-  <div class="workflow-header rev">
-    <span class="s-eyebrow">How it works</span>
-    <h2 class="s-head">Say it.<br/><span class="a">Wrap it up.</span></h2>
-    <p class="s-sub">No typing. No desk. Just speak — on site, in the van, between jobs. Create a task, capture a job note, or wrap the whole job up in one go.</p>
-  </div>
-
-  <style id="wrapflow-styles">
-  .wrapflow-demo{max-width:520px;margin:0 auto 56px;position:relative}
-  .wf-shell{overflow:hidden;background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 46px rgba(28,43,58,.13)}
-  .wf-head{height:52px;padding:0 18px 0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:relative}
-  .wf-head-title{position:absolute;left:20px;display:flex;align-items:center;gap:9px;color:var(--ink);font-size:15px;font-weight:800}
-  .wf-head-capture{animation:wfCaptureHead 14s ease-in-out infinite}
-  .wf-head-wrap{opacity:0;animation:wfWrapHead 14s ease-in-out infinite}
-  .wf-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px rgba(44,185,157,.12)}
-  .wf-beta{margin-left:auto;padding:5px 8px;border-radius:999px;background:var(--bg);color:var(--ink-soft);font-size:10px;font-weight:850;letter-spacing:.05em;text-transform:uppercase;opacity:0;animation:wfWrapHead 14s ease-in-out infinite}
-  .wf-stage{height:300px;position:relative;background:linear-gradient(180deg,#fff 0%,#fbfcfe 100%)}
-  .wf-capture,.wf-extract,.wf-success{position:absolute;inset:0}
-  .wf-capture{padding:18px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;animation:wfCaptureStage 14s ease-in-out infinite}
-  .wf-wave{height:30px;display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:7px}
-  .wf-wave i{display:block;width:4px;height:var(--bar);border-radius:3px;background:var(--blue);animation:vcWave 1s ease-in-out infinite;animation-delay:var(--delay)}
-  .wf-time{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:28px;font-weight:750;letter-spacing:-2px;line-height:1;color:var(--red)}
-  .wf-listening{margin:5px 0 10px;color:var(--ink-soft);font-size:12px}
-  .wf-stop{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(239,68,68,.28);animation:vcPulse 1.4s ease-in-out infinite}
-  .wf-stop:before{content:"";width:13px;height:13px;border-radius:2px;background:#fff}
-  .wf-transcript{width:100%;margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--bg);text-align:left;opacity:0;animation:wfTranscript 14s ease-in-out infinite}
-  .wf-transcript-label{margin-bottom:4px;color:var(--teal);font-size:10px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}
-  .wf-transcript-text{color:var(--ink);font-size:12px;font-style:italic;line-height:1.45}
-  .wf-extract{padding:18px 20px;display:flex;flex-direction:column;justify-content:center;opacity:0;animation:wfExtractStage 14s ease-in-out infinite}
-  .wf-extract-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;color:var(--ink-soft);font-size:10px;font-weight:850;letter-spacing:.07em;text-transform:uppercase}
-  .wf-thinking{display:flex;gap:3px}.wf-thinking i{width:4px;height:4px;border-radius:50%;background:var(--teal);animation:wuDot 1.1s ease-in-out infinite}
-  .wf-thinking i:nth-child(2){animation-delay:.14s}.wf-thinking i:nth-child(3){animation-delay:.28s}
-  .wf-items{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-  .wf-item{min-width:0;padding:12px 13px;border-radius:11px;background:var(--bg);opacity:0}
-  .wf-item strong{display:block;margin-bottom:2px;color:var(--ink);font-size:11px;line-height:1.2}
-  .wf-item span{display:block;overflow:hidden;color:var(--ink-soft);font-size:10px;line-height:1.3;text-overflow:ellipsis;white-space:nowrap}
-  .wf-item:nth-child(1){animation:wfItem1 14s ease-in-out infinite}.wf-item:nth-child(2){animation:wfItem2 14s ease-in-out infinite}
-  .wf-item:nth-child(3){animation:wfItem3 14s ease-in-out infinite}.wf-item:nth-child(4){animation:wfItem4 14s ease-in-out infinite}
-  .wf-item:nth-child(5){animation:wfItem5 14s ease-in-out infinite}.wf-item:nth-child(6){animation:wfItem6 14s ease-in-out infinite}
-  .wf-success{display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;animation:wfSuccess 14s ease-in-out infinite}
-  .wf-success:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(44,185,157,.18) 0%,rgba(29,108,232,.08) 44%,transparent 72%);animation:wfGlow 14s ease-in-out infinite}
-  .wf-orbit{position:relative;width:76px;height:76px;display:grid;place-items:center;border-radius:50%;background:#fff;border:1px solid rgba(44,185,157,.24);box-shadow:0 16px 40px rgba(44,185,157,.2);color:var(--teal)}
-  .wf-orbit svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-  .wf-orbit i{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 12px rgba(29,108,232,.55)}
-  .wf-orbit i:nth-child(2){top:-12px;left:35px}.wf-orbit i:nth-child(3){right:-16px;top:30px}.wf-orbit i:nth-child(4){bottom:-10px;left:8px}.wf-orbit i:nth-child(5){left:-14px;top:18px;background:var(--teal)}
-  .wf-success strong{position:relative;margin-top:16px;color:var(--ink);font-size:16px}.wf-success span{position:relative;margin-top:4px;color:var(--ink-soft);font-size:12px}
-  .wf-foot{height:54px;padding:9px 16px;border-top:1px solid var(--line);position:relative}
-  .wf-foot-state{position:absolute;inset:9px 16px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:12px;font-weight:800}
-  .wf-foot-recording{background:var(--red);color:#fff;animation:wfCaptureHead 14s ease-in-out infinite}.wf-foot-recording:before{content:"";width:9px;height:9px;margin-right:7px;border-radius:2px;background:#fff}
-  .wf-foot-review{background:var(--blue);color:#fff;opacity:0;animation:wfReviewFoot 14s ease-in-out infinite}
-  .wf-foot-ready{color:var(--ink-soft);opacity:0;animation:wfReadyFoot 14s ease-in-out infinite}
-  @keyframes wfCaptureHead{0%,31%{opacity:1;transform:none}36%,100%{opacity:0;transform:translateY(-4px)}}
-  @keyframes wfWrapHead{0%,32%{opacity:0;transform:translateY(4px)}38%,100%{opacity:1;transform:none}}
-  @keyframes wfCaptureStage{0%,31%{opacity:1;visibility:visible}36%,100%{opacity:0;visibility:hidden;transform:translateY(-8px)}}
-  @keyframes wfTranscript{0%,13%{opacity:0;transform:translateY(5px)}19%,31%{opacity:1;transform:none}36%,100%{opacity:0;transform:translateY(-5px)}}
-  @keyframes wfExtractStage{0%,32%{opacity:0;visibility:hidden;transform:translateY(8px)}38%,76%{opacity:1;visibility:visible;transform:none}82%,100%{opacity:0;visibility:hidden;transform:translateY(-8px)}}
-  @keyframes wfItem1{0%,38%{opacity:0;transform:translateY(7px)}42%,76%{opacity:1;transform:none}81%,100%{opacity:0;transform:translateY(-10px) scale(.97)}}
-  @keyframes wfItem2{0%,42%{opacity:0;transform:translateY(7px)}46%,76%{opacity:1;transform:none}81%,100%{opacity:0;transform:translateY(-10px) scale(.97)}}
-  @keyframes wfItem3{0%,46%{opacity:0;transform:translateY(7px)}50%,76%{opacity:1;transform:none}81%,100%{opacity:0;transform:translateY(-10px) scale(.97)}}
-  @keyframes wfItem4{0%,50%{opacity:0;transform:translateY(7px)}54%,76%{opacity:1;transform:none}81%,100%{opacity:0;transform:translateY(-10px) scale(.97)}}
-  @keyframes wfItem5{0%,54%{opacity:0;transform:translateY(7px)}58%,76%{opacity:1;transform:none}81%,100%{opacity:0;transform:translateY(-10px) scale(.97)}}
-  @keyframes wfItem6{0%,58%{opacity:0;transform:translateY(7px)}62%,76%{opacity:1;transform:none}81%,100%{opacity:0;transform:translateY(-10px) scale(.97)}}
-  @keyframes wfSuccess{0%,79%{opacity:0;visibility:hidden;transform:scale(.88)}85%,94%{opacity:1;visibility:visible;transform:scale(1)}100%{opacity:0;visibility:hidden;transform:scale(1.04)}}
-  @keyframes wfGlow{0%,79%{opacity:0;transform:scale(.55) rotate(0)}87%,94%{opacity:1;transform:scale(1) rotate(18deg)}100%{opacity:0;transform:scale(1.18) rotate(24deg)}}
-  @keyframes wfReviewFoot{0%,34%{opacity:0}39%,76%{opacity:1}81%,100%{opacity:0}}
-  @keyframes wfReadyFoot{0%,80%{opacity:0}85%,95%{opacity:1}100%{opacity:0}}
-  @media(max-width:640px){.wrapflow-demo{max-width:calc(100% - 32px);margin-bottom:48px}.wf-stage{height:340px}.wf-capture{padding:16px}.wf-extract{padding:18px 16px}.wf-items{gap:8px}.wf-item{padding:11px}.wf-transcript-text{font-size:11.5px}}
-  @media(prefers-reduced-motion:reduce){.wf-head-capture,.wf-capture,.wf-foot-recording,.wf-transcript{display:none}.wf-head-wrap,.wf-beta,.wf-extract,.wf-foot-review{animation:none;opacity:1;visibility:visible;transform:none}.wf-item{animation:none;opacity:1}.wf-success,.wf-foot-ready{display:none}}
-</style>
-
-<div class="wrapflow-demo rev" id="wrap-up" aria-label="Animated example of Voice Capture becoming a complete job Wrap Up">
-  <div class="wf-shell">
-    <div class="wf-head">
-      <div class="wf-head-title wf-head-capture">Voice Capture</div>
-      <div class="wf-head-title wf-head-wrap"><span class="wf-dot"></span>Wrap Up · 29 Sherwood Ave</div>
-      <span class="wf-beta">Beta</span>
-    </div>
-    <div class="wf-stage">
-      <div class="wf-capture">
-        <div class="wf-wave" aria-hidden="true">
-          <i style="--bar:12px;--delay:0s"></i><i style="--bar:20px;--delay:.08s"></i><i style="--bar:28px;--delay:.16s"></i><i style="--bar:18px;--delay:.24s"></i><i style="--bar:24px;--delay:.32s"></i><i style="--bar:14px;--delay:.4s"></i><i style="--bar:22px;--delay:.48s"></i>
-        </div>
-        <div class="wf-time">0:08</div>
-        <div class="wf-listening">Listening…</div>
-        <span class="wf-stop" aria-hidden="true"></span>
-        <div class="wf-transcript">
-          <div class="wf-transcript-label">Live transcript</div>
-          <div class="wf-transcript-text">“Two fans installed. Invoice $560, certificate needed. Email Rob. Return Friday for the damaged switch. EV charger prospect.”</div>
-        </div>
-      </div>
-      <div class="wf-extract">
-        <div class="wf-extract-head"><span>Extracted from your memo</span><span class="wf-thinking"><i></i><i></i><i></i></span></div>
-        <div class="wf-items">
-          <div class="wf-item"><strong>Job note</strong><span>Two fans installed</span></div>
-          <div class="wf-item"><strong>Invoice</strong><span>$560</span></div>
-          <div class="wf-item"><strong>Certificate</strong><span>Two sweep fans</span></div>
-          <div class="wf-item"><strong>Email draft</strong><span>Tell Rob it’s finished</span></div>
-          <div class="wf-item"><strong>Task · Friday</strong><span>Replace damaged switch</span></div>
-          <div class="wf-item"><strong>Future prospect</strong><span>EV charger</span></div>
-        </div>
-      </div>
-      <div class="wf-success" aria-hidden="true">
-        <div class="wf-orbit"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><i></i><i></i><i></i><i></i></div>
-        <strong>Ready to review</strong>
-        <span>Choose what to save to the job</span>
-      </div>
-    </div>
-    <div class="wf-foot">
-      <div class="wf-foot-state wf-foot-recording">Stop recording</div>
-      <div class="wf-foot-state wf-foot-review">Review before saving</div>
-      <div class="wf-foot-state wf-foot-ready">Nothing changes until you confirm</div>
-    </div>
-  </div>
-</div>
-
-<!-- SoleTasker product mock deck — current product flows, styled from supplied Lovable reference -->
-<div style="margin:0 auto 32px;text-align:center" class="rev mock-showcase">
-  <p style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:24px">What it looks like</p>
-  <div class="mock-theme-row">
-    <button class="mock-theme-toggle" id="mockThemeToggle" type="button" data-theme="light" aria-pressed="false" aria-label="Switch product previews to dark mode">
-      <span class="mock-theme-option mock-theme-light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>Light</span>
-      <span class="mock-theme-option mock-theme-dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.4A8.5 8.5 0 0 1 8.6 3.5 8.5 8.5 0 1 0 20.5 15.4Z"></path></svg>Dark</span>
-    </button>
-  </div>
-  <div class="screens-deck product-mock-deck" id="productMockDeck" data-theme="light">
-    <div class="screen-card" data-i="0">
-      <div class="mock-phone">
-        <div class="mock-top"><span>My Day</span><small>Thu 10 Sep</small></div>
-        <div class="mock-body">
-          <div class="mock-chips"><span class="mock-chip active">Me</span><span class="mock-chip">Dave</span><span class="mock-chip">Sam</span><span class="mock-chip">Everyone</span></div>
-          <div class="mock-list">
-            <div class="mock-row"><div class="mock-title">Wire and install new aircon</div><div class="mock-meta"><span class="mock-pill red">Overdue</span><span>14 Kingston St</span></div></div>
-            <div class="mock-row"><div class="mock-title">Fit off switchboard and test house</div><div class="mock-meta"><span class="mock-pill">High</span><span>7 Marra Ct · Me</span></div></div>
-            <div class="mock-row"><div class="mock-title">Terminate switchboard, unit 4</div><div class="mock-meta"><span class="mock-pill gray">Today</span><span>Bayside Units · Me</span></div></div>
-            <div class="mock-row done"><div class="mock-title">Pick up cable from wholesaler</div><div class="mock-meta"><span class="mock-pill green">Done</span><span>Me</span></div></div>
-          </div>
-          <div class="mock-note">Tasks only. Reminders stay in their own list.</div>
-        </div>
-      </div>
-      <p class="screen-cap"><span class="sc-t">My Day</span><span class="sc-d">The tasks you want in front of you today</span></p>
-    </div>
-
-    <div class="screen-card" data-i="1">
-      <div class="mock-phone">
-        <div class="mock-top"><span>Voice capture</span><small>Recording</small></div>
-        <div class="mock-body">
-          <div class="voice-box"><div class="voice-head"><span class="mock-mic">⌁</span><span class="voice-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div><div class="voice-copy">“Reminder Thursday — order two 63 amp curve C breakers for the Kingston Street switchboard, and get Dave to test the RCDs before we hand over.”</div></div>
-          <div class="mock-label">Review before saving</div>
-          <div class="mock-list">
-            <div class="mock-row"><div class="mock-title">Order 2 × 63A curve C breakers</div><div class="mock-meta"><span class="mock-pill amber">Reminder · Thu</span><span>Kingston St</span></div></div>
-            <div class="mock-row"><div class="mock-title">Test RCDs before handover</div><div class="mock-meta"><span class="mock-pill">Task</span><span>Assigned: Dave</span></div></div>
-          </div>
-          <div class="mock-actions"><span class="mock-btn">Edit</span><span class="mock-btn primary">Save both</span></div>
-        </div>
-      </div>
-      <p class="screen-cap"><span class="sc-t">Voice Capture</span><span class="sc-d">Speak it, review it, save it where it belongs</span></p>
-    </div>
-
-    <div class="screen-card" data-i="2">
-      <div class="mock-phone">
-        <div class="mock-top"><span>New task</span><small>Manual or voice</small></div>
-        <div class="mock-body">
-          <div class="field-stack">
-            <div class="mock-field"><div class="lbl">Task</div><div class="val">Terminate switchboard, unit 4</div></div>
-            <div class="mock-field"><div class="lbl">Job</div><div class="val">Bayside Units — 22 Esplanade</div></div>
-            <div class="mock-field"><div class="lbl">Type</div><div class="val">On-site work</div></div>
-            <div class="mock-field"><div class="lbl">Priority</div><div class="val">High</div></div>
-            <div class="mock-field"><div class="lbl">Due</div><div class="val">Thu 10 Sep</div></div>
-            <div class="mock-field"><div class="lbl">Assigned to</div><div class="val">Dave (worker)</div></div>
-            <div class="mock-field notes"><div class="lbl">Notes</div><div class="val">Main switch labelled wrong — relabel while you're in there.</div></div>
-          </div>
-          <div class="mock-actions"><span class="mock-btn blue">Save task</span></div>
-        </div>
-      </div>
-      <p class="screen-cap"><span class="sc-t">Tasks</span><span class="sc-d">Job, priority, due date and assignee together</span></p>
-    </div>
-
-    <div class="screen-card" data-i="3">
-      <div class="mock-phone">
-        <div class="mock-top"><span>Job requests</span><small>Intake</small></div>
-        <div class="mock-body">
-          <div class="link-box"><div class="link-row">soletasker.app/i/calec-electrical</div><div class="copy-bar">Copy job link</div></div>
-          <div class="request-card"><h4>Harding Construction</h4><p><strong>Site:</strong> 9 Verdon St, lot 12</p><p style="margin-top:5px">Switchboard relocation. Access via rear. Wants it started week of 21 Sep.</p><div class="request-actions"><span class="mock-btn">Decline</span><span class="mock-btn primary">Review</span></div></div>
-          <div class="mock-note">Accepted requests become jobs with the details already entered.</div>
-        </div>
-      </div>
-      <p class="screen-cap"><span class="sc-t">Job Intake</span><span class="sc-d">Send a link, review the request, create the job</span></p>
-    </div>
-  </div>
-  <p class="deck-hint">Swipe to see the workflow</p>
-</div>
-
-
-  <div class="workflow-steps">
-    <div class="wf-step rev">
-      <div class="wf-n">1</div>
-      <span class="wf-icon"></span>
-      <div class="wf-title">Say it out loud</div>
-      <p class="wf-body">Walking off site. In the van. After a call. Speak naturally — SoleTasker catches it all. No typing. No stopping what you're doing.</p>
-    </div>
-    <div class="wf-step rev" style="transition-delay:.08s">
-      <div class="wf-n">2</div>
-      <span class="wf-icon"></span>
-      <div class="wf-title">Tasks and notes — assigned</div>
-      <p class="wf-body">Your words become tasks and job notes instantly. Assign them to yourself or your team. Not in your head. Not on a scrap of paper. Right there, where you need them.</p>
-    </div>
-    <div class="wf-step rev" style="transition-delay:.16s">
-      <div class="wf-n">3</div>
-      <span class="wf-icon"></span>
-      <div class="wf-title">Photos and certs — attached</div>
-      <p class="wf-body">Certs done, or before and after photos taken — they stay with the job. Not in your camera roll next to 4,000 others. Not in a WhatsApp thread from three weeks ago.</p>
-    </div>
-    <div class="wf-step rev" style="transition-delay:.24s">
-      <div class="wf-n">4</div>
-      <span class="wf-icon"></span>
-      <div class="wf-title">Nothing falls through</div>
-      <p class="wf-body">Quotes, callbacks and follow-ups stay visible until they're handled. You can see what still needs action without carrying the whole job in your head.</p>
-    </div>
-  </div>
-
-  <!-- CTA after workflow — while momentum is high -->
-  <div style="text-align:center;margin-top:56px" class="rev">
-    <a href="https://app.soletasker.com.au/signup" class="btn-teal lg">Get Started</a>
-    <p style="margin-top:14px;font-size:13px;color:var(--ink-ghost)">Australian-built · 7 days free</p>
-  </div>
-</section>
-
-
-<!-- My Day feature section — supplied Lovable composition, SoleTasker content -->
-<section class="myday-feature" id="my-day">
-  <div class="myday-inner">
-    <div class="myday-copy rev">
-      <div class="myday-eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M8 3v4M16 3v4M3 10h18"></path></svg><span>NEW — MY DAY</span></div>
-      <h2>BUILD THE DAY.<span>KEEP THE TEAM CLEAR.</span></h2>
-      <p class="myday-lead">Build a simple run sheet for yourself or an individual team member. Add the tasks and jobs that matter for that day, in the order you want them.</p>
-      <ul class="myday-points">
-        <li>Choose your own My Day, one team member, or everyone.</li>
-        <li>Putting a task in someone&apos;s My Day does not change who it is assigned to.</li>
-        <li>Tick work off on site so the day stays clear.</li>
-      </ul>
-      <div class="myday-note">It&apos;s a deliberate daily view, not scheduling or dispatch. You decide what belongs there.</div>
-    </div>
-    <div class="myday-device-wrap rev">
-
-<div class="myday-device" aria-label="SoleTasker My Day mock based on the current app">
-  <div class="mock-top"><span>My Day</span><small>Thu 10 Sep</small></div>
-  <div class="mock-body">
-    <div class="mock-chips"><span class="mock-chip">Me</span><span class="mock-chip active">Dave</span><span class="mock-chip">Sam</span><span class="mock-chip">Everyone</span></div>
-    <div class="mock-list">
-      <div class="mock-row"><div class="mock-title">Wire and install new aircon</div><div class="mock-meta"><span class="mock-pill">Dave&apos;s day</span><span>14 Kingston St</span></div></div>
-      <div class="mock-row"><div class="mock-title">Fit off switchboard and test house</div><div class="mock-meta"><span class="mock-pill gray">Assigned: Dave</span><span>7 Marra Ct</span></div></div>
-      <div class="mock-row"><div class="mock-title">Terminate switchboard, unit 4</div><div class="mock-meta"><span class="mock-pill gray">Assigned: Sam</span><span>Bayside Units</span></div></div>
-      <div class="mock-row done"><div class="mock-title">Pick up cable from wholesaler</div><div class="mock-meta"><span class="mock-pill green">Done</span><span>Dave&apos;s day</span></div></div>
-    </div>
-    <div class="mock-note">A simple run sheet for Dave. Assignment stays separate.</div>
-  </div>
-  <div class="myday-app-footer" aria-label="SoleTasker app footer navigation">
-    <div class="myday-app-nav active"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span>Home</span></div>
-    <div class="myday-app-nav"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4z"/><path d="M8 7V4h8v3"/></svg><span>Jobs</span></div>
-    <div class="myday-app-nav memo"><div class="myday-memo-circle"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div><span>Memo</span></div>
-    <div class="myday-app-nav"><svg viewBox="0 0 24 24"><path d="M9 11l2 2 4-4"/><rect x="4" y="4" width="16" height="16" rx="2"/></svg><span>Tasks</span></div>
-    <div class="myday-app-nav"><svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h14"/></svg><span>More</span></div>
-  </div>
-</div>
-
-      <div class="myday-caption">My Day — filtered to you</div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- ══════════════════════════════════════
-     JOB INTAKE — dark, high presence
-══════════════════════════════════════ -->
-<section class="intake-sec" id="intake">
-  <style id="intake-flow-refresh">
-    .intake-sec{background:var(--navy);padding:92px 32px;position:relative;overflow:hidden}
-    .intake-sec:after{content:'';position:absolute;right:-140px;bottom:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(44,185,157,.08),transparent 66%);pointer-events:none}
-    .intake-refresh{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:.92fr 1.08fr;gap:72px;align-items:center;position:relative;z-index:1}
-    .intake-copy{max-width:520px}
-    .intake-eyebrow{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:16px}
-    .intake-h{font-family:var(--fh);font-size:clamp(46px,5.2vw,68px);line-height:.94;color:#fff;margin-bottom:22px}.intake-h .a{color:var(--teal)}
-    .intake-desc{font-size:17px;line-height:1.72;color:rgba(255,255,255,.66);margin-bottom:28px}.intake-desc strong{color:#fff;font-weight:800}
-    .intake-steps{display:grid;gap:12px}.intake-step{display:grid;grid-template-columns:34px 1fr;gap:13px;align-items:start;padding:13px 0;border-top:1px solid rgba(255,255,255,.09)}.intake-step:first-child{border-top:0}.intake-n{width:28px;height:28px;border:1px solid rgba(44,185,157,.35);border-radius:50%;display:grid;place-items:center;color:var(--teal);font-size:12px;font-weight:900}.intake-step h3{color:#fff;font-size:15px;margin:2px 0 3px}.intake-step p{color:rgba(255,255,255,.52);font-size:13px;line-height:1.5}
-
-    .intake-flow-demo{border:1px solid rgba(255,255,255,.12);border-radius:24px;background:rgba(255,255,255,.035);padding:26px;box-shadow:0 24px 60px rgba(0,0,0,.18);position:relative;overflow:hidden}
-    .flow-label{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:11px}
-    .flow-link{display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:13px 14px;margin-bottom:18px;color:#243247;position:relative}.flow-url{font-size:12px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#53617c}.flow-send{background:var(--teal);color:#fff;border-radius:10px;padding:9px 13px;font-size:11px;font-weight:900;position:relative;overflow:visible}.flow-send:after{content:'';position:absolute;inset:-7px;border:2px solid rgba(44,185,157,.45);border-radius:14px;animation:intakeTap 2.8s ease-out infinite}
-    .flow-status{display:flex;align-items:center;gap:9px;color:var(--teal);font-size:12px;font-weight:850;margin:0 0 18px;opacity:.35;animation:intakeStatus 5.6s ease-in-out infinite}.flow-status-dot{width:8px;height:8px;border-radius:50%;background:var(--teal)}
-    .flow-home{background:#fff;border-radius:16px;overflow:hidden;transform:translateY(18px);opacity:.3;animation:intakeHome 5.6s ease-in-out infinite}.flow-home-head{background:#15283a;padding:11px 14px;display:flex;align-items:center;justify-content:space-between}.flow-home-head span:first-child{font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.58)}.flow-home-head span:last-child{font-size:10px;font-weight:900;color:var(--teal)}.flow-request{padding:16px;display:flex;align-items:center;gap:12px}.flow-avatar{width:38px;height:38px;border-radius:50%;background:#497f72;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:900;flex:0 0 auto}.flow-request-body{min-width:0;flex:1}.flow-request-name{font-size:14px;font-weight:900;color:#1f2b3a;margin-bottom:2px}.flow-request-meta{font-size:11px;color:#7c8795;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.flow-review{border:1px solid #f2a11d;color:#e18d08;border-radius:8px;padding:7px 10px;font-size:10px;font-weight:900;white-space:nowrap}
-    .flow-caption{text-align:center;color:rgba(255,255,255,.46);font-size:12px;margin-top:16px}.flow-caption strong{color:var(--teal)}
-    @keyframes intakeTap{0%,18%{transform:scale(.8);opacity:0}26%{opacity:1}42%{transform:scale(1.08);opacity:0}100%{opacity:0}}
-    @keyframes intakeStatus{0%,28%{opacity:.25;transform:translateY(4px)}38%,72%{opacity:1;transform:translateY(0)}84%,100%{opacity:.25;transform:translateY(4px)}}
-    @keyframes intakeHome{0%,38%{opacity:.25;transform:translateY(18px)}48%,82%{opacity:1;transform:translateY(0)}94%,100%{opacity:.25;transform:translateY(18px)}}
-    @media(max-width:900px){.intake-refresh{grid-template-columns:1fr;gap:44px}.intake-copy{max-width:650px}}
-    @media(max-width:640px){.intake-sec{padding:68px 24px}.intake-h{font-size:46px}.intake-desc{font-size:16px}.intake-flow-demo{padding:19px;border-radius:20px}.flow-link{padding:11px 11px}.flow-url{font-size:11px}.flow-send{padding:8px 10px}.flow-request{padding:13px}.flow-request-name{font-size:13px}.flow-request-meta{font-size:10px}}
-    @media(prefers-reduced-motion:reduce){.flow-send:after,.flow-status,.flow-home{animation:none!important}.flow-status,.flow-home{opacity:1;transform:none}}
-  </style>
-  <div class="intake-refresh">
-    <div class="intake-copy rev">
-      <span class="intake-eyebrow">Job intake link</span>
-      <h2 class="intake-h">Send a link.<br/>Client fills it in.<br/><span class="a">You're done.</span></h2>
-      <p class="intake-desc"><strong>Stop taking job details over the phone while you’re busy.</strong> Send your intake link and let the client enter the address, job details and photos. <strong>The request lands on Home ready for review, with the information already together.</strong></p>
-      <div class="intake-steps">
-        <div class="intake-step"><div class="intake-n">1</div><div><h3>Send the link</h3><p>Share it by SMS, WhatsApp or email.</p></div></div>
-        <div class="intake-step"><div class="intake-n">2</div><div><h3>Client adds the details</h3><p>Address, job description and photos come back together.</p></div></div>
-        <div class="intake-step"><div class="intake-n">3</div><div><h3>Review it on Home</h3><p>Open the request, check the details and move into the job.</p></div></div>
-      </div>
-    </div>
-
-    <div class="intake-flow-demo rev" style="transition-delay:.12s" aria-label="Animated SoleTasker job intake flow">
-      <div class="flow-label">Send your intake link</div>
-      <div class="flow-link"><span aria-hidden="true">↗</span><div class="flow-url">soletasker.app/i/calec-electrical</div><div class="flow-send">Send</div></div>
-      <div class="flow-status"><span class="flow-status-dot"></span><span>Client submitted job details + photos</span></div>
-      <div class="flow-label">What appears on Home</div>
-      <div class="flow-home">
-        <div class="flow-home-head"><span>Home</span><span>Job request ready</span></div>
-        <div class="flow-request"><div class="flow-avatar">ST</div><div class="flow-request-body"><div class="flow-request-name">Sarah Thornton</div><div class="flow-request-meta">14 Webb St · 4 photos · Switchboard upgrade</div></div><div class="flow-review">Review →</div></div>
-      </div>
-      <div class="flow-caption"><strong>Client fills it in</strong> → lands on Home ready to review</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     FEATURE CARDS — 3 key differentiators
-══════════════════════════════════════ -->
-<section class="smart-onsite-sec" id="smart-onsite">
-  <style id="smart-onsite-styles">
-    .smart-onsite-sec{background:#fff;padding:92px 32px 96px;position:relative;overflow:hidden}
-    .smart-onsite-wrap{max-width:1100px;margin:0 auto}
-    .smart-onsite-head{max-width:760px;margin-bottom:42px}
-    .smart-onsite-eyebrow{font-size:11px;font-weight:850;letter-spacing:3px;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:12px}
-    .smart-onsite-sec h2{font-family:var(--fh);font-size:clamp(42px,4.8vw,58px);line-height:.96;color:#1B2B6B!important;margin:0 0 18px;letter-spacing:.2px}
-    .smart-onsite-sec h2 span{color:var(--teal)!important}
-    .smart-onsite-intro{font-size:17px;line-height:1.7;color:#6f7887;max-width:660px;margin:0}
-
-    .smart-tools-shell{display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:74px;align-items:center}
-    .smart-tools-rail{max-width:510px}
-    .smart-rail-group+.smart-rail-group{margin-top:28px}
-    .smart-rail-label{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#8c96a3;margin-bottom:10px}
-
-    .smart-quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-    .smart-quick{height:70px;border:1px solid #e1e6eb;background:#fff;border-radius:14px;color:#1B2B6B;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:11px;font-weight:850;transition:.18s ease;box-shadow:0 2px 8px rgba(28,43,58,.035)}
-    .smart-quick svg{width:18px;height:18px;stroke:var(--teal);fill:none;stroke-width:1.9}
+.smart-onsite-intro{font-size:16px!important;line-height:1.62!important;max-width:620px!…27 tokens truncated…d…dth:18px;height:18px;stroke:var(--teal);fill:none;stroke-width:1.9}
     .smart-quick:hover,.smart-quick:focus-visible{transform:translateY(-2px);border-color:#b9ddd5;background:#fbfefd}
     .smart-quick.tapped{animation:smartQuickTap .38s ease}
     @keyframes smartQuickTap{0%{transform:scale(1)}45%{transform:scale(.95);background:var(--teal-lt);border-color:var(--teal)}100%{transform:scale(1)}}
@@ -1981,12 +1449,17 @@ if(!location.hash){window.scrollTo(0,0);}
 <!-- ══════════════════════════════════════
      FEATURED BLOG STORIES
 ══════════════════════════════════════ -->
-<section class="blog-preview" aria-labelledby="blog-preview-title">
+<section class="blog-preview" id="blog-preview" aria-labelledby="blog-preview-title">
   <div class="blog-preview-inner w">
     <div class="blog-preview-heading">
-      <div>
+      <div class="blog-preview-heading-copy">
         <span class="s-eyebrow">From the SoleTasker blog</span>
         <h2 id="blog-preview-title">Stories for running your trade business with less admin.</h2>
+      </div>
+      <div class="blog-preview-controls" aria-label="Story navigation">
+        <span class="blog-preview-count" aria-live="polite">1 / 2</span>
+        <button class="blog-preview-arrow" type="button" data-blog-prev aria-label="Previous story" disabled><span aria-hidden="true">‹</span></button>
+        <button class="blog-preview-arrow" type="button" data-blog-next aria-label="Next story"><span aria-hidden="true">›</span></button>
       </div>
     </div>
     <div class="blog-preview-track" role="list" aria-label="Latest blog stories" tabindex="0">
@@ -1999,6 +1472,17 @@ if(!location.hash){window.scrollTo(0,0);}
           <h3><a href="/blog">When your wife wants to help, but can’t see what needs doing</a></h3>
           <p>See how turning job details into clear tasks can bring your partner into the business and give you more time with your family.</p>
           <a class="blog-preview-read" href="/blog">Read the story →</a>
+        </div>
+      </article>
+      <article class="blog-preview-card" role="listitem">
+        <a href="/blog/voice-first-entry" aria-label="Read the story: Why SoleTasker went voice-first for tradies">
+          <img src="/assets/blog-voice-first-voice.jpg" alt="The SoleTasker electrician speaks into his phone inside a finished home." width="1536" height="1024" loading="lazy" decoding="async"/>
+        </a>
+        <div class="blog-preview-card-copy">
+          <p class="blog-preview-meta">Why we built it · 5 min read</p>
+          <h3><a href="/blog/voice-first-entry">Why SoleTasker went voice-first for tradies</a></h3>
+          <p>Why capturing details by voice, upload or email can save tradies from retyping every new work order.</p>
+          <a class="blog-preview-read" href="/blog/voice-first-entry">Read the story →</a>
         </div>
       </article>
     </div>
@@ -2032,7 +1516,7 @@ if(!location.hash){window.scrollTo(0,0);}
           <a href="/#intake" style="font-size:14px;color:rgba(255,255,255,.6)">Job intake</a>
           <a href="/#faq-page" style="font-size:14px;color:rgba(255,255,255,.6)">FAQ</a>
           <a href="/contact/" style="font-size:14px;color:rgba(255,255,255,.6)">Contact us</a>
-          <a href="/pricing" style="font-size:14px;color:rgba(255,255,255,.6)">Pricing</a><a href="/blog" style="font-size:14px;color:rgba(255,255,255,.6)">Blog</a>
+          <a href="/pricing" style="font-size:14px;color:rgba(255,255,255,.6)">Pricing</a><a href="/#blog-preview" style="font-size:14px;color:rgba(255,255,255,.6)">Blog</a>
         </div>
       </div>
       <div>
@@ -2069,6 +1553,35 @@ if(!location.hash){window.scrollTo(0,0);}
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var track=document.querySelector('.blog-preview-track');
+  if(!track)return;
+  var cards=Array.prototype.slice.call(track.querySelectorAll('.blog-preview-card'));
+  var previous=document.querySelector('[data-blog-prev]');
+  var next=document.querySelector('[data-blog-next]');
+  var count=document.querySelector('.blog-preview-count');
+  if(!cards.length||!previous||!next||!count)return;
+  var current=0,frame=0;
+  function update(){
+    var cardWidth=cards[0].getBoundingClientRect().width;
+    var gap=parseFloat(getComputedStyle(track).columnGap)||0;
+    current=Math.max(0,Math.min(cards.length-1,Math.round(track.scrollLeft/(cardWidth+gap))));
+    count.textContent=(current+1)+' / '+cards.length;
+    previous.disabled=current===0;
+    next.disabled=current===cards.length-1;
+  }
+  function goTo(index){
+    index=Math.max(0,Math.min(cards.length-1,index));
+    track.scrollTo({left:cards[index].offsetLeft-track.offsetLeft,behavior:'smooth'});
+  }
+  previous.addEventListener('click',function(){goTo(current-1)});
+  next.addEventListener('click',function(){goTo(current+1)});
+  track.addEventListener('scroll',function(){cancelAnimationFrame(frame);frame=requestAnimationFrame(update)},{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+</script>
 <script defer>
 /* ── BURGER ── */
 function toggleMenu(){
