@@ -667,24 +667,32 @@ nav{
 .form-ok p{font-size:15px;color:var(--ink-soft);line-height:1.6}
 
 /* ─── FEATURED BLOG STORIES ─── */
-.blog-preview{background:var(--bg);padding:48px 32px}
-.blog-preview-heading{margin-bottom:18px}
+.blog-preview{box-sizing:border-box;width:100%;background:var(--bg);padding:48px 32px;overflow:hidden}
+.blog-preview-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;width:min(100%,850px);margin-bottom:18px}
+.blog-preview-heading-copy{min-width:0}
 .blog-preview-heading .s-eyebrow{display:block;margin-bottom:8px}
 .blog-preview-heading h2{max-width:700px;font-family:var(--fh);font-weight:400;font-size:clamp(30px,3.5vw,40px);line-height:1;color:var(--sole-blue,#1B2B6B)}
-.blog-preview-track{display:flex;max-width:850px;gap:12px;overflow-x:auto;padding:3px 2px 12px;scroll-padding-inline:2px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.blog-preview-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.blog-preview-count{min-width:38px;color:var(--ink-soft);font-size:12px;font-weight:800;text-align:center;font-variant-numeric:tabular-nums}
+.blog-preview-arrow{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--navy);font-size:30px;line-height:1;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.blog-preview-arrow:hover:not(:disabled){background:var(--navy);border-color:var(--navy);color:var(--white)}
+.blog-preview-arrow:disabled{opacity:.38;cursor:default}
+.blog-preview-arrow:focus-visible{outline:2px solid var(--teal-dk);outline-offset:3px}
+.blog-preview-track{display:flex;box-sizing:border-box;width:min(100%,850px);gap:12px;overflow-x:auto;padding:3px 2px 12px;scroll-padding-inline:2px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.blog-preview-track::-webkit-scrollbar{display:none}
 .blog-preview-track:focus-visible{outline:2px solid var(--teal-dk);outline-offset:3px;border-radius:var(--r2)}
-.blog-preview-card{display:flex;flex:0 0 100%;min-width:0;min-height:176px;max-width:none;overflow:hidden;background:var(--white);border:1px solid var(--line);border-radius:var(--r2);box-shadow:var(--sh);scroll-snap-align:start;transition:transform .18s,box-shadow .18s}
+.blog-preview-card{display:flex;box-sizing:border-box;flex:0 0 100%;width:100%;min-width:0;min-height:190px;max-width:100%;overflow:hidden;background:var(--white);border:1px solid var(--line);border-radius:var(--r2);box-shadow:var(--sh);scroll-snap-align:start;transition:transform .18s,box-shadow .18s}
 .blog-preview-card:hover{transform:translateY(-2px);box-shadow:var(--sm)}
-.blog-preview-card>a{display:block;flex:0 0 35%;min-width:132px;overflow:hidden}
-.blog-preview-card>a img{display:block;width:100%;height:100%;min-height:176px;object-fit:cover}
-.blog-preview-card-copy{min-width:0}
-.blog-preview-card-copy{display:flex;flex:1;flex-direction:column;align-items:flex-start;justify-content:center;padding:16px 18px}
+.blog-preview-card>a{display:block;box-sizing:border-box;flex:0 0 35%;min-width:0;overflow:hidden}
+.blog-preview-card>a img{display:block;width:100%;height:100%;min-height:190px;object-fit:cover}
+.blog-preview-card-copy{display:flex;box-sizing:border-box;flex:1 1 0;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;padding:18px 20px}
 .blog-preview-meta{margin-bottom:7px;color:var(--teal-dk);font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
-.blog-preview-card h3{margin-bottom:7px;font-family:var(--fh);font-size:23px;font-weight:400;line-height:1.02;color:var(--sole-blue,#1B2B6B)}
+.blog-preview-card h3{width:100%;margin-bottom:7px;font-family:var(--fh);font-size:23px;font-weight:400;line-height:1.02;color:var(--sole-blue,#1B2B6B);overflow-wrap:anywhere}
 .blog-preview-card p:not(.blog-preview-meta){display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;margin-bottom:9px;color:var(--ink-soft);font-size:12px;line-height:1.45}
 .blog-preview-read{color:var(--teal-dk);font-size:11px;font-weight:800}
 .blog-preview-card:hover .blog-preview-read{color:var(--sole-blue,#1B2B6B)}
-@media(max-width:700px){.blog-preview{padding:40px 24px}.blog-preview-inner.w{padding:0}.blog-preview-heading h2{font-size:32px}.blog-preview-card{flex-basis:100%;min-height:156px}.blog-preview-card>a{flex-basis:34%;min-width:112px}.blog-preview-card>a img{min-height:156px}.blog-preview-card-copy{padding:13px 14px}.blog-preview-card h3{font-size:21px}.blog-preview-card p:not(.blog-preview-meta){font-size:11px}}
+@media(max-width:700px){.blog-preview{padding:40px 24px}.blog-preview-inner.w{padding:0}.blog-preview-heading{align-items:flex-end;flex-wrap:wrap;gap:14px;margin-bottom:14px}.blog-preview-heading-copy{flex:1 1 100%}.blog-preview-heading h2{font-size:32px}.blog-preview-controls{margin-left:auto}.blog-preview-track{max-width:none;padding-bottom:8px}.blog-preview-card{min-height:0}.blog-preview-card>a{flex-basis:32%;min-width:0}.blog-preview-card>a img{min-height:190px}.blog-preview-card-copy{padding:14px 13px}.blog-preview-meta{font-size:8px;letter-spacing:.7px}.blog-preview-card h3{font-size:20px;line-height:1.04}.blog-preview-card p:not(.blog-preview-meta){font-size:11px;line-height:1.4}}
+@media(max-width:360px){.blog-preview{padding-right:18px;padding-left:18px}.blog-preview-heading h2{font-size:29px}.blog-preview-card>a{flex-basis:29%}.blog-preview-card-copy{padding:12px 10px}.blog-preview-card h3{font-size:18px}}
 
 /* ════════════════════════════════════
    FINAL CLOSE
@@ -1444,9 +1452,14 @@ section[style*="background:var(--navy)"] h4{
 <section class="blog-preview" id="blog-preview" aria-labelledby="blog-preview-title">
   <div class="blog-preview-inner w">
     <div class="blog-preview-heading">
-      <div>
+      <div class="blog-preview-heading-copy">
         <span class="s-eyebrow">From the SoleTasker blog</span>
         <h2 id="blog-preview-title">Stories for running your trade business with less admin.</h2>
+      </div>
+      <div class="blog-preview-controls" aria-label="Story navigation">
+        <span class="blog-preview-count" aria-live="polite">1 / 2</span>
+        <button class="blog-preview-arrow" type="button" data-blog-prev aria-label="Previous story" disabled><span aria-hidden="true">‹</span></button>
+        <button class="blog-preview-arrow" type="button" data-blog-next aria-label="Next story"><span aria-hidden="true">›</span></button>
       </div>
     </div>
     <div class="blog-preview-track" role="list" aria-label="Latest blog stories" tabindex="0">
@@ -1463,7 +1476,7 @@ section[style*="background:var(--navy)"] h4{
       </article>
       <article class="blog-preview-card" role="listitem">
         <a href="/blog/voice-first-entry" aria-label="Read the story: Why SoleTasker went voice-first for tradies">
-          <img src="/assets/blog-voice-first-capture.jpg" alt="The SoleTasker electrician speaks a voice note outside an unfinished timber-frame home." width="1536" height="1024" loading="lazy" decoding="async"/>
+          <img src="/assets/blog-voice-first-voice.jpg" alt="The SoleTasker electrician speaks into his phone inside a finished home." width="1536" height="1024" loading="lazy" decoding="async"/>
         </a>
         <div class="blog-preview-card-copy">
           <p class="blog-preview-meta">Why we built it · 5 min read</p>
@@ -1540,6 +1553,35 @@ section[style*="background:var(--navy)"] h4{
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var track=document.querySelector('.blog-preview-track');
+  if(!track)return;
+  var cards=Array.prototype.slice.call(track.querySelectorAll('.blog-preview-card'));
+  var previous=document.querySelector('[data-blog-prev]');
+  var next=document.querySelector('[data-blog-next]');
+  var count=document.querySelector('.blog-preview-count');
+  if(!cards.length||!previous||!next||!count)return;
+  var current=0,frame=0;
+  function update(){
+    var cardWidth=cards[0].getBoundingClientRect().width;
+    var gap=parseFloat(getComputedStyle(track).columnGap)||0;
+    current=Math.max(0,Math.min(cards.length-1,Math.round(track.scrollLeft/(cardWidth+gap))));
+    count.textContent=(current+1)+' / '+cards.length;
+    previous.disabled=current===0;
+    next.disabled=current===cards.length-1;
+  }
+  function goTo(index){
+    index=Math.max(0,Math.min(cards.length-1,index));
+    track.scrollTo({left:cards[index].offsetLeft-track.offsetLeft,behavior:'smooth'});
+  }
+  previous.addEventListener('click',function(){goTo(current-1)});
+  next.addEventListener('click',function(){goTo(current+1)});
+  track.addEventListener('scroll',function(){cancelAnimationFrame(frame);frame=requestAnimationFrame(update)},{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+</script>
 <script defer>
 /* ── BURGER ── */
 function toggleMenu(){
