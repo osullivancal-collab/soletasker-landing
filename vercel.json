@@ -58,7 +58,7 @@
     },
     {
       "source": "/blog/voice-first-entry",
-      "destination": "/blog-voice-first.html"
+      "destination": "/blog/voice-first-entry/index.html"
     },
     {
       "source": "/blog",
