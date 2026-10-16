@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Why SoleTasker Went Voice-First for Tradies | SoleTasker</title>
+<meta name="description" content="Why SoleTasker put voice-first capture at the centre: tradies can get work orders, job details and tasks into the right place without retyping every detail."/>
+<link rel="canonical" href="https://soletasker.com.au/blog/voice-first-entry"/>
+<meta property="og:title" content="Why SoleTasker Went Voice-First for Tradies"/>
+<meta property="og:description" content="A founder story about why trade work needs a faster way to capture job details from voice, documents and email."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://soletasker.com.au/blog/voice-first-entry"/>
+<meta property="og:locale" content="en_AU"/>
+<meta property="og:image" content="https://soletasker.com.au/assets/blog-voice-first-capture.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/blog.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why SoleTasker Went Voice-First for Tradies",
+  "description": "A founder story about why trade work needs a faster way to capture job details from voice, documents and email.",
+  "mainEntityOfPage": "https://soletasker.com.au/blog/voice-first-entry",
+  "url": "https://soletasker.com.au/blog/voice-first-entry",
+  "inLanguage": "en-AU",
+  "articleSection": "Product story",
+  "datePublished": "2026-10-16",
+  "dateModified": "2026-10-16",
+  "image": [
+    "https://soletasker.com.au/assets/blog-voice-first-capture.jpg",
+    "https://soletasker.com.au/assets/blog-voice-first-work-order.jpg",
+    "https://soletasker.com.au/assets/blog-voice-first-partner.jpg"
+  ],
+  "author": {"@type": "Organization", "name": "SoleTasker", "url": "https://soletasker.com.au"},
+  "publisher": {"@type": "Organization", "name": "SoleTasker", "url": "https://soletasker.com.au", "logo": {"@type": "ImageObject", "url": "https://soletasker.com.au/logo.png", "width": 855, "height": 212}}
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<nav>
+  <div class="nav-in">
+    <a href="/" style="display:flex;align-items:center;flex-shrink:0"><img width="160" height="40" loading="lazy" src="/logo.png" alt="SoleTasker" style="height:48px;width:auto;object-fit:contain;display:block;opacity:1"/></a>
+    <div class="nav-links">
+      <a href="/#workflow">How it works</a>
+      <a href="/use-cases">Use Cases</a>
+      <details class="nav-trades">
+        <summary>Trades</summary>
+        <div class="nav-trades-menu">
+          <a href="/electricians">Electricians</a>
+          <a href="/plumbers">Plumbers</a>
+          <a href="/builders">Builders</a>
+          <a href="/hvac">HVAC technicians</a>
+          <a href="/solar-installers">Solar installers</a>
+          <a href="/carpenters">Carpenters</a>
+          <a href="/landscapers">Landscapers</a>
+          <a href="/painters">Painters</a>
+        </div>
+      </details>
+      <a href="/#intake">Job intake</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/#faq-page">FAQ</a>
+      <a href="/contact/">Contact us</a>
+    </div>
+    <div class="nav-r">
+      <a href="https://app.soletasker.com.au" style="font-size:13px;font-weight:800;color:var(--ink);border:1.5px solid var(--line);border-radius:var(--r1);padding:9px 18px;margin-right:10px;white-space:nowrap;transition:all .15s" onmouseover="this.style.borderColor='var(--teal)';this.style.color='var(--teal)'" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--ink)'">Log in</a>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menu" aria-controls="mobMenu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="/" onclick="closeMenu()">Home</a>
+  <a href="/#workflow" onclick="closeMenu()">How it works</a>
+  <a href="/use-cases" onclick="closeMenu()">Use Cases</a>
+  <details class="mob-trades">
+    <summary>Trades</summary>
+    <div class="mob-trade-links">
+      <a href="/electricians" onclick="closeMenu()">Electricians</a>
+      <a href="/plumbers" onclick="closeMenu()">Plumbers</a>
+      <a href="/builders" onclick="closeMenu()">Builders</a>
+      <a href="/hvac" onclick="closeMenu()">HVAC technicians</a>
+      <a href="/solar-installers" onclick="closeMenu()">Solar installers</a>
+      <a href="/carpenters" onclick="closeMenu()">Carpenters</a>
+      <a href="/landscapers" onclick="closeMenu()">Landscapers</a>
+      <a href="/painters" onclick="closeMenu()">Painters</a>
+    </div>
+  </details>
+  <a href="/#intake" onclick="closeMenu()">Job intake</a>
+  <a href="/pricing" onclick="closeMenu()">Pricing</a>
+  <a href="/#faq-page" onclick="closeMenu()">FAQ</a>
+  <a href="/contact/" onclick="closeMenu()">Contact us</a>
+  <a href="https://app.soletasker.com.au" onclick="closeMenu()" style="color:var(--navy);font-weight:800;border-top:1px solid var(--line);margin-top:8px;padding-top:16px">Log in to app →</a>
+</div>
+  <main id="main">
+  <section class="blog-hero">
+    <div class="wrap blog-hero-inner">
+      <a class="blog-back" href="/">← Back to SoleTasker</a>
+      <p class="eyebrow">WHY WE BUILT IT THIS WAY</p>
+      <h1>Why SoleTasker went voice-first.<br/><em>Because tradies are already busy.</em></h1>
+      <p class="blog-standfirst">A new job can arrive by phone, in an email or as a work order. Getting those details into a system shouldn’t mean stopping to type everything out again.</p>
+      <div class="blog-byline"><span>By SoleTasker</span><span>16 October 2026</span><span>5 minute read</span></div>
+    </div>
+  </section>
+
+  <article class="article-body wrap">
+    <figure class="story-figure story-figure-wide">
+      <img src="/assets/blog-voice-first-capture.jpg" alt="An Australian electrician pauses beside his work van to speak job details into his phone." width="1536" height="1024" fetchpriority="high" decoding="async"/>
+      <figcaption>When a detail is fresh, it should be easy to get it out of your head and into the job.</figcaption>
+    </figure>
+    <p class="story-note">Illustrative scenario; the image is AI-generated.</p>
+
+    <p class="article-lede">We built SoleTasker around a simple thing we kept seeing: tradies are expected to keep a lot of business information moving while they’re out doing the actual work.</p>
+    <p>A customer calls with a new job. A builder emails through a work order. You finish on site and remember the invoice needs a better description, a certificate still needs doing, or someone needs to come back next week. The details arrive in different places, but eventually someone has to get them into the system.</p>
+    <p>For a small trade business, that someone is often the same person who is quoting, driving, carrying tools and trying to keep the day on track. At the end of the job, retyping the scope, address, notes and next tasks can feel like another shift.</p>
+
+    <h2>The admin starts before you reach a desk</h2>
+    <p>Most tradies don’t spend the day sitting at a computer waiting to enter information. The customer may be on the phone while you’re between jobs. The work order might arrive by email while you’re on site. A useful detail can come to mind while you’re packing up or driving to the next job.</p>
+    <p>If capturing it takes too many steps, it’s easy to put it off until later. Then you’re trying to remember what was said, find the right email, or type the same information into more than one place. That’s where small but important details can get lost or delayed.</p>
+    <figure class="story-figure">
+      <img src="/assets/blog-voice-first-work-order.jpg" alt="The same electrician checks a paper work order with his phone at a residential job site." width="1536" height="1024" loading="lazy" decoding="async"/>
+      <figcaption>Work orders and customer details can arrive in formats that aren’t convenient to retype on site.</figcaption>
+    </figure>
+
+    <h2>Voice is the quickest way to capture what just happened</h2>
+    <p>That’s why we chose voice-first entry. When your hands are busy and the detail is fresh, you can say what happened and what needs doing next. A quick job wrap-up can capture the work completed, the invoice detail, a task for a return visit and anything else that should stay with the job.</p>
+    <p>SoleTasker turns spoken information into structured job notes and tasks. You can check the result and choose what to save. The point is to avoid starting with a blank form and manually typing every detail before you can move on.</p>
+    <p>Voice isn’t the only way in. You can upload job documents and send information to your unique SoleTasker intake URL by email. Use the method that suits what has arrived: speak a site update, attach the work order, or send through an email that belongs with the job.</p>
+
+    <h2>Make the information useful to someone else</h2>
+    <p>Getting the information into SoleTasker is only part of the job. It also needs to be clear enough to act on. “Certificate to do” or “send the photos to the builder” is a task someone can pick up when it’s connected to the right job and the details are there.</p>
+    <p>That can make a difference at home, too. Your partner may want to help with the invoice, photos or customer paperwork, but it’s hard to share a task when the work order is buried in your inbox and the explanation exists only in your head. Capturing the detail while you’re on the job gives her a clearer place to start.</p>
+    <figure class="story-figure story-figure-admin">
+      <img src="/assets/blog-voice-first-partner.jpg" alt="An electrician and his partner work together on business admin at their kitchen table while their children do homework nearby." width="1536" height="1024" loading="lazy" decoding="async"/>
+      <figcaption>Clear job details make it easier for your partner to take on a task and give you more time with the family.</figcaption>
+    </figure>
+
+    <h2>Less retyping. More time back in your day.</h2>
+    <p>We didn’t choose voice-first because every job should be handled by voice. We chose it because the work happens away from a desk, and the right information often arrives when stopping to type is the last thing you have time for.</p>
+    <p>Speak a task or job wrap-up. Upload a document. Send the email to your intake URL. Then keep the useful information with the job, where you or someone helping in the business can find it. It’s a small change in how work gets captured, with a practical aim: less admin to catch up on later, and more of your time left for the rest of your life.</p>
+
+    <section class="blog-cta" aria-labelledby="blog-cta-heading">
+      <p class="eyebrow">SPEAK IT. CAPTURE IT. KEEP MOVING.</p>
+      <h2 id="blog-cta-heading">Get job details in.<br/><em>Get back to the work.</em></h2>
+      <p>Try voice-first job capture and lightweight admin built for Australian sole traders and small trade teams.</p>
+      <a class="button" href="https://app.soletasker.com.au">Start free trial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+      <small>7 days free · No card required</small>
+    </section>
+  </article>
+</main>
+<footer style="background:var(--navy);padding:48px 32px 28px">
+  <div style="max-width:1100px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:28px">
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px">Navigate</p>
+                <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="/use-cases" style="font-size:14px;color:rgba(255,255,255,.6)">Use Cases</a>
+          <a href="/#workflow" style="font-size:14px;color:rgba(255,255,255,.6)">How it works</a>
+          <a href="/#intake" style="font-size:14px;color:rgba(255,255,255,.6)">Job intake</a>
+          <a href="/#faq-page" style="font-size:14px;color:rgba(255,255,255,.6)">FAQ</a>
+          <a href="/contact/" style="font-size:14px;color:rgba(255,255,255,.6)">Contact us</a>
+          <a href="/pricing" style="font-size:14px;color:rgba(255,255,255,.6)">Pricing</a>
+          <a href="/blog" style="font-size:14px;color:rgba(255,255,255,.6)">Blog</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px">Built for</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="/electricians" style="font-size:14px;color:rgba(255,255,255,.6)">Electricians</a>
+          <a href="/plumbers" style="font-size:14px;color:rgba(255,255,255,.6)">Plumbers</a>
+          <a href="/builders" style="font-size:14px;color:rgba(255,255,255,.6)">Builders</a>
+          <a href="/hvac" style="font-size:14px;color:rgba(255,255,255,.6)">HVAC technicians</a>
+          <a href="/solar-installers" style="font-size:14px;color:rgba(255,255,255,.6)">Solar installers</a>
+          <a href="/carpenters" style="font-size:14px;color:rgba(255,255,255,.6)">Carpenters</a>
+          <a href="/landscapers" style="font-size:14px;color:rgba(255,255,255,.6)">Landscapers</a>
+          <a href="/painters" style="font-size:14px;color:rgba(255,255,255,.6)">Painters</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px">Legal</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a href="/privacy" style="font-size:14px;color:rgba(255,255,255,.6)">Privacy Policy</a>
+          <a href="/terms" style="font-size:14px;color:rgba(255,255,255,.6)">Terms of Service</a>
+          <a href="/contact/" style="font-size:14px;color:rgba(255,255,255,.6)">Contact Us</a>
+          <a href="/#faq-page" style="font-size:14px;color:rgba(255,255,255,.6)">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px">Sign Up</p>
+        <p style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:14px">7 days free. Then $29/month ex GST. Cancel anytime.</p>
+        <a href="https://app.soletasker.com.au/signup" style="display:inline-flex;background:var(--teal);color:var(--white);font-size:13px;font-weight:800;padding:10px 18px;border-radius:var(--r1);text-decoration:none">Get Started</a>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <p style="font-size:13px;color:rgba(255,255,255,.3)">&#169; 2026 SoleTasker &middot; Made in Australia</p>
+      <p style="font-size:12px;color:rgba(255,255,255,.2)">say it once &middot; done &middot; not forgotten</p>
+    </div>
+  </div>
+</footer>
+<script>function toggleMenu(){const m=document.getElementById('mobMenu'),b=document.querySelector('.burger'),open=!m.classList.contains('open');m.classList.toggle('open',open);if(b)b.setAttribute('aria-expanded',open?'true':'false')}function closeMenu(){const m=document.getElementById('mobMenu'),b=document.querySelector('.burger');if(m)m.classList.remove('open');if(b)b.setAttribute('aria-expanded','false');const t=document.querySelector('.mob-trades');if(t)t.removeAttribute('open')}document.addEventListener('click',e=>{if(!e.target.closest('nav')&&!e.target.closest('.mob-menu'))closeMenu();if(!e.target.closest('.nav-trades'))document.querySelector('.nav-trades')?.removeAttribute('open')});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});</script>
+</body>
+</html>

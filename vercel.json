@@ -57,6 +57,10 @@
       "destination": "/solar-installers.html"
     },
     {
+      "source": "/blog/voice-first-entry",
+      "destination": "/blog-voice-first.html"
+    },
+    {
       "source": "/blog",
       "destination": "/blog.html"
     }
