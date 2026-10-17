@@ -275,7 +275,7 @@ nav{
 .s-sub{font-size:17px;color:var(--ink-soft);line-height:1.72;max-width:520px;margin:0 auto}
 .s-sub strong{color:var(--ink-mid);font-weight:700}
 
-/* Steps — horizontal line + vertical items */
+/* Product capabilities */
 .workflow-steps{
   display:grid;
   grid-template-columns:1fr 1fr 1fr 1fr;
@@ -283,31 +283,9 @@ nav{
   position:relative;
   max-width:1100px;margin:0 auto;
 }
-/* connecting line */
-.workflow-steps::before{
-  content:'';position:absolute;
-  top:36px;left:calc(12.5% + 1px);right:calc(12.5% + 1px);
-  height:2px;
-  background:linear-gradient(90deg,var(--teal) 0%,rgba(44,185,157,.2) 100%);
-  z-index:0;
-}
 .wf-step{
   padding:0 24px;text-align:center;position:relative;z-index:1;
 }
-.wf-n{
-  width:72px;height:72px;border-radius:50%;
-  background:var(--white);border:2px solid var(--line);
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 20px;
-  font-family:var(--fh);font-size:28px;color:var(--ink-soft);
-  box-shadow:var(--sm);
-  transition:all .25s;
-}
-.wf-step:hover .wf-n{
-  background:var(--teal);color:var(--white);border-color:var(--teal);
-  box-shadow:0 6px 24px rgba(44,185,157,.35);
-}
-.wf-icon{font-size:26px;margin-bottom:16px;display:block}
 .wf-title{
   font-family:var(--fh);font-size:22px;color:var(--ink);
   margin-bottom:8px;line-height:1.05;
@@ -1384,8 +1362,8 @@ if(!location.hash){window.scrollTo(0,0);}
 <section class="workflow-sec" id="workflow">
   <div class="workflow-header rev">
     <span class="s-eyebrow">How it works</span>
-    <h2 class="s-head">Say it.<br/><span class="a">Wrap it up.</span></h2>
-    <p class="s-sub">No typing. No desk. Just speak — on site, in the van, between jobs. Create a task, capture a job note, or wrap the whole job up in one go.</p>
+    <h2 class="s-head">TURN WHAT YOU SAY<br/><span class="a">INTO TASKS &amp; JOB NOTES.</span></h2>
+    <p class="s-sub">Capture tasks, reminders and job notes by voice. Use Wrap Up to record completed work and outstanding admin in one memo. Review the details before saving.</p>
   </div>
 
   <style id="wrapflow-styles">
@@ -1591,28 +1569,20 @@ if(!location.hash){window.scrollTo(0,0);}
 
   <div class="workflow-steps">
     <div class="wf-step rev">
-      <div class="wf-n">1</div>
-      <span class="wf-icon"></span>
-      <div class="wf-title">Say it out loud</div>
-      <p class="wf-body">Walking off site. In the van. After a call. Speak naturally — SoleTasker catches it all. No typing. No stopping what you're doing.</p>
+      <div class="wf-title">Capture the details</div>
+      <p class="wf-body">Speak a task, reminder or job note. Review what SoleTasker has captured, then save it.</p>
     </div>
     <div class="wf-step rev" style="transition-delay:.08s">
-      <div class="wf-n">2</div>
-      <span class="wf-icon"></span>
-      <div class="wf-title">Tasks and notes — assigned</div>
-      <p class="wf-body">Your words become tasks and job notes instantly. Assign them to yourself or your team. Not in your head. Not on a scrap of paper. Right there, where you need them.</p>
+      <div class="wf-title">Organise the work</div>
+      <p class="wf-body">Link tasks to jobs, choose who is responsible and put the work you want to focus on into My Day.</p>
     </div>
     <div class="wf-step rev" style="transition-delay:.16s">
-      <div class="wf-n">3</div>
-      <span class="wf-icon"></span>
-      <div class="wf-title">Photos and certs — attached</div>
-      <p class="wf-body">Certs done, or before and after photos taken — they stay with the job. Not in your camera roll next to 4,000 others. Not in a WhatsApp thread from three weeks ago.</p>
+      <div class="wf-title">Keep job information together</div>
+      <p class="wf-body">Keep site visits, scope, site notes, photos, plans and certificates with the relevant job.</p>
     </div>
     <div class="wf-step rev" style="transition-delay:.24s">
-      <div class="wf-n">4</div>
-      <span class="wf-icon"></span>
-      <div class="wf-title">Quote it. Keep it moving.</div>
-      <p class="wf-body">Draft and email quotes for customers to accept online. Accepted quotes automatically become jobs. Keep site visits and follow-ups together.</p>
+      <div class="wf-title">Handle the paperwork</div>
+      <p class="wf-body">Quickly draft and email quotes, prepare SWMS and send a draft to your invoicing software. Accepted quotes automatically create jobs.</p>
     </div>
   </div>
 
