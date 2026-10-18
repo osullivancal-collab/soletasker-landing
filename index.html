@@ -4,9 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>SoleTasker — Voice to Task App for Tradies Australia</title>
-<meta name="description" content="Say it once. Tasks, job notes and admin follow-ups — captured from one voice memo. Nothing forgotten. Built by tradies for tradies."/>
+<meta name="description" content="Say it once. Tasks, reminders and job notes — captured from one voice memo. Nothing forgotten. Built by tradies for tradies."/>
 <meta property="og:title" content="SoleTasker — Voice to Task for Tradies"/>
-<meta property="og:description" content="Say it once. Tasks, job notes and admin follow-ups — captured from one voice memo. Nothing forgotten. Built by tradies for tradies."/>
+<meta property="og:description" content="Say it once. Tasks, reminders and job notes — captured from one voice memo. Nothing forgotten. Built by tradies for tradies."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://soletasker.com.au"/>
 <meta property="og:locale" content="en_AU"/>
@@ -17,7 +17,7 @@
 <meta property="og:image:alt" content="SoleTasker — Voice to Task for Tradies"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="SoleTasker — Voice to Task for Tradies"/>
-<meta name="twitter:description" content="Say it once. Tasks, job notes and admin follow-ups — captured from one voice memo."/>
+<meta name="twitter:description" content="Say it once. Tasks, reminders and job notes — captured from one voice memo."/>
 <meta name="twitter:image" content="https://soletasker.com.au/og-image.png"/>
 <meta name="twitter:image:alt" content="SoleTasker — Voice to Task for Tradies"/>
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png"/>
@@ -1867,11 +1867,11 @@ if(!location.hash){window.scrollTo(0,0);}
     const states={
       visit:`<div><div class="smart-screen-title">Site visits</div><div class="smart-card"><h3>Keep the visit details together.</h3><p>Log a site visit and keep the details ready for the next step.</p><div class="smart-note-box"><strong>29 Sherwood Ave, Mornington</strong><span>Assess ceiling fan installation. Check access and note what is needed for the quote.</span></div><div class="smart-status-strip">✓ Site visit logged</div></div></div>`,
       review:`<div><div class="smart-screen-title">Job detail</div><div class="smart-meta"><div class="smart-meta-box"><span>Customer</span><strong>Sarah Thornton</strong></div><div class="smart-meta-box"><span>Mobile</span><strong>0412 908 331</strong></div></div><div class="smart-card"><h3>Request review</h3><p>Send the review link while the job is still fresh.</p><div class="smart-action-row"><span class="smart-action primary">Send review</span><span class="smart-action secondary">Copy link</span></div><div class="smart-status-strip">✓ Review link ready</div></div></div>`,
-      future:`<div><div class="smart-screen-title">Job detail</div><div class="smart-card"><h3>Future work</h3><p>Keep the next opportunity attached to this job.</p><div class="smart-note-box"><strong>Saved for later</strong><span>EV charger and switchboard upgrade — follow up after handover.</span></div><div class="smart-action-row"><span class="smart-action primary">Save note</span></div></div></div>`,
+      future:`<div><div class="smart-screen-title">Job detail</div><div class="smart-card"><h3>Future work</h3><p>Keep the next opportunity attached to this job.</p><div class="smart-note-box"><strong>Saved for later</strong><span>EV charger and switchboard upgrade. Revisit after handover.</span></div><div class="smart-action-row"><span class="smart-action primary">Save note</span></div></div></div>`,
       scan:`<div><div class="smart-screen-title">Doc scan</div><div class="smart-scan-drop"><div><svg viewBox="0 0 24 24"><path d="M9 3h6l1 3h3v14H5V6h3z"/><circle cx="12" cy="13" r="4"/></svg><strong>Point your camera at the work order</strong><span>Photo or PDF</span></div></div><div class="smart-card"><h3>Extracted — check before saving</h3><div class="smart-fields"><div class="smart-field"><label>Site address</label><div>9 Verdon St, lot 12</div></div><div class="smart-field"><label>Contact</label><div>Trent Harding · 0412 908 331</div></div><div class="smart-field"><label>Order no.</label><div>WO-20418</div></div></div></div></div>`,
     };
     const copyTexts={
-      visit:['Log the visit. Keep the details handy.','Keep a record of site visits so you can pick up the details when it is time to quote or follow up.'],
+      visit:['Log the visit. Keep the details handy.','Keep the visit details ready for quoting and planning the work.'],
       review:['Get the review while the job is fresh.','Send or copy your review link before you leave site, instead of remembering to chase it later.'],
       future:["Don't lose the ‘maybe later’ work.",'Customer mentions an EV charger, switchboard upgrade or another future job? Tag it against the job so you can come back to it later.'],
       scan:['Turn a work order into usable details.','Scan a work order or upload a PDF to pull out the site, contact and order details fast — then check them before saving.'],
@@ -1951,15 +1951,15 @@ if(!location.hash){window.scrollTo(0,0);}
   <div class="real-cost-wrap">
     <div class="real-cost-kicker">THE REAL COST</div>
     <h2 class="real-cost-title">YOU'RE ALREADY DOING THE HARD PART.<span>THE PAPERWORK JUST NEEDS SOMEWHERE TO LIVE.</span></h2>
-    <p class="real-cost-copy">Between jobs, calls and quotes, the follow-ups end up in your head. That's normal — there's only so much one person can hold. <strong>You don't need to try harder. You need a place to put it.</strong></p>
-    <div class="real-cost-quote">“We don't manage your jobs. We make sure nothing in them gets missed.”</div>
+    <p class="real-cost-copy">Every job brings more details, tasks and paperwork to organise. As the work builds up, so does the admin. <strong>SoleTasker gives it all a place, so you can see what needs doing without carrying everything in your head.</strong></p>
+    <div class="real-cost-quote">“A simple way to manage your jobs and everything that goes with them.”</div>
     <p class="real-cost-follow">Capture it when it happens. Action it when it's due. Keep work moving. Keep cashflow moving.</p>
     <div class="real-cost-cards">
       <article class="real-cost-card"><h3>Invoice you forgot to send</h3><p>Job done. On to the next one. Six weeks later — it hits you. That invoice never went out. That money is yours. It's just not in your account.</p><p class="impact">↑ THAT'S REAL MONEY GONE</p></article>
       <article class="real-cost-card"><h3>Photos buried in your camera roll</h3><p>Before shots, after shots, damage proof — mixed in with 4,000 personal photos. Client disputes the job. You spend an hour finding nothing.</p><p class="impact">↑ A LIABILITY YOU CAN'T DEFEND</p></article>
       <article class="real-cost-card"><h3>Cert saved somewhere — but where</h3><p>Email? Screenshot? WhatsApp? The inspector wants it now. You're digging. It's somewhere. You hope.</p><p class="impact">↑ THAT'S A COMPLIANCE RISK</p></article>
       <article class="real-cost-card"><h3>Job details on a receipt in the van</h3><p>Client name, address, what they need — written on the nearest scrap. It's in the van. Or it was. Either way, it's not where you need it right now.</p><p class="impact">↑ EVERY WEEK, SAME STORY</p></article>
-      <article class="real-cost-card"><h3>Cashflow slower than it should be</h3><p>Work's done and you're flat out, but invoices go out late and follow-ups wait. Nothing wrong with the business — the admin just has nowhere to sit.</p><p class="impact">↑ THIS IS THE FIX</p></article>
+      <article class="real-cost-card"><h3>Cashflow slower than it should be</h3><p>Work’s done and you’re flat out, but invoices go out late and paperwork builds up.</p><p class="impact">↑ THIS IS THE FIX</p></article>
     </div>
   </div>
 </section>
@@ -2263,7 +2263,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
           <span style="font-size:17px;font-weight:700;color:var(--ink);line-height:1.4">Can I log site visits?</span>
           <span class="faq-icon" style="font-size:22px;color:var(--teal);flex-shrink:0;transition:transform .3s">+</span>
         </button>
-        <div class="faq-ans" style="display:none;padding-top:14px"><p style="font-size:15px;color:var(--ink-soft);line-height:1.8">Yes. You can log site visits in SoleTasker and keep the visit details ready for quoting and follow-up.</p></div>
+        <div class="faq-ans" style="display:none;padding-top:14px"><p style="font-size:15px;color:var(--ink-soft);line-height:1.8">Yes. You can log site visits in SoleTasker and keep the visit details ready for quoting and planning the work.</p></div>
       </div>
 
 
@@ -2409,7 +2409,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"Can I create and send quotes in SoleTasker?","acceptedAnswer":{"@type":"Answer","text":"Yes. Draft a quote and send it as an email attachment with a link for your customer to accept online. When the customer accepts, SoleTasker automatically creates the job."}},
-    {"@type":"Question","name":"Can I log site visits?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can log site visits in SoleTasker and keep the visit details ready for quoting and follow-up."}},
+    {"@type":"Question","name":"Can I log site visits?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can log site visits in SoleTasker and keep the visit details ready for quoting and planning the work."}},
     {"@type":"Question","name":"What is SoleTasker?","acceptedAnswer":{"@type":"Answer","text":"SoleTasker is an Australian voice-to-task web app for tradies, sole traders and small trade teams. It helps electricians, plumbers, builders, HVAC technicians and other trades capture tasks, reminders and job notes without taking on a full field-service system."}},
     {"@type":"Question","name":"How does voice to structured tasks work for electricians, plumbers, and builders?","acceptedAnswer":{"@type":"Answer","text":"Tap the microphone and speak naturally. A normal capture can become a task, reminder or job note. From an existing job, Wrap Up can propose several actions from one memo. You review and choose what to save before anything changes."}},
     {"@type":"Question","name":"What is Wrap Up?","acceptedAnswer":{"@type":"Answer","text":"Wrap Up lets you finish a job with one voice memo. SoleTasker can propose job notes, tasks, unfinished work, invoice and certificate admin items, email drafts, future prospects and job completion. You review and choose what to save. Nothing is created, sent or changed until you confirm it."}},
