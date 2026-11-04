@@ -1545,7 +1545,11 @@ function visible(which){['capture','review','job'].forEach(x=>by('st-try-'+x).hi
 function error(msg){errorEl.textContent=msg;errorEl.hidden=!msg}
 function status(msg){statusEl.textContent=msg;statusEl.hidden=!msg}
 function add(type,text){var d=destinations[type];if(!text.trim()||!d)return;suggestions.push({id:String(suggestions.length),type:type,label:d[0],tab:d[1],section:d[2],text:text.trim(),selected:true})}
-function parse(text){suggestions=[];var chunks=text.replace(/\s+/g,' ').trim().split(/(?:[.!?;\n]+|,\s*(?=(?:invoice|email|certificate|return|remind|future|EV charger)\b)|\s+and\s+(?=(?:email|invoice|return|remind|order|certificate)\b))/i).map(x=>x.trim()).filter(Boolean);
+function parse(text){suggestions=[];var chunks=text.replace(/\s+/g,' ').trim()
+.replace(/[.!?;\n]+\s*/g,'|')
+.replace(/,\s*(?=(?:invoice|bill|certificate|cert|email|return|go back|remind|future|EV charger)\b)/gi,'|')
+.replace(/\s+(?:and|then)\s+(?=(?:also\s+)?(?:(?:I|we)\s+)?(?:(?:need|have|got)\s+to\s+)?(?:invoice\b|bill\b|email\b|send\b|certificate\b|cert\b|do\s+(?:a\s+)?cert|go\s+back\b|come\s+back\b|return\b|follow\s+up\b|remind\b|order\b|replace\b|call\b|fix\b|mark\b|future\b|EV\s+charger\b))/gi,'|')
+.split('|').map(x=>x.trim()).filter(Boolean);
 chunks.forEach(t=>{var added=false;
 function has(re,type){if(re.test(t)){add(type,t);added=true;return true}return false}
 if(has(/\b(remind|reminder|don't forget)\b/i,'reminder'))return;
